@@ -1,11 +1,11 @@
 option = {
     color: ['#3398DB'],
-    title:{
-        text:'过去7天-粉丝数',
-        textStyle:{
-            color:'#5a5a5a',
-            fontSize:14,
-            fontWeight:'400'
+    title: {
+        text: '过去7天-粉丝数',
+        textStyle: {
+            color: '#5a5a5a',
+            fontSize: 14,
+            fontWeight: '400'
         },
     },
     tooltip: {
@@ -18,7 +18,7 @@ option = {
         left: '0%',
         right: '0%',
         bottom: '0%',
-        top:'32px',
+        top: '32px',
         containLabel: true
     },
     xAxis: {
@@ -31,30 +31,49 @@ option = {
     series: [{
         data: [400, 760, 1000, 500, 125, 500, 250],
         type: 'bar',
-        barWidth:'40%'
+        barWidth: '40%'
     }]
 };
 var myChart = echarts.init(document.getElementById('main'));
 myChart.setOption(option);
 
 option2 = {
-    color:['#5aa2f8','#79c87e','#f6d465','#df5667','#8f68de','#71c9ca'],
+    color: ['#5aa2f8', '#79c87e', '#f6d465', '#df5667', '#8f68de', '#71c9ca'],
     tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
     legend: {
+        formatter: function (name) {
+            var index = 0;
+            var clientlabels = this.option2.series[0].data.map(res=>res.name);
+            var clientcounts = this.option2.series[0].data.map(res=>parseInt(res.value));
+            var totalVal = clientcounts.reduce((v,res)=>{
+                return v+res
+            },0);
+            clientlabels.forEach(function (value, i) {
+                if (value == name) {
+                    index = i;
+                    return false;
+                }
+            });
+            return name + " | " + (clientcounts[index] / totalVal * 100).toFixed(1).replace('.0','') +"%";
+        },
+        itemGap:20,
+        icon: 'circle',
+        itemWidth: 8,
+        itemHeight: 8,
         orient: 'vertical',
         right: 0,
-        top:'center',
-        data: ['0年', '1年', '2年', '3-5年', '5-8年','8年+']
+        top: 'center',
+        data: ['0年', '1年', '2年', '3-5年', '5-8年', '8年+']
     },
     series: [
         {
             name: '读者书齢',
             type: 'pie',
-            center:['35%','50%'],
-            radius: ['40%', '60%'],
+            center: ['30%', '50%'],
+            radius: ['30%', '50%'],
             avoidLabelOverlap: false,
             label: {
                 normal: {
@@ -64,7 +83,7 @@ option2 = {
                 emphasis: {
                     show: true,
                     textStyle: {
-                        fontSize: '20',
+                        fontSize: '15',
                         fontWeight: 'bold'
                     }
                 }
@@ -86,22 +105,24 @@ option2 = {
     ]
 };
 option3 = {
-    color:['#5aa2f8','#79c87e','#f6d465','#df5667','#8f68de','#71c9ca'],
+    color: ['#5aa2f8', '#79c87e', '#f6d465', '#df5667', '#8f68de', '#71c9ca'],
     tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
     legend: {
+        icon: 'circle',
+        itemWidth: 16,
         orient: 'vertical',
         right: 0,
-        top:'center',
-        data: ['1本', '2本', '3本', '4-8本', '8-15本','15本']
+        top: 'center',
+        data: ['1本', '2本', '3本', '4-8本', '8-15本', '15本']
     },
     series: [
         {
             name: '读者订阅作品数',
             type: 'pie',
-            center:['35%','50%'],
+            center: ['35%', '50%'],
             radius: ['40%', '60%'],
             avoidLabelOverlap: false,
             label: {
@@ -112,7 +133,7 @@ option3 = {
                 emphasis: {
                     show: true,
                     textStyle: {
-                        fontSize: '20',
+                        fontSize: '15',
                         fontWeight: 'bold'
                     }
                 }

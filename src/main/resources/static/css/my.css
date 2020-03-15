@@ -12,14 +12,13 @@ img{
     height: auto;
 }
 .table.table-sm td{
-    padding: .5rem 1px;
+    padding: .5rem 2px;
 }
 .card-header{
     padding-left: 5px;
 }
 .card-title {
-    padding:0 5px;
-    padding-bottom: 10px;
+    padding:0 5px 10px 5px;
     border-bottom: 2px solid red;
 }
 
@@ -51,14 +50,12 @@ span.gl-rate{
     color: rgba(0,0,0,.6);
     margin-left: 3px;
 }
-#gl-4{
- padding-left: 20px;
-}
 #gl-4>div{
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 20px;
 }
 #row-12-r>div{
     flex-basis: 50%;
