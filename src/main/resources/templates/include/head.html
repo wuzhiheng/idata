@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <!--TODO需要修改标题-->
+    <title th:text="${title}"></title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/fontawesome-free/css/all.min.css}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/ionicons.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/adminlte.min.css}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/google-font.css}">
+
+    <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">-->
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/weui.css}"/>
+    <link rel="stylesheet" th:href="@{/css/my.css}"/>
+
+    <script th:inline="javascript">
+        var ctx = location.protocol+'//'+location.host+[[@{/}]];
+        console.log(ctx);
+    </script>
+
+
+    <!--[if !IE]> -->
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script th:src="@{js/jquery-1.11.3.min.js}"></script>
+    <![endif]-->
+
+    <!--bootstrap-->
+    <script th:src="@{/AdminLTE-3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js}" ></script>
+
+    <!-- AdminLTE -->
+    <script th:src="@{/AdminLTE-3.0.2/dist/js/adminlte.js}" defer></script>
+    <script th:src="@{/AdminLTE-3.0.2/dist/js/demo.js}" defer></script>
+
+    <script th:src="@{/js/bootstrap-table.min.js}" ></script>
+    <script th:src="@{/js/bootstrap-table-zh-CN.min.js}" ></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/echarts.min.js}"></script>
+    <script th:src="@{/js/weui.min.js}" ></script>
+    <script th:src="@{/js/common.js}" ></script>
+
+    <style>
+        .btn{
+            cursor: pointer;
+        }
+        .custom-control{
+            cursor: pointer;
+        }
+        .fa, .far, .fas {
+            font-family: "Font Awesome 5 Free"!important;
+        }
+        .ztree .node_name {
+            font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
+        }
+        .main-header{
+            background: #e05567!important;
+        }
+        .main-header *{
+            color: #fff!important;
+        }
+    </style>
+
+</head>
+<!-- plugin:zTree -->
+<div th:fragment="zTree">
+    <link rel="stylesheet" type="text/css" th:href="@{/plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css}"/>
+    <script th:src="@{/plugins/zTree_v3/js/jquery.ztree.core.js}"></script>
+</div>
+
+<!-- plugin:summernote -->
+<div th:fragment="summernote">
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.css}"/>
+    <script th:src="@{/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.min.js}"></script>
+    <script th:src="@{/AdminLTE-3.0.2/plugins/summernote/lang/summernote-zh-CN.min.js}"></script>
+</div>
+
+</html>

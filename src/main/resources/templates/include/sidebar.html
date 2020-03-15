@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand" th:fragment="sidebar">
+    <!-- Brand Logo -->
+    <a th:href="@{/}" class="brand-link">
+        <img th:src="@{/AdminLTE-3.0.2/dist/img/AdminLTELogo.png}" alt="AdminLTE Logo"
+             class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">综管指标</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-compact" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            系统菜单
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a th:href="@{/page/indicator}" class="nav-link">
+                                <i class="fas fa-th nav-icon"></i>
+                                <p>综管指标维护</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/page/indicatorDesc}" class="nav-link">
+                                <i class="fas fa-th nav-icon"></i>
+                                <p>综管指标说明</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/page/ncd}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>慢病查询</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/page/orgTree}" class="nav-link">
+                                <i class="fa fa-tree nav-icon"></i>
+                                <p>医疗机构树</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/page/drug}" class="nav-link">
+                                <i class="fa fa-medkit nav-icon"></i>
+                                <p>药品管理</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--<li class="nav-item">-->
+                    <!--<a href="#" class="nav-link">-->
+                        <!--<i class="nav-icon fas fa-th"></i>-->
+                        <!--<p>-->
+                            <!--Widgets-->
+                            <!--<span class="right badge badge-danger">New</span>-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+
+    <script>
+
+        //比较菜单和当前href，相等的添加active样式
+        var pathname_all = location.href;
+        var pathname = location.protocol+'//'+location.host+location.pathname;
+
+        $('.nav-link').removeClass('active');
+
+        var ok = false;
+        $('.nav-link').each(function (i, o) {
+            if ($(this).attr('href') == '#')
+                return true;
+
+            if (pathname_all == this.href) {
+                $(this).addClass('active');
+                $(this).parents('.has-treeview').children('.nav-link').addClass('active');
+                $(this).parents('.has-treeview').addClass('menu-open');
+                ok = true;
+                return false;
+            }
+        })
+
+        if(!ok){
+            $('.nav-link').each(function (i, o) {
+                if ($(this).attr('href') == '#')
+                    return true;
+
+                if (pathname == this.href) {
+                    $(this).addClass('active');
+                    $(this).parents('.has-treeview').children('.nav-link').addClass('active');
+                    $(this).parents('.has-treeview').addClass('menu-open');
+                    ok = true;
+                    return false;
+                }
+            })
+        }
+
+        if(!ok){
+            if($('.sidebar .nav-sidebar').children().length > 0){
+                var item = $('.sidebar .nav-sidebar').children().eq(0);
+                if(item.hasClass('has-treeview')){
+                    item.addClass('menu-open');
+                }
+            }
+        }
+
+    </script>
+</aside>
+
+</html>

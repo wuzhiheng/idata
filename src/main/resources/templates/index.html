@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:insert="include/head::head" th:with="title='首页'"></head>
+
+<head>
+    <style>
+
+    </style>
+</head>
+<body class="layout-top-nav text-sm" style="color: #666;background:#f2f2f2">
+<div class="wrapper">
+    <!-- navbar -->
+    <div th:replace="include/navbar::navbar"></div>
+
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <div class="content">
+            <div class="container">
+                <div class="row" id="row-1">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header ui-sortable-handle">
+                                <h3 class="card-title">
+
+                                    昨日概况
+                                </h3>
+                                <div class="card-tools">
+                                    <span>更新时间：2019年12月30日</span>
+                                </div>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <h7 class="gl-s-title m-icon icon-fans">粉丝数</h7>
+                                        <div class="gl-count m-15">
+                                            4320
+                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                        </div>
+                                        <div id="main" style="width: 100%;height:150px;"></div>
+                                    </div>
+
+                                    <div class="col-md-5 d-flex flex-wrap" id="gl-4">
+                                        <div>
+                                            <h7 class="gl-s-title m-icon icon-yp">月票</h7>
+                                            <div class="gl-count">4320</div>
+                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                        </div>
+                                        <div>
+                                            <h7 class="gl-s-title m-icon icon-ds">打赏</h7>
+                                            <div class="gl-count">4320</div>
+                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                        </div>
+                                        <div>
+                                            <h7 class="gl-s-title m-icon icon-tjp">推荐票</h7>
+                                            <div class="gl-count">4320</div>
+                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                        </div>
+                                        <div>
+                                            <h7 class="gl-s-title m-icon icon-pl">评论</h7>
+                                            <div class="gl-count">4320</div>
+                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header ui-sortable-handle">
+                                <h3 class="card-title">
+
+                                    基本情况
+                                </h3>
+                                <div class="card-tools">
+                                    <span>更新时间：2019年12月30日</span>
+                                </div>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex">
+                                            <img th:src="@{/images/fengmian.png}" style="width:100px;height:130px"/>
+                                            <div class="d-flex flex-column flex-grow-1" style="margin-left: 1em">
+                                                <div class="xs-text">暗月纪元</div>
+                                                <div>
+                                                    <span class="badge bg-danger">科幻</span>
+                                                    <span class="badge bg-success">未来世界</span>
+                                                </div>
+                                                <div class="xs-author">仐三 著</div>
+                                                <div class="xs-status">连载中</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="xs-pf">7.9分</div>
+                                            <div>作品评分</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex" id="row-1-r-b">
+                                        <div>
+                                            <div class="xs-update-count-str">更新字数</div>
+                                            <div class="xs-update-count">12656</div>
+                                            <div>较前日<span class="m-icon icon-up">50%</span></div>
+                                        </div>
+                                        <div>
+                                            <div class="xs-update-count-str">更新字数</div>
+                                            <div class="xs-update-count">12656</div>
+                                            <div>较前日<span class="m-icon icon-up">50%</span></div>
+                                        </div>
+                                        <div>
+                                            <div class="xs-update-count-str">更新字数</div>
+                                            <div class="xs-update-count">12656</div>
+                                            <div>较前日<span class="m-icon icon-up">50%</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="row-2">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header ui-sortable-handle">
+                                        <h3 class="card-title">
+
+                                            读者书龄
+                                        </h3>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body p-0">
+                                        <div style="width: 100%;height: 260px" id="main2"></div>
+                                    </div><!-- /.card-body -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header ui-sortable-handle">
+                                        <h3 class="card-title">
+
+                                            读者订阅作品数
+                                        </h3>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body p-0">
+                                        <div style="width: 100%;height: 260px" id="main3"></div>
+                                    </div><!-- /.card-body -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header ui-sortable-handle">
+                                        <h3 class="card-title">
+
+                                            TOP5 读者偏好流派
+                                        </h3>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body" style="padding-left: 5px;padding-right: 5px">
+                                        <table class="table table-sm" id="reader-hobby-pm">
+                                            <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>流派</th>
+                                                <th width="40%">占比</th>
+                                                <th style="width: 10px"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>无敌流</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" style="width: 50%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>50%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>系统流</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" style="width: 40%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>40%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>轻松</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>后宫</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" style="width: 20%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>20%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>种田文</td>
+                                                <td>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-primary" style="width: 10%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>10%</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.card-body -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header ui-sortable-handle">
+                                <h3 class="card-title">
+
+                                    作品排名
+                                </h3>
+                                <div class="card-tools">
+                                    <span>更新时间：2019年12月30日</span>
+                                </div>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap" id="row-12-r">
+                                    <div>
+                                        <div class="xs-pm-str">全站 · 排名</div>
+                                        <div class="xs-pm">12</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="xs-pm-str">男频  · 排名</div>
+                                        <div class="xs-pm">12</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="xs-pm-str">科幻 · 排名</div>
+                                        <div class="xs-pm">12</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div>
+                                        <div class="xs-pm-str">未来世界  · 排名</div>
+                                        <div class="xs-pm">12</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="row-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header ui-sortable-handle">
+                                <h3 class="card-title">
+
+                                    昨日全站概况
+                                </h3>
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between" style="padding-left: 20px">
+                                    <div class="flex-grow-1">
+                                        <div class="xs-pm-str">更新作品数</div>
+                                        <div class="xs-pm">12,000</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="xs-pm-str">活跃作家数</div>
+                                        <div class="xs-pm">12,000</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="xs-pm-str">更新章节数</div>
+                                        <div class="xs-pm">12,000</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="xs-pm-str">新书数</div>
+                                        <div class="xs-pm">12,000</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="xs-pm-str">新增评论数</div>
+                                        <div class="xs-pm">12,000</div>
+                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                    </div>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+</div>
+
+<!-- REQUIRED SCRIPTS -->
+<script th:src="@{/js/my/index.js}"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:insert="include/head::head" th:with="title='综管指标'"></head>
+
+<head>
+    <style>
+        #saveForm *{
+            font-size: 95%;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini text-sm" style="color: #666">
+<div class="wrapper">
+
+    <!-- navbar -->
+    <div th:replace="include/navbar::navbar"></div>
+    <!-- sidebar -->
+    <div th:replace="include/sidebar::sidebar"></div>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0"><i class="fas fa-th text-olive"></i> 综管指标维护</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">首页</a></li>
+                            <li class="breadcrumb-item active">综管指标维护</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card card-primary card-outline" id="app" v-if="sqlList.length>0">
+                            <div class="card-header">
+                                <h3 class="card-title">执行SQL历史</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive" style="height: 170px;overflow: auto">
+                                <table class="table table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>指标名称</th>
+                                        <th>执行状态</th>
+                                        <th>开始时间</th>
+                                        <th>结束时间</th>
+                                        <th>影响行数</th>
+                                        <th>耗时</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="(item,index) in sqlList" :class="item.status == '2' ? 'bg-danger' : '' ">
+                                        <td>{{index+1}}</td>
+                                        <td>{{item.zbmc}}</td>
+                                        <td>{{item.status == '0' ? '正在执行...' : (item.status == '1' ? '已完成' : '执行报错')}}
+                                        </td>
+                                        <td>{{item.startTime}}</td>
+                                        <td>{{item.endTime}}</td>
+                                        <td>{{item.count}}</td>
+                                        <td>{{item.duration}} {{item.status == '1' ? 'ms' : ''}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger btn-xs" @click="sqlList.splice(index,1)">
+                                                <i class="fa fa-trash"></i> 移除
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+
+
+                        <div class="card card-outline card-primary">
+                            <div class="card-header">
+                                <form id="queryForm">
+                                    <div class="row">
+
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input placeholder="指标名称" class="form-control" name="zbmc"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input placeholder="图表名称" class="form-control" name="tbmc"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input placeholder="主题名称" class="form-control" name="ztmc"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <input placeholder="表名" class="form-control" name="hzbm"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="input-group">
+                                                <select class="form-control" name="status">
+                                                    <option value="">请选择状态</option>
+                                                    <option value="1" selected>有效</option>
+                                                    <option value="0">无效</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <button type="button" class="btn btn-primary" onclick="doQuery()" >
+                                                <i class="fa fa-search" aria-hidden="true"></i> 查&nbsp;询
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="btn-group" role="group" id="toolbar">
+                                    <button type="button" class="btn btn-primary" onclick="doAdd()"><i
+                                            class="fa fa-plus"></i>&nbsp;新&nbsp;增
+                                    </button>
+                                </div>
+                                <div class="table-responsive">
+
+                                    <table id="tableGrid" class="table"></table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark"></aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<div class="modal fade" id="myModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">新增</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="saveForm" class="form-horizontal" role="form">
+                    <input type="hidden" name="id"/>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 指标名称 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="zbmc" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 表名 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="hzbm" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 图表名称 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="tbmc" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 主题名称 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="ztmc" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 指标编码 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="zbbm" class="form-control"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 指标单位 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="zbdw" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 获取数据SQL </label>
+
+                        <div class="col-sm-9">
+                            <textarea type="text" name="dataSql" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label text-right"> 状态 </label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="status">
+                                <option value="1">有效</option>
+                                <option value="0">无效</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                保&nbsp;存
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     id="myModal2">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="overflow: auto">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                            <span class="block input-icon input-icon-right">
+                                <textarea type="text" id="dataSql_text" class="form-control" rows="20"></textarea>
+							</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> <!--modal-->
+
+<!-- REQUIRED SCRIPTS -->
+<script th:inline="javascript">
+    var sessionId = [[${#httpServletRequest.getSession(true).getId()}]];
+    console.log("sessionId:" + sessionId);
+</script>
+
+<script th:src="@{/js/vue.js}"></script>
+<script th:src="@{/webjars/sockjs-client/sockjs.min.js}"></script>
+<script th:src="@{/webjars/stomp-websocket/stomp.min.js}"></script>
+
+<script th:src="@{/js/my/indicator.js}"></script>
+
+
+</body>
+</html>

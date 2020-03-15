@@ -1,0 +1,148 @@
+.card{
+    box-shadow: none;
+}
+.card-header{
+    height: 44px;
+}
+.card-body{
+    padding: 1rem 1.25rem;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.table.table-sm td{
+    padding: .5rem 1px;
+}
+.card-header{
+    padding-left: 5px;
+}
+.card-title {
+    padding:0 5px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid red;
+}
+
+
+#row-1 .card-body{
+    min-height: 270px;
+}
+#row-2 .card-body{
+    height: 260px;
+}
+.gl-s-title{
+    color: rgba(0, 0, 0, .5);
+    font-size: 14px;
+}
+.gl-count{
+    font-size: 24px;
+    color: rgba(0,0,0,.8);
+}
+.m-15{
+    margin-bottom: 15px;
+}
+span.gl-s-text{
+    display: inline-block;
+    color: rgba(0, 0, 0, .5);
+    font-size: 14px;
+    margin-left: 5px;
+}
+span.gl-rate{
+    color: rgba(0,0,0,.6);
+    margin-left: 3px;
+}
+#gl-4{
+ padding-left: 20px;
+}
+#gl-4>div{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#row-12-r>div{
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0 20px 20px;
+
+}
+.xs-text{
+    color:rgb(51,51,51);
+    font-size: 18px;
+    margin:0 0 5px 0;
+}
+.xs-author{
+    color:rgba(0,0,0,.8);
+    font-size: 14px;
+    margin:8px 0 5px 0;
+}
+.xs-status{
+    color:rgb(0,153,255);
+    font-size: 14px;
+}
+.xs-pf{
+    color: #e05567;
+    font-size: 28px;
+    font-weight: bold;
+}
+.xs-pm-str{
+    font-size: 1rem;
+    color: rgba(0,0,0,.47);
+}
+.xs-pm{
+    font-size: 20px;
+    color: rgba(0,0,0,.8);
+    margin:2px 0
+}
+#row-1-r-b{
+    margin-top:25px
+}
+#row-1-r-b>div{
+    flex: 1;
+}
+#row-1-r-b>div:nth-child(n+2){
+    padding-left: 20px;
+}
+.xs-update-count{
+    color: rgba(0,0,0,0.8);
+    font-size: 18px;
+    margin: 5px 0;
+}
+#reader-hobby-pm .progress{
+   margin-top: 4px;
+    height: 10px;
+}
+#reader-hobby-pm *{
+    font-size: 13px;
+}
+
+/*icons*/
+.m-icon {
+    padding-left: 18px;
+}
+.icon-fans {
+    background: url('../images/icons/heart.png') left center no-repeat;
+    background-size: 15px;
+}
+.icon-up {
+    background: url('../images/icons/up.png') left center no-repeat;
+    background-size: 15px;
+}
+.icon-yp {
+    background: url('../images/icons/yuepiao.png') left center no-repeat;
+    background-size: 15px;
+}
+.icon-ds {
+    background: url('../images/icons/dashang.png') left center no-repeat;
+    background-size: 15px;
+}
+.icon-tjp {
+    background: url('../images/icons/tuijianpiao.png') left center no-repeat;
+    background-size: 15px;
+}
+.icon-pl {
+    background: url('../images/icons/pinglun.png') left center no-repeat;
+    background-size: 15px;
+}
