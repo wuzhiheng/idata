@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:insert="include/head::head" th:with="title='产品套餐'"></head>
+<head>
+    <link rel="stylesheet" th:href="@{/css/portal.css}"/>
+</head>
+<body class="layout-top-nav text-sm">
+<div class="wrapper" id="package-box">
+    <!-- navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light"
+         style="background: #fff;color: #000;position: fixed;left: 0;top: 0;right:0">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">产品介绍</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">产品套餐</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="nav nav-pills ml-auto">
+            <li class="nav-item">
+                <a class="nav-link btn btn-green-outline" href="#">登录</a>
+            </li>
+            <li style="width: 1rem"></li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-green" href="#">体验Demo</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <div class="content">
+            <div class="container">
+                <div class="card card-primary">
+                    <div class="card-body" id="vip-member-box">
+                        <div class="row">
+                            <div class="col-md-8 baiyin-box">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="vip-icon-bg">
+                                            <img th:src="@{/images/u3020.png}"/>
+                                        </div>
+                                        <div class="vip-text text-center">白银会员</div>
+                                        <span class="vip-text-other text-center">仅支持“起点小说”</span>
+                                    </div>
+                                    <div class="col-md-3 package-desc-box">
+                                        <div>
+                                            <div class="vip-price">￥<span>49</span>月</div>
+                                            <div class="vip-ori-price">原价：<span>￥99/月</span></div>
+                                            <div class="vip-buy">立即购买 &gt;</div>
+                                            <div class="vip-discount">限时优惠：50</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 package-desc-box">
+                                        <div>
+                                            <div class="vip-price">￥<span>249</span>半年</div>
+                                            <div class="vip-ori-price">原价：<span>￥594/半年</span></div>
+                                            <div class="vip-buy">立即购买 &gt;</div>
+                                            <div class="vip-discount">限时优惠：345</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 package-desc-box">
+                                        <div>
+                                            <div class="vip-price">￥<span>449</span>年</div>
+                                            <div class="vip-ori-price">原价：<span>￥1188/月</span></div>
+                                            <div class="vip-buy">立即购买 &gt;</div>
+                                            <div class="vip-discount">限时优惠：739</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 huangjin-box">
+                                <div class="vip-icon-bg">
+                                    <img th:src="@{/images/u3066.png}"/>
+                                </div>
+                                <div class="vip-text text-center">黄金会员</div>
+                                <span class="vip-text-other text-center">即将携带</span>
+                                <span class="vip-text-other text-center">全新功能前来</span>
+                            </div>
+                            <div class="col-md-2 zhuanshi-box">
+                                <div class="vip-icon-bg">
+                                    <img th:src="@{/images/u3070.png}"/>
+                                </div>
+                                <div class="vip-text text-center">钻石会员</div>
+                                <span class="vip-text-other text-center">即将携带</span>
+                                <span class="vip-text-other text-center">全新功能前来</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card card-primary">
+                    <div class="card-body">
+                        <div class="privilege-title">会员特权对比</div>
+                        <div class="privilege-table">
+                            <table class="table">
+                                <tr>
+                                    <th>模块</th>
+                                    <th>功能</th>
+                                    <th>白银会员</th>
+                                    <th>黄金会员（敬请期待）</th>
+                                    <th>钻石会员（敬请期待）</th>
+                                </tr>
+                                <tr>
+                                    <td>首页</td>
+                                    <td>昨日概况</td>
+                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="10">市场分析</td>
+                                    <td>行业分析-行业大盘</td>
+                                    <td>支持所有类型小说查看</td>
+                                    <td>支持所有类型小说查看</td>
+                                    <td>支持所有类型小说查看</td>
+                                </tr>
+                                <tr>
+                                    <td>行业分析-行业趋势</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>行业分析-飙升分类</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>竞争分析</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>流派分析-流派趋势</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>流派分析-飙升流派</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>角色分析-特点趋势</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>角色分析-飙升特点</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>读者分析-书龄分布</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>读者分析-阅读数分布</td>
+                                    <td>支持最多60天数据查看</td>
+                                    <td>支持最多90天数据查看</td>
+                                    <td>支持最多180天数据查看</td>
+                                </tr>
+                                <tr>
+                                    <td>作品分析</td>
+                                    <td><div class="privilege-expect-text">敬请期待~</div>您将获得全面分析自己作品的能力</td>
+                                    <td>不支持</td>
+                                    <td class="privilege-support-text">支持</td>
+                                    <td class="privilege-support-text">支持</td>
+                                </tr>
+                                <tr>
+                                    <td>小说榜单</td>
+                                    <td><div class="privilege-expect-text">敬请期待~</div>您将获得跟踪挖掘竞品小说的能力</td>
+                                    <td>不支持</td>
+                                    <td>不支持</td>
+                                    <td class="privilege-support-text">支持</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+</div>
+
+<!-- REQUIRED SCRIPTS -->
+<script th:src="@{/js/my/index.js}"></script>
+</body>
+</html>
