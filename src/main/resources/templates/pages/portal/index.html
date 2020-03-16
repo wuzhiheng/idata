@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:insert="include/head::head" th:with="title='首页'"></head>
+<head>
+    <link rel="stylesheet" th:href="@{/css/portal.css}"/>
+</head>
+<body class="layout-top-nav text-sm" style="color: #666;background:#f2f2f2">
+<div class="wrapper">
+    <!-- navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background: #fff;color: #000;position: fixed;left: 0;top: 0;right:0">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <!--        <li class="nav-item">-->
+            <!--            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>-->
+            <!--        </li>-->
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">产品介绍</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">产品套餐</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="nav nav-pills ml-auto">
+            <li class="nav-item">
+                <a class="nav-link btn btn-green-outline" href="#" >登录</a>
+            </li>
+            <li style="width: 1rem"></li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-green" href="#" >体验Demo</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <div class="content">
+            <div class="container">
+                <div class="card card-primary">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>写小说，从懂你的读者开始</h3>
+                                <p>基于读者数据的小说创作数据分析平台</p>
+                                <p>日常监控自有作品数据，分析市场创作方向，深挖自有作品数据表现</p>
+                                <p>监测竞品小说的动态，由被动转主动挖掘读者口味</p>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+                <div class="card card-primary" id="portal-row-2">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <h3 class="text-center">写小说挑战</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img th:src="@{/images/u2951.png}"/>
+                                <h4 class="text-center">小说选材</h4>
+                                <ul>
+                                    <li>不了解当前不同类型题材竞争情况</li>
+                                    <li>不知道什么故事卖点吸引读者</li>
+                                    <li>不清楚读者喜好的人物性格和行文风格</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <img th:src="@{/images/u2958.png}"/>
+                                <h4 class="text-center">小说表现</h4>
+                                <ul>
+                                    <li>不能全面了解自有的数据表现情况，如类型排名</li>
+                                    <li>不知道自有小说还存在哪些待改进的地方</li>
+                                    <li>不清楚自有小说读者画像，借此调整写作策略</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <img th:src="@{/images/u2965.png}"/>
+                                <h4 class="text-center">竞品挖掘</h4>
+                                <ul>
+                                    <li>不知道哪些类型或流派的书值得分析借鉴</li>
+                                    <li>不清楚哪些小说是和自己是竞争关系</li>
+                                    <li>不了解竞对小说的数据情况</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+                <div class="card card-primary" id="portal-row-3">
+                    <div class="card-body">
+                        <h3 class="text-center">典型使用场景</h3>
+                        <div class="row">
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>洞察小说增长情况</h4>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+                                <p>通过我们的产品，您可以全方位监测自有小说每日的增长情况，包括但不限于推荐票&月票新增、读者画像、类目排名等数据</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row separator">
+                            <div class="col-md-6">
+                                <h4>分析小说类目发展趋势</h4>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+                                <p>通过我们的产品，您可以了解市场所有类目小说的统计数据，发现不同类目的发展趋势，以便确定小说要进入的类目</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                        </div>
+
+                        <div class="row separator">
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>挖掘读者喜好流派</h4>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+                                <p>通过我们的产品，您可以分析挖掘网站小说流派发展趋势，便于确认小说的流派及爽点</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row separator">
+                            <div class="col-md-6">
+                                <h4>研究读者喜好角色性格</h4>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+                                <p>通过我们的产品，您可以分析读者对角色性格偏好,便于确定小说要刻画的人物形象</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                        </div>
+
+                        <div class="row separator">
+                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                <img th:src="@{/images/u2944.png}"/>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>分析读者画像</h4>
+                                <p><span class="support-pf">支持平台</span>：暂仅支持“起点小说”</p>
+                                <p>通过我们的产品，您可以还原分析不同类目读者画像，例如喜好类目、书龄分布、订阅数分布等，便于了解目前受众人群特征</p>
+
+                                <div class="two-btn">
+                                    <button class="btn btn-green">体验Demo</button>
+                                    <button class="btn btn-green-outline">了解套餐</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+</div>
+
+<!-- REQUIRED SCRIPTS -->
+<script th:src="@{/js/my/index.js}"></script>
+</body>
+</html>

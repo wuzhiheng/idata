@@ -64,4 +64,10 @@ public class IndexController extends BaseController{
     public String drug() {
         return "pages/drug";
     }
+
+    //门户网站首页
+    @RequestMapping("page/portal")
+    public String portal(){
+        return "pages/portal/index";
+    }
 }

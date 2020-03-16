@@ -22,6 +22,15 @@ img{
     border-bottom: 2px solid red;
 }
 
+.btn-green-outline{
+    color: #6dbf77!important;
+    border: 1px solid #6dbf77!important;
+}
+.btn-green{
+    background: #6dbf77!important;
+    color: #fff!important;
+}
+
 
 #row-1 .card-body{
     min-height: 270px;
