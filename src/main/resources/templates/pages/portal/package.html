@@ -177,14 +177,20 @@
                                 </tr>
                                 <tr>
                                     <td>作品分析</td>
-                                    <td><div class="privilege-expect-text">敬请期待~</div>您将获得全面分析自己作品的能力</td>
+                                    <td>
+                                        <div class="privilege-expect-text">敬请期待~</div>
+                                        您将获得全面分析自己作品的能力
+                                    </td>
                                     <td>不支持</td>
                                     <td class="privilege-support-text">支持</td>
                                     <td class="privilege-support-text">支持</td>
                                 </tr>
                                 <tr>
                                     <td>小说榜单</td>
-                                    <td><div class="privilege-expect-text">敬请期待~</div>您将获得跟踪挖掘竞品小说的能力</td>
+                                    <td>
+                                        <div class="privilege-expect-text">敬请期待~</div>
+                                        您将获得跟踪挖掘竞品小说的能力
+                                    </td>
                                     <td>不支持</td>
                                     <td>不支持</td>
                                     <td class="privilege-support-text">支持</td>
@@ -201,7 +207,70 @@
     </div>
 </div>
 
+<div class="modal" tabindex="-1" role="dialog" id="payModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">套餐购买</h4>
+                <a class="btn close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>购买套餐：</td>
+                        <td>白银会员</td>
+                        <td>当前套餐到期时间：</td>
+                        <td>2019年7月20日</td>
+                    </tr>
+                    <tr>
+                        <td>购买时长：</td>
+                        <td>372天</td>
+                        <td>预计套餐到期时间：</td>
+                        <td>2020年7月31日</td>
+                    </tr>
+                    <tr>
+                        <td>所需费用：</td>
+                        <td colspan="3">￥49</td>
+                    </tr>
+                    <tr>
+                        <td>扣减费用：</td>
+                        <td>￥49</td>
+                        <td colspan="2">扣减说明：原套餐升级</td>
+                    </tr>
+                    <tr>
+                        <td>支付金额：</td>
+                        <td colspan="3">￥0  (支付前请阅读开通须知）</td>
+                    </tr>
+                    <tr>
+                        <td>支付方式：</td>
+                        <td colspan="3" class="pay-icon">
+                            <button class="btn alipay-icon"></button>
+                            <button class="btn wechat-cion"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="float-right">
+                    <button class="btn btn-green-outline" data-dismiss="modal">取消</button>
+                    <button class="btn btn-green">立即支付</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
 <!-- REQUIRED SCRIPTS -->
-<script th:src="@{/js/my/index.js}"></script>
+<script>
+    $(function () {
+        $('.vip-buy').click(function () {
+            $('#payModal').modalShow('zoomIn',{vertical:true});
+        })
+    })
+</script>
 </body>
 </html>

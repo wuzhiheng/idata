@@ -127,7 +127,8 @@ span.support-pf{
     border-left: 10px solid #f2f2f2;
 }
 .package-desc-box{
-    padding-right: 10px;
+    padding-right: 15px;
+    padding-left: 0;
 }
 .package-desc-box>div{
     background: #fdefd0 url("../images/u3024.png") 0 0 no-repeat;
@@ -198,3 +199,53 @@ span.support-pf{
 .privilege-support-text{
     color: #6dbf77;
 }
+@media (min-width: 800px){
+    #payModal .modal-dialog{
+        max-width: 600px;
+    }
+}
+#payModal .modal-header{
+    padding:1rem 1rem;
+}
+#payModal .modal-header h4{
+    font-size: 14px;
+    color: #6dbf77!important;
+}
+#payModal .modal-body{
+    padding: 0 2rem;
+}
+#payModal table td{
+    border: 0;
+}
+#payModal table td:nth-child(1){
+    padding-left: 0;
+    padding-right: 0;
+    width: 70px;
+}
+#payModal table td:nth-child(3){
+    padding-left: 0;
+    padding-right: 0;
+    width: 130px;
+}
+#payModal .pay-icon{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#payModal .pay-icon .btn{
+    width: 140px;
+    height: 62px;
+    padding: 0;
+}
+#payModal .alipay-icon{
+    background: url("../images/u3199.png") -5px center no-repeat;
+    background-size: 100%;
+}
+#payModal .wechat-cion{
+    background: url("../images/u3200.png") center center no-repeat;
+    background-size: 100%;
+}
+#payModal .modal-footer .btn{
+    margin-left: 10px;
+}
+
+

@@ -22,6 +22,7 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
     <link rel="stylesheet" th:href="@{/css/my.css}"/>
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
 
     <script th:inline="javascript">
         var ctx = location.protocol+'//'+location.host+[[@{/}]];
@@ -49,6 +50,7 @@
     <script th:src="@{/js/echarts.min.js}"></script>
     <script th:src="@{/js/weui.min.js}" ></script>
     <script th:src="@{/js/common.js}" ></script>
+    <script th:src="@{/js/my/modal-animate.js}" ></script>
 
     <style>
         .btn{
@@ -75,6 +77,12 @@
         body{
             color: rgba(0,0,0,.85);
             background:#f2f2f2;
+        }
+        .modal{
+            animation-duration: 300ms;
+        }
+        a.btn.close{
+            font-size: 1rem!important;
         }
     </style>
 
