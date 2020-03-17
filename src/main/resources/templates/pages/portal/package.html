@@ -12,7 +12,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">产品介绍</a>
+                <a th:href="@{/page/portal}" class="nav-link">产品介绍</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">产品套餐</a>
@@ -270,6 +270,7 @@
         $('.vip-buy').click(function () {
             $('#payModal').modalShow('zoomIn',{vertical:true});
         })
+        $('#payModal').modalShow('zoomIn',{vertical:true});
     })
 </script>
 </body>

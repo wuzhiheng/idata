@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
-<head th:insert="include/head::head" th:with="title='首页'"></head>
+<head th:insert="include/head::head" th:with="title='产品介绍'"></head>
 <head>
     <link rel="stylesheet" th:href="@{/css/portal.css}"/>
 </head>
@@ -17,7 +17,7 @@
                 <a href="#" class="nav-link">产品介绍</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">产品套餐</a>
+                <a th:href="@{/page/package}" class="nav-link">产品套餐</a>
             </li>
         </ul>
 

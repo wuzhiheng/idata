@@ -70,10 +70,18 @@ public class IndexController extends BaseController{
     public String portal(){
         return "pages/portal/index";
     }
-    //门户网站首页
+    //门户网站套餐介绍
     @RequestMapping("page/package")
     public String packages(){
         return "pages/portal/package";
     }
+
+    //个人中心
+    @RequestMapping("page/user")
+    public String user(){
+        return "pages/user/index";
+    }
+
+
 
 }

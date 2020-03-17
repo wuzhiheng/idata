@@ -1,11 +1,26 @@
-.card{
-    box-shadow: none;
+.modal{
+    animation-duration: 200ms;
 }
-.card-header{
-    height: 44px;
+body{
+    color: rgba(0,0,0,.85);
+    background:#f2f2f2;
 }
-.card-body{
-    padding: 1rem 1.25rem;
+h1,h2,h3,h4,h5,h6,h7{
+    color: rgba(0,0,0,.85)!important;
+}
+.btn{
+    cursor: pointer;
+}
+
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free"!important;
+}
+.ztree .node_name {
+    font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
+}
+
+a.btn.close{
+    font-size: 1rem!important;
 }
 img{
     width: 100%;
@@ -14,12 +29,19 @@ img{
 .table.table-sm td{
     padding: .5rem 2px;
 }
+.card{
+    box-shadow: none;
+}
 .card-header{
     padding-left: 5px;
+    height: 44px;
 }
 .card-title {
     padding:0 5px 10px 5px;
     border-bottom: 2px solid red;
+}
+.card-body{
+    padding: 1rem 1.25rem;
 }
 
 .btn-green-outline{
@@ -30,7 +52,6 @@ img{
     background: #6dbf77!important;
     color: #fff!important;
 }
-
 
 #row-1 .card-body{
     min-height: 270px;

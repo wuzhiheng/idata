@@ -18,11 +18,9 @@
     <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/google-font.css}">
 
     <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">-->
-
-    <link rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
-    <link rel="stylesheet" th:href="@{/css/my.css}"/>
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{/css/my.css}"/>
 
     <script th:inline="javascript">
         var ctx = location.protocol+'//'+location.host+[[@{/}]];
@@ -42,49 +40,9 @@
 
     <!-- AdminLTE -->
     <script th:src="@{/AdminLTE-3.0.2/dist/js/adminlte.js}" defer></script>
-    <script th:src="@{/AdminLTE-3.0.2/dist/js/demo.js}" defer></script>
-
-    <script th:src="@{/js/bootstrap-table.min.js}" ></script>
-    <script th:src="@{/js/bootstrap-table-zh-CN.min.js}" ></script>
-    <script th:src="@{/js/jquery.validate.min.js}"></script>
-    <script th:src="@{/js/echarts.min.js}"></script>
     <script th:src="@{/js/weui.min.js}" ></script>
     <script th:src="@{/js/common.js}" ></script>
     <script th:src="@{/js/my/modal-animate.js}" ></script>
-
-    <style>
-        .btn{
-            cursor: pointer;
-        }
-        .custom-control{
-            cursor: pointer;
-        }
-        .fa, .far, .fas {
-            font-family: "Font Awesome 5 Free"!important;
-        }
-        .ztree .node_name {
-            font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
-        }
-        .main-header{
-            background: #e05567;
-        }
-        .main-header *{
-            color: #fff;
-        }
-        h1,h2,h3,h4,h5,h6,h7{
-            color: rgba(0,0,0,.847)!important;
-        }
-        body{
-            color: rgba(0,0,0,.85);
-            background:#f2f2f2;
-        }
-        .modal{
-            animation-duration: 300ms;
-        }
-        a.btn.close{
-            font-size: 1rem!important;
-        }
-    </style>
 
 </head>
 <!-- plugin:zTree -->
@@ -98,6 +56,23 @@
     <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.css}"/>
     <script th:src="@{/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.min.js}"></script>
     <script th:src="@{/AdminLTE-3.0.2/plugins/summernote/lang/summernote-zh-CN.min.js}"></script>
+</div>
+
+<!-- plugin:echarts -->
+<div th:fragment="echarts">
+    <script th:src="@{/js/echarts.min.js}"></script>
+</div>
+
+<!-- plugin:bootstrap-table -->
+<div th:fragment="bootstrap-table">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-table.min.css}"/>
+    <script th:src="@{/js/bootstrap-table.min.js}" ></script>
+    <script th:src="@{/js/bootstrap-table-zh-CN.min.js}" ></script>
+</div>
+
+<!-- plugin:validate -->
+<div th:fragment="validate">
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
 </div>
 
 </html>

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head th:insert="include/head::head" th:with="title='首页'"></head>
+<head th:include="include/head::echarts"></head>
 
-<head>
-    <style>
-
-    </style>
-</head>
-<body class="layout-top-nav text-sm" style="color: #666;background:#f2f2f2">
+<body class="layout-top-nav text-sm">
 <div class="wrapper">
     <!-- navbar -->
     <div th:replace="include/navbar::navbar"></div>
