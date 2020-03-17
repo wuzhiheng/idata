@@ -3,7 +3,7 @@
 <head th:insert="include/head::head" th:with="title='首页'"></head>
 <head th:include="include/head::echarts"></head>
 
-<body class="layout-top-nav text-sm">
+<body class="layout-top-nav text-sm" id="page-1">
 <div class="wrapper">
     <!-- navbar -->
     <div th:replace="include/navbar::navbar"></div>
@@ -17,7 +17,6 @@
                         <div class="card">
                             <div class="card-header ui-sortable-handle">
                                 <h3 class="card-title">
-
                                     昨日概况
                                 </h3>
                                 <div class="card-tools">
@@ -228,7 +227,6 @@
                         <div class="card">
                             <div class="card-header ui-sortable-handle">
                                 <h3 class="card-title">
-
                                     作品排名
                                 </h3>
                                 <div class="card-tools">
@@ -236,7 +234,7 @@
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body">
-                                <div class="d-flex flex-wrap" id="row-12-r">
+                                <div class="d-flex flex-wrap" id="row-2-r">
                                     <div>
                                         <div class="xs-pm-str">全站 · 排名</div>
                                         <div class="xs-pm">12</div>

@@ -3,31 +3,22 @@
 }
 body{
     color: rgba(0,0,0,.85);
-    background:#f2f2f2;
+    background:#f5f6f9;
 }
+
 h1,h2,h3,h4,h5,h6,h7{
     color: rgba(0,0,0,.85)!important;
 }
 .btn{
     cursor: pointer;
 }
-
-.fa, .far, .fas {
-    font-family: "Font Awesome 5 Free"!important;
-}
-.ztree .node_name {
-    font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
-}
-
-a.btn.close{
-    font-size: 1rem!important;
-}
 img{
     width: 100%;
     height: auto;
 }
-.table.table-sm td{
-    padding: .5rem 2px;
+
+a.btn.close{
+    font-size: 1rem!important;
 }
 .card{
     box-shadow: none;
@@ -52,11 +43,14 @@ img{
     background: #6dbf77!important;
     color: #fff!important;
 }
-
-#row-1 .card-body{
+/*******************************************index.html--数据首页**********************************************/
+.table.table-sm td{
+    padding: .5rem 2px;
+}
+#page-1 #row-1 .card-body{
     min-height: 270px;
 }
-#row-2 .card-body{
+#page-1 #row-2 .card-body{
     height: 260px;
 }
 .gl-s-title{
@@ -80,14 +74,14 @@ span.gl-rate{
     color: rgba(0,0,0,.6);
     margin-left: 3px;
 }
-#gl-4>div{
+#page-1 #gl-4>div{
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
 }
-#row-12-r>div{
+#page-1 #row-2-r>div{
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
@@ -123,13 +117,13 @@ span.gl-rate{
     color: rgba(0,0,0,.8);
     margin:2px 0
 }
-#row-1-r-b{
+#page-1 #row-1-r-b{
     margin-top:25px
 }
-#row-1-r-b>div{
+#page-1 #row-1-r-b>div{
     flex: 1;
 }
-#row-1-r-b>div:nth-child(n+2){
+#page-1 #row-1-r-b>div:nth-child(n+2){
     padding-left: 20px;
 }
 .xs-update-count{
@@ -137,12 +131,272 @@ span.gl-rate{
     font-size: 18px;
     margin: 5px 0;
 }
-#reader-hobby-pm .progress{
+#page-1 #reader-hobby-pm .progress{
    margin-top: 4px;
     height: 10px;
 }
-#reader-hobby-pm *{
+#page-1 #reader-hobby-pm *{
     font-size: 13px;
+}
+
+/*****************************************pages/portal/index.html--网站首页************************/
+#page-2 ,
+#page-3 {
+    padding-top:60px
+}
+#page-2 .card-body{
+    padding: 1.8rem 1.5rem;
+}
+
+.two-btn button{
+    float: left;
+}
+.two-btn button:nth-child(2){
+    margin-left: 10px;
+}
+#page-2 #row-2 .col-md-4 ul{
+    padding-left: 40px;
+}
+#page-2 #row-2 .col-md-4:nth-child(odd) ul{
+    padding-left: 55px;
+}
+#page-2 .col-md-6 img{
+    width:90%;
+}
+#page-2 .col-md-4 img{
+    display: block;
+    margin: 0 auto;
+    width:50px;
+    height:50px;
+}
+#page-2 .col-md-4:nth-child(2) img{
+    display: block;
+    margin: 0 auto;
+    width:98px;
+    height:50px;
+}
+
+#page-2 #row-2 ul li{
+    margin:10px 0;
+    list-style: none;
+}
+
+#page-2 #row-2 h4{
+    margin:10px 0 20px 0;
+    color: rgba(255, 153, 0, 0.847) !important;
+}
+#page-2 h3{
+    padding:0 0 20px 0;
+    font-size: 32px;
+}
+#page-2 p{
+    font-size: 1rem;
+    color: rgba(0,0,0,.85);
+}
+
+#page-2 .row.separator{
+    margin-top:30px ;
+    padding-top:30px;
+    border-top:1px solid #ccc;
+}
+#page-2 #row-3 p{
+    line-height: 28px;
+}
+#page-2 #row-3 h4{
+    margin: 30px 0 20px 0;
+    font-size: 28px;
+    color:rgba(0,0,0,.85)
+}
+#page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1){
+    padding-left: 4%;
+}
+#page-2 #row-3 .row:nth-child(even) .col-md-6:nth-child(2){
+    padding-left: 4%;
+}
+span.support-pf{
+    color:rgba(255,0,0,0.65);
+}
+
+#page-2 #row-2 h3::after,
+#page-2 #row-3 h3::after{
+    content: '';
+    display: block;
+    height: 4px;
+    width: 90px;
+    background: #6dbf77;
+    margin: 10px auto;
+    border-radius: 4px;
+}
+/*********************************************pages/portal/package--套餐页面****************************************************/
+#page-3 .card-body{
+    padding: 1rem;
+}
+#vip-member-box{
+    background: #fbde9a;
+    padding: 0!important;
+}
+#vip-member-box .col-md-8,
+#vip-member-box .col-md-2{
+    padding-top: 1rem ;
+    padding-bottom: 1rem ;
+}
+.vip-icon-bg{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background: url('../images/u3065.png') 1px 2px no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vip-icon-bg img{
+    width: 31px;
+}
+.vip-text{
+    font-size: 20px;
+    margin:10px 0 20px 0;
+}
+.vip-text-other{
+    display: block;
+    text-align: center;
+    margin: 5px 0;
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
+}
+.huangjin-box,.zhuanshi-box{
+    border-left: 10px solid #f2f2f2;
+}
+.package-desc-box{
+    padding-right: 15px;
+    padding-left: 0;
+}
+.package-desc-box>div{
+    background: #fdefd0 url("../images/u3024.png") 0 0 no-repeat;
+    background-size: 50px;
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 10px;
+}
+.vip-price{
+    font-size: 12px;
+    margin:10px 0 10px ;
+}
+.vip-price span{
+    display: inline-block;
+    font-size: 28px;
+    font-weight: bold;
+    margin:0 5px;
+}
+.vip-ori-price{
+    font-size: 12px;
+    color: rgba(0,0,0,.45);
+}
+.vip-ori-price span{
+    text-decoration: line-through;
+}
+.vip-buy{
+    border: 1px solid #e98387;
+    font-size: 16px;
+    color: #F14764;
+    padding: 3px 15px;
+    margin: 8px 0;
+    cursor: pointer;
+}
+.vip-discount{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+}
+.privilege-title{
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding-left: 10px;
+    border-left: 5px solid #6dbf77;
+}
+.privilege-table{
+    padding: 20px 0;
+}
+.privilege-table th,
+.privilege-table td{
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 13px;
+}
+.privilege-table th{
+    color: #fff;
+    background: #6dbf77;
+}
+.privilege-table td{
+    vertical-align: middle;
+}
+.privilege-expect-text{
+    color: #F14764;
+    margin: 10px;
+}
+.privilege-support-text{
+    color: #6dbf77;
+}
+@media (min-width: 800px){
+    #payModal .modal-dialog{
+        max-width: 600px;
+    }
+}
+#payModal .modal-header{
+    padding:1rem 1rem;
+}
+#payModal .modal-header h4{
+    font-size: 14px;
+    color: #6dbf77!important;
+}
+#payModal .modal-body{
+    padding: 0 2rem;
+}
+#payModal table td{
+    border: 0;
+}
+#payModal table td:nth-child(1){
+    padding-left: 0;
+    padding-right: 0;
+    width: 70px;
+}
+#payModal table td:nth-child(3){
+    padding-left: 0;
+    padding-right: 0;
+    width: 130px;
+}
+#payModal .pay-icon{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#payModal .pay-icon .btn{
+    width: 140px;
+    height: 50px;
+    padding: 0;
+}
+#payModal .alipay-icon{
+    background: url("../images/u3199.png") -5px center no-repeat;
+    background-size: 100%;
+}
+#payModal .wechat-cion{
+    background: url("../images/u3200.png") center center no-repeat;
+    background-size: 75%;
+}
+#payModal .modal-footer .btn{
+    margin-left: 10px;
+}
+
+
+
+/******************************************************************************/
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free"!important;
+}
+.ztree .node_name {
+    font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
 }
 
 /*icons*/
