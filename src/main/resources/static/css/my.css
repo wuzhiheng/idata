@@ -1,3 +1,10 @@
+/*
+主题绿色 #6dbf77
+表格文字灰色 rgba(0,0,0,.647)
+表格边框灰色 #dee2e6
+更淡的灰色   #ebebeb
+主题文字默认颜色 rgba(0,0,0.85)
+*/
 .modal {
     animation-duration: 200ms;
 }
@@ -8,8 +15,13 @@ body {
     background: #f5f6f9;
     padding-top: 70px
 }
-.main-header.navbar{
-    background: #fff;color: #000;position: fixed;left: 0;top: 0;right:0
+
+.main-header.navbar {
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0
 }
 
 ul {
@@ -70,8 +82,23 @@ a.btn.close {
     background-color: #6dbf77 !important;
     color: #fff;
 }
+.table-theme .page-link{
+    color: rgba(0,0,0,.85);
+    border-color: #ccc;
+}
+.table-theme .page-item.active .page-link{
+    background-color: #6dbf77;
+    color: #fff;
+    border-color: transparent;
+}
+.table-theme .dropdown-item.active{
+    background-color:#6dbf77 ;
+}
+.table-theme .dropdown-menu{
+    font-size: inherit;
+}
 
-/*******************************************index.html--数据首页**********************************************/
+    /*******************************************index.html--数据首页**********************************************/
 .table.table-sm td {
     padding: .5rem 2px;
 }
@@ -125,7 +152,7 @@ span.gl-rate {
     justify-content: center;
     padding: 10px 0 20px 20px;
     font-size: 0.875rem;
-    color: rgba(0,0,0,0.47);
+    color: rgba(0, 0, 0, 0.47);
 
 }
 
@@ -166,7 +193,7 @@ span.gl-rate {
 #page-1 #row-1-r-b {
     margin-top: 25px;
     font-size: 0.875rem;
-    color: rgba(0,0,0,0.47);
+    color: rgba(0, 0, 0, 0.47);
 }
 
 #page-1 #row-1-r-b > div {
@@ -191,9 +218,10 @@ span.gl-rate {
 #page-1 #reader-hobby-pm * {
     font-size: 13px;
 }
-#page-1 #row-3{
+
+#page-1 #row-3 {
     font-size: 0.875rem;
-    color: rgba(0,0,0,.47);
+    color: rgba(0, 0, 0, .47);
 }
 
 /*****************************************pages/portal/index.html--网站首页************************/
@@ -391,10 +419,7 @@ span.support-pt {
     font-weight: bold;
     padding-left: 10px;
     border-left: 5px solid #6dbf77;
-}
-
-.privilege-table {
-    padding: 20px 0;
+    margin-bottom: 20px;
 }
 
 .privilege-table th,
@@ -431,6 +456,8 @@ span.support-pt {
 
 #payModal .modal-header h4 {
     font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
 }
 
 #payModal .modal-body {
@@ -509,12 +536,17 @@ span.support-pt {
     font-size: 0.875rem;
     display: block;
     text-align: center;
-    padding: 10px 0;
     cursor: pointer;
     border-left: 5px solid transparent;
 }
+.user-center #col-1 ul li a{
+    color: inherit;
+    display: block;
+    height: 100%;
+    padding: 10px 0;
+}
 
-.user-center #col-1 ul li.active{
+.user-center #col-1 ul li.active {
     color: #6dbf77;
     background-color: #f1f9f2;
     border-color: #6dbf77;
@@ -524,19 +556,23 @@ span.support-pt {
     width: 80%;
     padding-bottom: 1px;
 }
+
 #page-4 #col2-left form label,
-#page-4 #col2-left form input{
+#page-4 #col2-left form input {
     font-weight: normal;
     font-size: 0.875rem;
 }
-#page-4 #col2-left form .form-group{
-    margin:25px 0;
+
+#page-4 #col2-left form .form-group {
+    margin: 25px 0;
 }
-#page-4 #col2-left form .btn-green-outline{
-    border: 0!important;
+
+#page-4 #col2-left form .btn-green-outline {
+    border: 0 !important;
     text-align: left;
     margin-top: 2px;
 }
+
 #page-4 #col2-right {
     display: flex;
     flex-direction: column;
@@ -567,16 +603,72 @@ span.support-pt {
 #page-4 #xs-list li .xs-name {
     font-size: 0.875rem;
 }
-#page-4 #col2-left h6{
+
+#page-4 #col2-left h6 {
     margin: 20px 0;
 }
-.user-center #col-1{
+
+.user-center #col-1 {
     padding-right: 0;
 }
-.user-center #col-2{
+
+.user-center #col-2 {
     padding-left: 0;
     border-left: 10px solid #f5f6f9;
 }
+/*********************************pages/user/info.html--会员信息*********************************************/
+#page-5 #col-2{
+    font-size: .875rem;
+}
+#page-5 .title{
+    padding-left: 10px;
+    border-left: 5px solid #6dbf77;
+    margin: 20px 0;
+}
+.user-center h4{
+    margin-bottom: 30px;
+}
+#page-5 #package-status{
+    margin-right: 1rem;
+}
+#page-5 #two-btn .btn{
+    margin-right: 10px;
+    padding:0 10px;
+}
+
+#page-5 .privilege-table th,
+#page-5 .privilege-table td{
+    padding: 10px 5px;
+}
+
+/*********************************pages/user/orderInfo.html--订单记录*********************************************/
+#page-6 #col-2{
+    font-size: 14px;
+}
+#page-6 h4{
+    margin-bottom: 25px;
+}
+
+#page-6 #container{
+    padding: 0;
+}
+#page-6 table#tableGrid thead tr:nth-child(1){
+    background: #fafafa;
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+}
+
+#page-6 table#tableGrid th{
+    border-bottom: 1px solid #dee2e6;
+}
+#page-6 table#tableGrid td{
+    padding:1rem .75rem;
+    color: rgba(0,0,0,.647);
+    border-top: 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free" !important;

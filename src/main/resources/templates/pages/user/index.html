@@ -19,11 +19,11 @@
         <!-- Right navbar links -->
         <ul class="nav nav-pills ml-auto">
             <li class="nav-item">
-                <a class="nav-link btn btn-green-outline" href="#">开始分析</a>
+                <a class="nav-link btn btn-green-outline" th:href="@{/page/user/index}">登录</a>
             </li>
             <li style="width: 1rem"></li>
             <li class="nav-item">
-                <a class="nav-link btn btn-green" href="#">体验Demo</a>
+                <a class="nav-link btn btn-green" th:href="@{/}">体验Demo</a>
             </li>
         </ul>
     </nav>
@@ -44,9 +44,9 @@
                                             <div class="text-theme">个人中心</div>
                                         </div>
                                         <ul>
-                                            <li class="active">账号设置</li>
-                                            <li>会员信息</li>
-                                            <li>订购记录</li>
+                                            <li class="active"><a th:href="@{/page/user/index}">账号设置</a></li>
+                                            <li><a th:href="@{/page/user/info}">会员信息</a></li>
+                                            <li><a th:href="@{/page/user/orderInfo}">订购记录</a></li>
                                         </ul>
                                     </div>
                                 </div>

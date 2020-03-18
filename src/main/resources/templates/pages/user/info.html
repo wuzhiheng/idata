@@ -12,18 +12,18 @@
                 <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/page/package}" class="nav-link">产品套餐</a>
+                <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
             </li>
         </ul>
 
         <!-- Right navbar links -->
         <ul class="nav nav-pills ml-auto">
             <li class="nav-item">
-                <a class="nav-link btn btn-green-outline" href="#">开始分析</a>
+                <a class="nav-link btn btn-green-outline" th:href="@{/page/user/index}">登录</a>
             </li>
             <li style="width: 1rem"></li>
             <li class="nav-item">
-                <a class="nav-link btn btn-green" href="#">体验Demo</a>
+                <a class="nav-link btn btn-green" th:href="@{/}">体验Demo</a>
             </li>
         </ul>
     </nav>
@@ -44,76 +44,131 @@
                                             <div class="text-theme">个人中心</div>
                                         </div>
                                         <ul>
-                                            <li class="active">账号设置</li>
-                                            <li>会员信息</li>
-                                            <li>订购记录</li>
+                                            <li><a th:href="@{/page/user/index}">账号设置</a></li>
+                                            <li class="active"><a th:href="@{/page/user/info}">会员信息</a></li>
+                                            <li><a th:href="@{/page/user/orderInfo}">订购记录</a></li>
                                         </ul>
                                     </div>
                                 </div>
 
                             </div>
+
                             <div class="col-md-10" id="col-2">
                                 <div class="card card-primary">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6" id="col2-left">
-                                                <h4>账号设置</h4>
-                                                <form class="form-horizontal">
-                                                    <div class="form-group">
-                                                        <label>昵称</label>
-                                                        <input class="form-control" value="156***2649">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>邮箱</label>
-                                                        <input type="email" class="form-control" value="antdesign@alipay.com">
-                                                    </div>
-                                                    <div class="form-group ">
-                                                        <label>手机号码</label>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <input class="form-control" value="156***2649">
-                                                            </div>
-                                                            <div class="col-md-6 btn btn-green-outline">更换手机号码</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>绑定作家（Tip：30天内仅可更改1次）</label>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <input class="form-control" value="老鹰吃小鸡">
-                                                            </div>
-                                                            <div class="col-md-6 btn btn-green-outline">更换绑定作家</div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-
-                                                <h6>监控作品</h6>
-                                                <ul id="xs-list" class="clearfix">
-                                                    <li>
-                                                        <img th:src="@{/images/u3286.png}" />
-                                                        <div class="xs-name">万族之劫</div>
-                                                    </li>
-                                                    <li>
-                                                        <img th:src="@{/images/u3288.png}" />
-                                                        <div class="xs-name">重生之财源滚滚</div>
-                                                    </li>
-                                                    <li>
-                                                        <img th:src="@{/images/u3290.png}" />
-                                                        <div class="xs-name">全球高武</div>
-                                                    </li>
-                                                </ul>
-
-                                                <button class="btn btn-green">保存</button>
-                                            </div>
-
-                                            <div class="col-md-6" id="col2-right">
-                                                <img th:src="@{/images/u3255.png}" >
-                                                <button class="btn btn-default" onclick="avatarUpload.click()">
-                                                    <input type="file" style="display: none" id="avatarUpload"/>
-                                                    <i class="fa fa-upload" aria-hidden="true"></i> 点击更换头像
-                                                </button>
-                                            </div>
+                                        <h4>会员信息</h4>
+                                        <div class="title">当前会员状态</div>
+                                        <div class="d-inline-block" id="package-status">
+                                            已开通<span class="text-theme">“白银会员”</span>，到期时间：2020-03-17 23:22:22
                                         </div>
+                                        <div class="d-inline-block" id="two-btn">
+                                            <button class="btn btn-xs btn-green">续费白银会员</button>
+                                            <button class="btn btn-xs btn-green">升级会员</button>
+                                        </div>
+
+                                        <div class="title">会员特权对比</div>
+                                        <div class="privilege-table">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>模块</th>
+                                                    <th>功能</th>
+                                                    <th>白银会员</th>
+                                                    <th>黄金会员（敬请期待）</th>
+                                                    <th>钻石会员（敬请期待）</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>首页</td>
+                                                    <td>昨日概况</td>
+                                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                                    <td>仅可监控1个作家，可修改1次/月</td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="10">市场分析</td>
+                                                    <td>行业分析-行业大盘</td>
+                                                    <td>支持所有类型小说查看</td>
+                                                    <td>支持所有类型小说查看</td>
+                                                    <td>支持所有类型小说查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>行业分析-行业趋势</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>行业分析-飙升分类</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>竞争分析</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>流派分析-流派趋势</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>流派分析-飙升流派</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>角色分析-特点趋势</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>角色分析-飙升特点</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>读者分析-书龄分布</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>读者分析-阅读数分布</td>
+                                                    <td>支持最多60天数据查看</td>
+                                                    <td>支持最多90天数据查看</td>
+                                                    <td>支持最多180天数据查看</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>作品分析</td>
+                                                    <td>
+                                                        <div class="privilege-expect-text">敬请期待~</div>
+                                                        您将获得全面分析自己作品的能力
+                                                    </td>
+                                                    <td>不支持</td>
+                                                    <td class="text-theme">支持</td>
+                                                    <td class="text-theme">支持</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小说榜单</td>
+                                                    <td>
+                                                        <div class="privilege-expect-text">敬请期待~</div>
+                                                        您将获得跟踪挖掘竞品小说的能力
+                                                    </td>
+                                                    <td>不支持</td>
+                                                    <td>不支持</td>
+                                                    <td class="privilege-support-text">支持</td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
