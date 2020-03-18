@@ -1,87 +1,124 @@
-.modal{
+.modal {
     animation-duration: 200ms;
 }
-body{
-    color: rgba(0,0,0,.85);
-    background:#f5f6f9;
+
+body {
+    color: rgba(0, 0, 0, .85);
+    background: #f5f6f9;
 }
 
-h1,h2,h3,h4,h5,h6,h7{
-    color: rgba(0,0,0,.85)!important;
+ul {
+    list-style: none;
 }
-.btn{
+
+h1, h2, h3, h4, h5, h6, h7 {
+    color: rgba(0, 0, 0, .85) !important;
+}
+
+.btn {
     cursor: pointer;
 }
-img{
+
+img {
     width: 100%;
     height: auto;
 }
 
-a.btn.close{
-    font-size: 1rem!important;
+a.btn.close {
+    font-size: 1rem !important;
 }
-.card{
+
+.card {
     box-shadow: none;
 }
-.card-header{
+
+.card-header {
     padding-left: 5px;
     height: 44px;
 }
+
 .card-title {
-    padding:0 5px 10px 5px;
+    padding: 0 5px 10px 5px;
     border-bottom: 2px solid red;
 }
-.card-body{
+
+.card-body {
     padding: 1rem 1.25rem;
 }
 
-.btn-green-outline{
-    color: #6dbf77!important;
-    border: 1px solid #6dbf77!important;
+.btn-green-outline {
+    color: #6dbf77 !important;
+    border: 1px solid #6dbf77 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.btn-green{
-    background: #6dbf77!important;
-    color: #fff!important;
+
+.btn-green {
+    background: #6dbf77 !important;
+    color: #fff !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.text-theme {
+    color: #6dbf77 !important;
+}
+
+.bg-theme {
+    background-color: #6dbf77 !important;
+    color: #fff;
+}
+
 /*******************************************index.html--数据首页**********************************************/
-.table.table-sm td{
+.table.table-sm td {
     padding: .5rem 2px;
 }
-#page-1 #row-1 .card-body{
+
+#page-1 #row-1 .card-body {
     min-height: 270px;
 }
-#page-1 #row-2 .card-body{
+
+#page-1 #row-2 .card-body {
     height: 260px;
 }
-.gl-s-title{
+
+.gl-s-title {
     color: rgba(0, 0, 0, .5);
     font-size: 14px;
 }
-.gl-count{
+
+.gl-count {
     font-size: 24px;
-    color: rgba(0,0,0,.8);
+    color: rgba(0, 0, 0, .8);
 }
-.m-15{
+
+.m-15 {
     margin-bottom: 15px;
 }
-span.gl-s-text{
+
+span.gl-s-text {
     display: inline-block;
     color: rgba(0, 0, 0, .5);
     font-size: 14px;
     margin-left: 5px;
 }
-span.gl-rate{
-    color: rgba(0,0,0,.6);
+
+span.gl-rate {
+    color: rgba(0, 0, 0, .6);
     margin-left: 3px;
 }
-#page-1 #gl-4>div{
+
+#page-1 #gl-4 > div {
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
 }
-#page-1 #row-2-r>div{
+
+#page-1 #row-2-r > div {
     flex-basis: 50%;
     display: flex;
     flex-direction: column;
@@ -89,136 +126,155 @@ span.gl-rate{
     padding: 10px 0 20px 20px;
 
 }
-.xs-text{
-    color:rgb(51,51,51);
+
+.xs-text {
+    color: rgb(51, 51, 51);
     font-size: 18px;
-    margin:0 0 5px 0;
+    margin: 0 0 5px 0;
 }
-.xs-author{
-    color:rgba(0,0,0,.8);
+
+.xs-author {
+    color: rgba(0, 0, 0, .8);
     font-size: 14px;
-    margin:8px 0 5px 0;
+    margin: 8px 0 5px 0;
 }
-.xs-status{
-    color:rgb(0,153,255);
+
+.xs-status {
+    color: rgb(0, 153, 255);
     font-size: 14px;
 }
-.xs-pf{
+
+.xs-pf {
     color: #e05567;
     font-size: 28px;
     font-weight: bold;
 }
-.xs-pm-str{
+
+.xs-pm-str {
     font-size: 1rem;
-    color: rgba(0,0,0,.47);
+    color: rgba(0, 0, 0, .47);
 }
-.xs-pm{
+
+.xs-pm {
     font-size: 20px;
-    color: rgba(0,0,0,.8);
-    margin:2px 0
+    color: rgba(0, 0, 0, .8);
+    margin: 2px 0
 }
-#page-1 #row-1-r-b{
-    margin-top:25px
+
+#page-1 #row-1-r-b {
+    margin-top: 25px
 }
-#page-1 #row-1-r-b>div{
+
+#page-1 #row-1-r-b > div {
     flex: 1;
 }
-#page-1 #row-1-r-b>div:nth-child(n+2){
+
+#page-1 #row-1-r-b > div:nth-child(n+2) {
     padding-left: 20px;
 }
-.xs-update-count{
-    color: rgba(0,0,0,0.8);
+
+.xs-update-count {
+    color: rgba(0, 0, 0, 0.8);
     font-size: 18px;
     margin: 5px 0;
 }
-#page-1 #reader-hobby-pm .progress{
-   margin-top: 4px;
+
+#page-1 #reader-hobby-pm .progress {
+    margin-top: 4px;
     height: 10px;
 }
-#page-1 #reader-hobby-pm *{
+
+#page-1 #reader-hobby-pm * {
     font-size: 13px;
 }
 
 /*****************************************pages/portal/index.html--网站首页************************/
-#page-2 ,
-#page-3 {
-    padding-top:60px
+#page-2,
+#page-3,
+#page-4 {
+    padding-top: 60px
 }
-#page-2 .card-body{
+
+#page-2 .card-body {
     padding: 1.8rem 1.5rem;
 }
 
-.two-btn button{
-    float: left;
-}
-.two-btn button:nth-child(2){
+.two-btn button:nth-child(2) {
     margin-left: 10px;
 }
-#page-2 #row-2 .col-md-4 ul{
+
+#page-2 #row-2 .col-md-4 ul {
     padding-left: 40px;
 }
-#page-2 #row-2 .col-md-4:nth-child(odd) ul{
+
+#page-2 #row-2 .col-md-4:nth-child(odd) ul {
     padding-left: 55px;
 }
-#page-2 .col-md-6 img{
-    width:90%;
-}
-#page-2 .col-md-4 img{
-    display: block;
-    margin: 0 auto;
-    width:50px;
-    height:50px;
-}
-#page-2 .col-md-4:nth-child(2) img{
-    display: block;
-    margin: 0 auto;
-    width:98px;
-    height:50px;
+
+#page-2 .col-md-6 img {
+    width: 90%;
 }
 
-#page-2 #row-2 ul li{
-    margin:10px 0;
-    list-style: none;
+#page-2 .col-md-4 img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
 }
 
-#page-2 #row-2 h4{
-    margin:10px 0 20px 0;
-    color: rgba(255, 153, 0, 0.847) !important;
+#page-2 .col-md-4:nth-child(2) img {
+    display: block;
+    margin: 0 auto;
+    width: 98px;
+    height: 50px;
 }
-#page-2 h3{
-    padding:0 0 20px 0;
+
+#page-2 #row-2 ul li {
+    margin: 10px 0;
+}
+
+#page-2 #row-2 h4 {
+    margin: 10px 0 20px 0;
+    color: rgba(255, 153, 0, 0.85) !important;
+}
+
+#page-2 h3 {
+    padding: 0 0 20px 0;
     font-size: 32px;
 }
-#page-2 p{
+
+#page-2 p {
     font-size: 1rem;
-    color: rgba(0,0,0,.85);
+    color: rgba(0, 0, 0, .85);
 }
 
-#page-2 .row.separator{
-    margin-top:30px ;
-    padding-top:30px;
-    border-top:1px solid #ccc;
+#page-2 .row.separator {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #ccc;
 }
-#page-2 #row-3 p{
+
+#page-2 #row-3 p {
     line-height: 28px;
 }
-#page-2 #row-3 h4{
+
+#page-2 #row-3 h4 {
     margin: 30px 0 20px 0;
     font-size: 28px;
-    color:rgba(0,0,0,.85)
+    color: rgba(0, 0, 0, .85)
 }
-#page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1){
-    padding-left: 4%;
+
+#page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1),
+#page-2 #row-3 .row:nth-child(even) .col-md-6:nth-child(2) {
+    padding-left: 3%;
 }
-#page-2 #row-3 .row:nth-child(even) .col-md-6:nth-child(2){
-    padding-left: 4%;
-}
-span.support-pf{
-    color:rgba(255,0,0,0.65);
+
+span.support-pt {
+    color: rgba(255, 0, 0, 0.65);
 }
 
 #page-2 #row-2 h3::after,
-#page-2 #row-3 h3::after{
+#page-2 #row-3 h3::after {
     content: '';
     display: block;
     height: 4px;
@@ -227,20 +283,24 @@ span.support-pf{
     margin: 10px auto;
     border-radius: 4px;
 }
+
 /*********************************************pages/portal/package--套餐页面****************************************************/
-#page-3 .card-body{
+#page-3 .card-body {
     padding: 1rem;
 }
-#vip-member-box{
+
+#vip-member-box {
     background: #fbde9a;
-    padding: 0!important;
+    padding: 0 !important;
 }
+
 #vip-member-box .col-md-8,
-#vip-member-box .col-md-2{
-    padding-top: 1rem ;
-    padding-bottom: 1rem ;
+#vip-member-box .col-md-2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
-.vip-icon-bg{
+
+.vip-icon-bg {
     width: 60px;
     height: 60px;
     margin: 0 auto;
@@ -249,14 +309,17 @@ span.support-pf{
     align-items: center;
     justify-content: center;
 }
-.vip-icon-bg img{
+
+.vip-icon-bg img {
     width: 31px;
 }
-.vip-text{
+
+.vip-text {
     font-size: 20px;
-    margin:10px 0 20px 0;
+    margin: 10px 0 20px 0;
 }
-.vip-text-other{
+
+.vip-text-other {
     display: block;
     text-align: center;
     margin: 5px 0;
@@ -264,40 +327,48 @@ span.support-pf{
     font-weight: bold;
     font-size: 14px;
 }
-.huangjin-box,.zhuanshi-box{
+
+.huangjin-box, .zhuanshi-box {
     border-left: 10px solid #f2f2f2;
 }
-.package-desc-box{
+
+.package-desc-box {
     padding-right: 15px;
     padding-left: 0;
 }
-.package-desc-box>div{
+
+.package-desc-box > div {
     background: #fdefd0 url("../images/u3024.png") 0 0 no-repeat;
     background-size: 50px;
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 10px 0 10px;
 }
-.vip-price{
+
+.vip-price {
     font-size: 12px;
-    margin:10px 0 10px ;
+    margin: 10px 0 10px;
 }
-.vip-price span{
+
+.vip-price span {
     display: inline-block;
     font-size: 28px;
     font-weight: bold;
-    margin:0 5px;
+    margin: 0 5px;
 }
-.vip-ori-price{
+
+.vip-ori-price {
     font-size: 12px;
-    color: rgba(0,0,0,.45);
+    color: rgba(0, 0, 0, .45);
 }
-.vip-ori-price span{
+
+.vip-ori-price span {
     text-decoration: line-through;
 }
-.vip-buy{
+
+.vip-buy {
     border: 1px solid #e98387;
     font-size: 16px;
     color: #F14764;
@@ -305,124 +376,233 @@ span.support-pf{
     margin: 8px 0;
     cursor: pointer;
 }
-.vip-discount{
+
+.vip-discount {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.65);
 }
-.privilege-title{
+
+.privilege-title {
     font-size: 16px;
     color: #333;
     font-weight: bold;
     padding-left: 10px;
     border-left: 5px solid #6dbf77;
 }
-.privilege-table{
+
+.privilege-table {
     padding: 20px 0;
 }
+
 .privilege-table th,
-.privilege-table td{
+.privilege-table td {
     border: 1px solid #ccc;
     text-align: center;
     padding: 10px 10px;
     font-size: 13px;
 }
-.privilege-table th{
+
+.privilege-table th {
     color: #fff;
     background: #6dbf77;
 }
-.privilege-table td{
+
+.privilege-table td {
     vertical-align: middle;
 }
-.privilege-expect-text{
+
+.privilege-expect-text {
     color: #F14764;
     margin: 10px;
 }
-.privilege-support-text{
-    color: #6dbf77;
-}
-@media (min-width: 800px){
-    #payModal .modal-dialog{
+
+@media (min-width: 800px) {
+    #payModal .modal-dialog {
         max-width: 600px;
     }
 }
-#payModal .modal-header{
-    padding:1rem 1rem;
+
+#payModal .modal-header {
+    padding: 1rem 1rem;
 }
-#payModal .modal-header h4{
+
+#payModal .modal-header h4 {
     font-size: 14px;
-    color: #6dbf77!important;
 }
-#payModal .modal-body{
+
+#payModal .modal-body {
     padding: 0 2rem;
 }
-#payModal table td{
+
+#payModal table td {
     border: 0;
 }
-#payModal table td:nth-child(1){
+
+#payModal table td:nth-child(1) {
     padding-left: 0;
     padding-right: 0;
     width: 70px;
 }
-#payModal table td:nth-child(3){
+
+#payModal table td:nth-child(3) {
     padding-left: 0;
     padding-right: 0;
     width: 130px;
 }
-#payModal .pay-icon{
+
+#payModal .pay-icon {
     padding-top: 0;
     padding-bottom: 0;
 }
-#payModal .pay-icon .btn{
+
+#payModal .pay-icon .btn {
     width: 140px;
     height: 50px;
     padding: 0;
 }
-#payModal .alipay-icon{
+
+#payModal .alipay-icon {
     background: url("../images/u3199.png") -5px center no-repeat;
     background-size: 100%;
 }
-#payModal .wechat-cion{
+
+#payModal .wechat-cion {
     background: url("../images/u3200.png") center center no-repeat;
     background-size: 75%;
 }
-#payModal .modal-footer .btn{
+
+#payModal .modal-footer .btn {
     margin-left: 10px;
 }
 
+/*********************************pages/user/index--个人中心*********************************************/
+#page-4 #col-1 .card-body {
+    padding: 0;
+}
+
+.user-left-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.user-left-top img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+#page-4 #col-1 ul {
+    padding-top: 20px;
+}
+
+#page-4 #col-1 ul li {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#page-4 #col-1 ul li.active {
+    color: #6dbf77;
+    background-color: #f1f9f2;
+    border-left: 5px solid #6dbf77;
+}
+
+#page-4 #col2-left form {
+    width: 80%;
+    padding-bottom: 1px;
+}
+#page-4 #col2-left form label,
+#page-4 #col2-left form input{
+    font-weight: normal;
+    font-size: 14px;
+}
+#page-4 #col2-left form .form-group{
+    margin:25px 0;
+}
+#page-4 #col2-left form .btn-green-outline{
+    border: 0!important;
+    justify-content: flex-start;
+}
 
 
-/******************************************************************************/
+#page-4 #col2-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+#page-4 #col2-right img {
+    width: 144px;
+    margin-bottom: 20px;
+}
+
+#page-4 #xs-list li {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+#page-4 #xs-list li img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+#page-4 #xs-list li .xs-name {
+    font-size: 14px;
+}
+#page-4 #col2-left h6{
+    margin: 20px 0;
+}
+
+/*********************************other--其他*********************************************/
 .fa, .far, .fas {
-    font-family: "Font Awesome 5 Free"!important;
-}
-.ztree .node_name {
-    font-family:-apple-system-font,Helvetica Neue,sans-serif!important;
+    font-family: "Font Awesome 5 Free" !important;
 }
 
-/*icons*/
+.ztree .node_name {
+    font-family: -apple-system-font, Helvetica Neue, sans-serif !important;
+}
+
+/*********************************icons--图标*********************************************/
 .m-icon {
     padding-left: 18px;
 }
+
 .icon-fans {
     background: url('../images/icons/heart.png') left center no-repeat;
     background-size: 15px;
 }
+
 .icon-up {
     background: url('../images/icons/up.png') left center no-repeat;
     background-size: 15px;
 }
+
 .icon-yp {
     background: url('../images/icons/yuepiao.png') left center no-repeat;
     background-size: 15px;
 }
+
 .icon-ds {
     background: url('../images/icons/dashang.png') left center no-repeat;
     background-size: 15px;
 }
+
 .icon-tjp {
     background: url('../images/icons/tuijianpiao.png') left center no-repeat;
     background-size: 15px;
 }
+
 .icon-pl {
     background: url('../images/icons/pinglun.png') left center no-repeat;
     background-size: 15px;
