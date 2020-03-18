@@ -3,8 +3,13 @@
 }
 
 body {
+    font-size: 16px;
     color: rgba(0, 0, 0, .85);
     background: #f5f6f9;
+    padding-top: 70px
+}
+.main-header.navbar{
+    background: #fff;color: #000;position: fixed;left: 0;top: 0;right:0
 }
 
 ul {
@@ -17,6 +22,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 
 .btn {
     cursor: pointer;
+    font-size: 0.875rem;
 }
 
 img {
@@ -49,17 +55,11 @@ a.btn.close {
 .btn-green-outline {
     color: #6dbf77 !important;
     border: 1px solid #6dbf77 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .btn-green {
     background: #6dbf77 !important;
     color: #fff !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .text-theme {
@@ -86,7 +86,7 @@ a.btn.close {
 
 .gl-s-title {
     color: rgba(0, 0, 0, .5);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .gl-count {
@@ -101,7 +101,7 @@ a.btn.close {
 span.gl-s-text {
     display: inline-block;
     color: rgba(0, 0, 0, .5);
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-left: 5px;
 }
 
@@ -124,6 +124,8 @@ span.gl-rate {
     flex-direction: column;
     justify-content: center;
     padding: 10px 0 20px 20px;
+    font-size: 0.875rem;
+    color: rgba(0,0,0,0.47);
 
 }
 
@@ -135,13 +137,13 @@ span.gl-rate {
 
 .xs-author {
     color: rgba(0, 0, 0, .8);
-    font-size: 14px;
+    font-size: 0.875rem;
     margin: 8px 0 5px 0;
 }
 
 .xs-status {
     color: rgb(0, 153, 255);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .xs-pf {
@@ -162,7 +164,9 @@ span.gl-rate {
 }
 
 #page-1 #row-1-r-b {
-    margin-top: 25px
+    margin-top: 25px;
+    font-size: 0.875rem;
+    color: rgba(0,0,0,0.47);
 }
 
 #page-1 #row-1-r-b > div {
@@ -187,13 +191,12 @@ span.gl-rate {
 #page-1 #reader-hobby-pm * {
     font-size: 13px;
 }
+#page-1 #row-3{
+    font-size: 0.875rem;
+    color: rgba(0,0,0,.47);
+}
 
 /*****************************************pages/portal/index.html--网站首页************************/
-#page-2,
-#page-3,
-#page-4 {
-    padding-top: 60px
-}
 
 #page-2 .card-body {
     padding: 1.8rem 1.5rem;
@@ -325,7 +328,7 @@ span.support-pt {
     margin: 5px 0;
     color: red;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .huangjin-box, .zhuanshi-box {
@@ -378,7 +381,7 @@ span.support-pt {
 }
 
 .vip-discount {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: rgba(0, 0, 0, 0.65);
 }
 
@@ -427,7 +430,7 @@ span.support-pt {
 }
 
 #payModal .modal-header h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 #payModal .modal-body {
@@ -436,6 +439,7 @@ span.support-pt {
 
 #payModal table td {
     border: 0;
+    font-size: 0.875rem;
 }
 
 #payModal table td:nth-child(1) {
@@ -476,11 +480,12 @@ span.support-pt {
 }
 
 /*********************************pages/user/index--个人中心*********************************************/
-#page-4 #col-1 .card-body {
+
+.user-center #col-1 .card-body {
     padding: 0;
 }
 
-.user-left-top {
+.user-center .user-left-top {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -491,26 +496,28 @@ span.support-pt {
     font-weight: bold;
 }
 
-.user-left-top img {
+.user-center .user-left-top img {
     width: 50px;
     margin-bottom: 20px;
 }
 
-#page-4 #col-1 ul {
+.user-center #col-1 ul {
     padding-top: 20px;
 }
 
-#page-4 #col-1 ul li {
-    font-size: 14px;
+.user-center #col-1 ul li {
+    font-size: 0.875rem;
     display: block;
     text-align: center;
     padding: 10px 0;
+    cursor: pointer;
+    border-left: 5px solid transparent;
 }
 
-#page-4 #col-1 ul li.active {
+.user-center #col-1 ul li.active{
     color: #6dbf77;
     background-color: #f1f9f2;
-    border-left: 5px solid #6dbf77;
+    border-color: #6dbf77;
 }
 
 #page-4 #col2-left form {
@@ -520,17 +527,16 @@ span.support-pt {
 #page-4 #col2-left form label,
 #page-4 #col2-left form input{
     font-weight: normal;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 #page-4 #col2-left form .form-group{
     margin:25px 0;
 }
 #page-4 #col2-left form .btn-green-outline{
     border: 0!important;
-    justify-content: flex-start;
+    text-align: left;
+    margin-top: 2px;
 }
-
-
 #page-4 #col2-right {
     display: flex;
     flex-direction: column;
@@ -554,16 +560,23 @@ span.support-pt {
 
 #page-4 #xs-list li img {
     width: 80px;
+    height: 106px;
     margin-bottom: 10px;
 }
 
 #page-4 #xs-list li .xs-name {
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 #page-4 #col2-left h6{
     margin: 20px 0;
 }
-
+.user-center #col-1{
+    padding-right: 0;
+}
+.user-center #col-2{
+    padding-left: 0;
+    border-left: 10px solid #f5f6f9;
+}
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free" !important;

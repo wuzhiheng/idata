@@ -3,7 +3,7 @@
 <head th:insert="include/head::head" th:with="title='首页'"></head>
 <head th:include="include/head::echarts"></head>
 
-<body class="layout-top-nav text-sm" id="page-1">
+<body class="layout-top-nav" id="page-1">
 <div class="wrapper">
     <!-- navbar -->
     <div th:replace="include/navbar::navbar"></div>
@@ -95,7 +95,7 @@
 
                                     <div class="d-flex" id="row-1-r-b">
                                         <div>
-                                            <div class="xs-update-count-str">更新字数</div>
+                                            <div class="xs-update-str">更新字数</div>
                                             <div class="xs-update-count">12656</div>
                                             <div>较前日<span class="m-icon icon-up">50%</span></div>
                                         </div>
@@ -266,7 +266,6 @@
                         <div class="card">
                             <div class="card-header ui-sortable-handle">
                                 <h3 class="card-title">
-
                                     昨日全站概况
                                 </h3>
                             </div><!-- /.card-header -->
