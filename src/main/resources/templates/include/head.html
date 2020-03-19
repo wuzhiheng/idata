@@ -22,11 +22,6 @@
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
     <link rel="stylesheet" th:href="@{/css/my.css}"/>
 
-    <script th:inline="javascript">
-        var ctx = location.protocol+'//'+location.host+[[@{/}]];
-        console.log(ctx);
-    </script>
-
 
     <!--[if !IE]> -->
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
@@ -43,6 +38,20 @@
     <script th:src="@{/js/weui.min.js}" ></script>
     <script th:src="@{/js/common.js}" ></script>
     <script th:src="@{/js/my/modal-animate.js}" ></script>
+
+    <script th:inline="javascript">
+        var ctx = location.protocol+'//'+location.host+[[@{/}]];
+            console.log(ctx);
+
+        $(function () {
+            $('.show-login-modal').click(function () {
+                $('#loginModal').modalShow('zoomIn',{vertical:true});
+            })
+            $('.show-pay-modal').click(function () {
+                $('#payModal').modalShow('zoomIn',{vertical:true});
+            })
+        })
+    </script>
 
 </head>
 <!-- plugin:zTree -->
