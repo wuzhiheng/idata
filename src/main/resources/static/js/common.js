@@ -157,3 +157,29 @@ function guid() {
         return v.toString(16);
     });
 }
+// 点击图片放大功能
+$(function () {
+    $('img.can-show').click(function () {
+        let src = this.src;
+        if(src){
+            let exists = $('#imgBigModal').length == 1;
+            exists || createImgModal();
+            $('#imgBigModal img').attr('src',src);
+            $('#imgBigModal').modalShow('zoomIn',{vertical:true});
+        }
+    })
+
+    function createImgModal() {
+        let html =
+            `<div class="modal" id="imgBigModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img />
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        $('body').append(html);
+    }
+})

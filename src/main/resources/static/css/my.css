@@ -107,6 +107,9 @@ a.btn.close {
     font-size: inherit !important;
 }
 
+img.can-show{
+    cursor: pointer;
+}
 /*******************************************index.html--数据首页**********************************************/
 .table.table-sm td {
     padding: .5rem 2px;
@@ -271,6 +274,7 @@ span.gl-rate {
 
 #page-2 #row-2 ul li {
     margin: 10px 0;
+    font-size: .875rem;
 }
 
 #page-2 #row-2 h4 {
@@ -726,6 +730,37 @@ span.support-pt {
 #loginModal .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #6dbf77;
     background-color: #6dbf77;
+}
+
+/*imgBigModal*/
+@media (min-width: 576px){
+    #imgBigModal .modal-dialog {
+        width: auto;
+    }
+    #imgBigModal .modal-content{
+        box-shadow: none;
+    }
+}
+#imgBigModal.modal{
+    animation-duration: 200ms;
+}
+#imgBigModal .modal-dialog{
+    width: auto;
+    background: none;
+}
+#imgBigModal .modal-content{
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+#imgBigModal .modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#imgBigModal img{
+    width: auto;
 }
 
 /*********************************other--其他*********************************************/
