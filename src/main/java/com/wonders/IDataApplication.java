@@ -18,10 +18,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 @Slf4j
-@EnableAsync
-@EnableCaching
+//@EnableAsync
+//@EnableCaching
 @MapperScan("com.wonders.**.dao")
 public class IDataApplication {
 

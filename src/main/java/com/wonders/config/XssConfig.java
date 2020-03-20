@@ -7,7 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * @Author : wuzhiheng
+ * @Description : 配置xss过滤
+ * @Date Created in 11:24 上午 2020/3/16
+ */
 @Configuration
 public class XssConfig {
 
@@ -22,7 +26,7 @@ public class XssConfig {
 //		filterRegistrationBean.setEnabled(false);
 		filterRegistrationBean.addUrlPatterns("/*");
 		Map<String, String> initParameters = new HashMap<>();
-		initParameters.put("excludes", "/favicon.ico,/images/*,/js/*,/css/*,/zgDesc/*");
+		initParameters.put("excludes", "/favicon.ico,/images/*,/js/*,/css/*");
 		initParameters.put("isIncludeRichText", "true");
 		filterRegistrationBean.setInitParameters(initParameters);
 		return filterRegistrationBean;
