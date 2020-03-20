@@ -255,7 +255,7 @@ span.gl-rate {
 }
 
 #page-2 .col-md-6 img {
-    width: 90%;
+    width: 95%;
 }
 
 #page-2 .col-md-4 img {
@@ -310,7 +310,7 @@ span.gl-rate {
 
 #page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1),
 #page-2 #row-3 .row:nth-child(even) .col-md-6:nth-child(2) {
-    padding-left: 3%;
+    padding-left: 2%;
 }
 
 span.support-pt {
