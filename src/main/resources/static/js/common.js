@@ -1,5 +1,5 @@
 $.json = function (option) {
-    var config = {
+    let config = {
         dataType: 'json',
         type: 'get',
         data: {}
@@ -30,7 +30,7 @@ $.json = function (option) {
             option.error(data);
     };
 
-    var loading = weui.loading('loading', {
+    let loading = weui.loading('loading', {
         content: '请稍后...'
     });
 
@@ -106,13 +106,27 @@ function initSelect(option) {
         }
     });
 }
-
-function getContextPath(fullUrl) {
-    if (fullUrl == null || fullUrl == '') {
-        fullUrl = window.location.href + '';
+// 找出queryString的某个值
+function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)'); // 匹配目标参数
+    var result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
+    if (result != null) {
+        return decodeURIComponent(result[2]);
+    } else {
+        return null;
     }
-    var arrUrl = fullUrl.split('/');
-    return arrUrl[0] + '//' + arrUrl[2] + '/' + arrUrl[3];
+}
+// 把queryString组装成对象返回
+function searchParams(url) {
+    var ret = {};
+    var match;
+    var plus   = /\+/g;
+    var reg = /([^\?&=]+)=([^&]*)/g;
+    var decode = function(s) {
+        return decodeURIComponent(s.replace(plus, " "));
+    };
+    while( match = reg.exec(url) ) ret[decode(match[1])] = decode(match[2]);
+    return ret;
 }
 
 $.fn.serializeObject = function () {
@@ -171,11 +185,11 @@ $(function () {
 
     function createImgModal() {
         let html =
-            `<div class="modal" id="imgBigModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <img />
+            `<div class="modal" id="imgBigModal" style="animation-duration: 200ms">
+                <div class="modal-dialog" style="width: auto;background: none;width: auto">
+                    <div class="modal-content" style="background: none;border: none;box-shadow: none;">
+                        <div class="modal-body" style="display: flex;justify-content: center;align-items: center;">
+                            <img style="width: auto;"/>
                         </div>
                     </div>
                 </div>

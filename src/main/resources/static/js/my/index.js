@@ -159,3 +159,4 @@ var myChart2 = echarts.init(document.getElementById('main2'));
 var myChart3 = echarts.init(document.getElementById('main3'));
 myChart2.setOption(option2);
 myChart3.setOption(option3);
+

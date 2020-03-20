@@ -733,35 +733,35 @@ span.support-pt {
 }
 
 /*imgBigModal*/
-@media (min-width: 576px){
-    #imgBigModal .modal-dialog {
-        width: auto;
-    }
-    #imgBigModal .modal-content{
-        box-shadow: none;
-    }
-}
-#imgBigModal.modal{
-    animation-duration: 200ms;
-}
-#imgBigModal .modal-dialog{
-    width: auto;
-    background: none;
-}
-#imgBigModal .modal-content{
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-#imgBigModal .modal-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*@media (min-width: 576px){*/
+/*    #imgBigModal .modal-dialog {*/
+/*        width: auto;*/
+/*    }*/
+/*    #imgBigModal .modal-content{*/
+/*        box-shadow: none;*/
+/*    }*/
+/*}*/
+/*#imgBigModal.modal{*/
+/*    animation-duration: 200ms;*/
+/*}*/
+/*#imgBigModal .modal-dialog{*/
+/*    width: auto;*/
+/*    background: none;*/
+/*}*/
+/*#imgBigModal .modal-content{*/
+/*    background: none;*/
+/*    border: none;*/
+/*    box-shadow: none;*/
+/*}*/
+/*#imgBigModal .modal-body{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
 
-}
-#imgBigModal img{
-    width: auto;
-}
+/*}*/
+/*#imgBigModal img{*/
+/*    width: auto;*/
+/*}*/
 
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
