@@ -504,6 +504,18 @@ span.support-pt {
     border-color: #6dbf77;
 }
 
+.user-center #col-1 {
+    padding-right: 0;
+}
+
+.user-center #col-2 {
+    padding-left: 0;
+    border-left: 10px solid #f5f6f9;
+}
+.user-center h4 {
+    margin-bottom: 30px;
+}
+
 #page-4 #col2-left form {
     width: 80%;
     padding-bottom: 1px;
@@ -560,14 +572,6 @@ span.support-pt {
     margin: 20px 0;
 }
 
-.user-center #col-1 {
-    padding-right: 0;
-}
-
-.user-center #col-2 {
-    padding-left: 0;
-    border-left: 10px solid #f5f6f9;
-}
 
 /*********************************pages/user/info.html--会员信息*********************************************/
 #page-5 #col-2 {
@@ -578,10 +582,6 @@ span.support-pt {
     padding-left: 10px;
     border-left: 5px solid #6dbf77;
     margin: 20px 0;
-}
-
-.user-center h4 {
-    margin-bottom: 30px;
 }
 
 #page-5 #package-status {

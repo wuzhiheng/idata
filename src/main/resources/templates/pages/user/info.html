@@ -36,22 +36,9 @@
                 <div class="card card-primary">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-md-2" id="col-1">
-                                <div class="card card-primary">
-                                    <div class="card-body">
-                                        <div class="user-left-top">
-                                            <img th:src="@{/images/u3246.png}" >
-                                            <div class="text-theme">个人中心</div>
-                                        </div>
-                                        <ul>
-                                            <li><a th:href="@{/page/user/index}">账号设置</a></li>
-                                            <li class="active"><a th:href="@{/page/user/info}">会员信息</a></li>
-                                            <li><a th:href="@{/page/user/orderInfo}">订购记录</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                            </div>
+                            <div class="col-md-2" id="col-1" th:insert="include/sidebar::user-sidebar"
+                                 th:with="active='会员信息'"></div>
 
                             <div class="col-md-10" id="col-2">
                                 <div class="card card-primary">

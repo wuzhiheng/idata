@@ -127,4 +127,19 @@
     </script>
 </aside>
 
+<!-- 用户中心左边菜单栏 -->
+<div class="card card-primary" th:fragment="user-sidebar">
+    <div class="card-body">
+        <div class="user-left-top">
+            <img th:src="@{/images/u3246.png}" >
+            <div class="text-theme">个人中心</div>
+        </div>
+        <ul>
+            <li th:class="${active == '账号设置'} ? 'active'"><a th:href="@{/page/user/index}">账号设置</a></li>
+            <li th:class="${active == '会员信息'} ? 'active'"><a th:href="@{/page/user/info}">会员信息</a></li>
+            <li th:class="${active == '订购记录'} ? 'active'"><a th:href="@{/page/user/orderInfo}">订购记录</a></li>
+        </ul>
+    </div>
+</div>
+
 </html>

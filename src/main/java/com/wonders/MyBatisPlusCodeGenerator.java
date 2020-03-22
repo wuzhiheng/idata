@@ -25,17 +25,15 @@ import java.util.List;
 public class MyBatisPlusCodeGenerator {
 
     //包名
-    private static final String PACKAGE_NAME = "com.wonders.commonweb";
+    private static final String PACKAGE_NAME = "com.wonders.commonweb1";
 
-    private static String URL = "jdbc:oracle:thin:@192.168.1.100:15210/rhin";
-    private static String DRIVER_NAME = "oracle.jdbc.OracleDriver";
-//    private static String USERNAME = "BISYS";
-//    private static String PASSWORD = "BSTAJN9L";
+    private static String URL = "jdbc:mysql://localhost:3306/idata?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
+    private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
-    private static String USERNAME = "RHIN_TR";
-    private static String PASSWORD = "kZV6968S";
+    private static String USERNAME = "root";
+    private static String PASSWORD = "root";
 
-    private static String[] tables = {"TB_PM_WAREHOUSE_IN"};
+    private static String[] tables = {"user"};
 
     public static void main(String[] args) {
         executeCode(PACKAGE_NAME,tables);

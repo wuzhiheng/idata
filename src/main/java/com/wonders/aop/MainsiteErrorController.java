@@ -3,7 +3,6 @@ package com.wonders.aop;
  * 创建日期：2017-12-29下午4:29:19
  * author:wuzhiheng
  */
-//import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

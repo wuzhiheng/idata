@@ -196,6 +196,13 @@
 <div th:replace="include/modal::loginModal"></div>
 
 <!-- REQUIRED SCRIPTS -->
-
+<script>
+    $('button:contains("体验Demo")').click(function () {
+        location.href = ctx;
+    })
+    $('button:contains("了解套餐")').click(function () {
+        location.href = 'package';
+    })
+</script>
 </body>
 </html>
