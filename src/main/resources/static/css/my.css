@@ -1,9 +1,10 @@
 /*
-主题绿色 #6dbf77
+主题绿色 #52C41A
 表格文字灰色 rgba(0,0,0,.647)
 表格边框灰色 #dee2e6
 更淡的灰色   #ebebeb
-主题文字默认颜色 rgba(0,0,0.85)
+文字默认颜色(偏黑色) #595959 #595959
+第二主题文字颜色（绿色）#52C41A
 */
 .modal {
     animation-duration: 200ms;
@@ -11,9 +12,10 @@
 
 body {
     font-size: 16px;
-    color: rgba(0, 0, 0, .85);
+    color: #595959;
     background: #f5f6f9;
-    padding-top: 70px
+    padding-top: 70px;
+    font-family:Source Han Sans CN,-apple-system-font,Helvetica Neue,sans-serif
 }
 
 .main-header.navbar {
@@ -21,7 +23,8 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    right: 0
+    right: 0;
+    padding: .5rem 1rem ;
 }
 
 ul {
@@ -29,7 +32,7 @@ ul {
 }
 
 h1, h2, h3, h4, h5, h6, h7 {
-    color: rgba(0, 0, 0, .85) !important;
+    color: #595959 !important;
 }
 
 .btn {
@@ -65,37 +68,37 @@ a.btn.close {
 }
 
 .btn-green-outline {
-    color: #6dbf77 !important;
-    border: 1px solid #6dbf77 !important;
+    color: #52C41A !important;
+    border: 1px solid #52C41A !important;
 }
 
 .btn-green {
-    background: #6dbf77 !important;
+    background: #52C41A !important;
     color: #fff !important;
 }
 
 .text-theme {
-    color: #6dbf77 !important;
+    color: #52C41A !important;
 }
 
 .bg-theme {
-    background-color: #6dbf77 !important;
+    background-color: #52C41A !important;
     color: #fff;
 }
 
 .table-theme .page-link {
-    color: rgba(0, 0, 0, .85);
+    color: #595959;
     border-color: #ccc;
 }
 
 .table-theme .page-item.active .page-link {
-    background-color: #6dbf77;
+    background-color: #52C41A;
     color: #fff;
     border-color: transparent;
 }
 
 .table-theme .dropdown-item.active {
-    background-color: #6dbf77;
+    background-color: #52C41A;
 }
 
 .table-theme .dropdown-menu {
@@ -108,6 +111,9 @@ a.btn.close {
 }
 
 img.can-show{
+    cursor: pointer;
+}
+.custom-control-label{
     cursor: pointer;
 }
 /*******************************************index.html--数据首页**********************************************/
@@ -279,7 +285,7 @@ span.gl-rate {
 
 #page-2 #row-2 h4 {
     margin: 10px 0 20px 0;
-    color: rgba(255, 153, 0, 0.85) !important;
+    color: #595959 !important;
 }
 
 #page-2 h3 {
@@ -289,7 +295,7 @@ span.gl-rate {
 
 #page-2 p {
     font-size: 1rem;
-    color: rgba(0, 0, 0, .85);
+    color: #595959;
 }
 
 #page-2 .row.separator {
@@ -305,7 +311,7 @@ span.gl-rate {
 #page-2 #row-3 h4 {
     margin: 30px 0 20px 0;
     font-size: 28px;
-    color: rgba(0, 0, 0, .85)
+    color: #595959
 }
 
 #page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1),
@@ -323,7 +329,7 @@ span.support-pt {
     display: block;
     height: 4px;
     width: 90px;
-    background: #6dbf77;
+    background: #52C41A;
     margin: 10px auto;
     border-radius: 4px;
 }
@@ -431,7 +437,7 @@ span.support-pt {
     color: #333;
     font-weight: bold;
     padding-left: 10px;
-    border-left: 5px solid #6dbf77;
+    border-left: 5px solid #52C41A;
     margin-bottom: 20px;
 }
 
@@ -445,7 +451,7 @@ span.support-pt {
 
 .privilege-table th {
     color: #fff;
-    background: #6dbf77;
+    background: #52C41A;
 }
 
 .privilege-table td {
@@ -453,7 +459,7 @@ span.support-pt {
 }
 
 .privilege-expect-text {
-    color: #F14764;
+    color: #FF3400;
     margin: 10px;
 }
 
@@ -499,9 +505,9 @@ span.support-pt {
 }
 
 .user-center #col-1 ul li.active {
-    color: #6dbf77;
-    background-color: #f1f9f2;
-    border-color: #6dbf77;
+    color: #52C41A;
+    background-color: #D9F7BE;
+    border-color: #52C41A;
 }
 
 .user-center #col-1 {
@@ -580,7 +586,7 @@ span.support-pt {
 
 #page-5 .title {
     padding-left: 10px;
-    border-left: 5px solid #6dbf77;
+    border-left: 5px solid #52C41A;
     margin: 20px 0;
 }
 
@@ -590,7 +596,8 @@ span.support-pt {
 
 #page-5 #two-btn .btn {
     margin-right: 10px;
-    padding: 0 10px;
+    padding: 5px 13px;
+    border-radius: 5px;
 }
 
 #page-5 .privilege-table th,
@@ -691,18 +698,36 @@ span.support-pt {
     margin-left: 10px;
 }
 
-/**/
+/****************************** modal--登录 *******************************************/
+@media (min-width: 576px){
+    #loginModal .modal-dialog {
+        max-width: 450px;
+    }
+}
 #loginModal .modal-header {
     border: 0;
+    padding-bottom: 0;
+    padding-top: 10px;
 }
 
 #loginModal .modal-body {
-    padding: 0rem 2rem 2rem;
+    padding: 0 2rem 2rem;
 }
 
 #loginModal h3 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #999 !important;
+}
+#loginModal h3 img{
+    width: 120px;
+    display: inline-block;
+    margin-top: -5px;
+}
+#loginModal h3 span{
+    display: inline-block;
+    margin-left: 1rem;;
+    padding-left: 1rem;
+    border-left: 4px solid #999;
 }
 
 #loginModal .form-group {
@@ -713,8 +738,7 @@ span.support-pt {
     flex: 1;
 }
 
-#loginModal .login-code-box button {
-    flex-basis: 30%;
+#loginModal .login-code-box .btn {
     margin-left: 10px;
 }
 
@@ -728,8 +752,8 @@ span.support-pt {
 }
 
 #loginModal .custom-control-input:checked ~ .custom-control-label::before {
-    border-color: #6dbf77;
-    background-color: #6dbf77;
+    border-color: #52C41A;
+    background-color: #52C41A;
 }
 
 /*imgBigModal*/
@@ -762,7 +786,41 @@ span.support-pt {
 /*#imgBigModal img{*/
 /*    width: auto;*/
 /*}*/
-
+/*********************************导航条--公用*********************************************/
+.nav-link-logo{
+    padding-top: 3px;
+    padding-bottom: 0;
+}
+.nav-link-logo img{
+    vertical-align: top;
+    width: 94px;
+}
+.navbar-nav .nav-item a{
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #595959!important;
+}
+.navbar-nav .nav-item a::before{
+    content: '';
+    display: block;
+    height: 4px;
+    background: transparent;
+    margin-bottom: 6px;
+}
+.navbar-nav .nav-item.active a{
+    color: #52C41A!important;
+}
+.navbar-nav .nav-item.active a::before{
+    background: #52C41A;
+}
+.nav.nav-pills .btn{
+    padding: .375rem 1rem;
+    height: auto;
+}
+.nav-pills .show>.nav-link.btn-green-outline {
+    color: #fff!important;
+    background-color: #52C41A;
+}
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free" !important;
@@ -806,3 +864,4 @@ span.support-pt {
     background: url('../images/icons/pinglun.png') left center no-repeat;
     background-size: 15px;
 }
+

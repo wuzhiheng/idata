@@ -7,6 +7,7 @@ $.json = function (option) {
     $.extend(config, option);
 
     config.success = function (data) {
+        loading.hide()
         if(data && data.code != '200'){
             alert(data.msg);
             return;
@@ -15,12 +16,11 @@ $.json = function (option) {
             option.success(data);
     };
     config.complete = function (data) {
-        loading.hide()
         if (typeof option.complete == 'function')
             option.complete(data);
     };
     config.error = function (data) {
-
+        loading.hide()
         if(toastr)
             toastr.error('服务正忙,请稍后再试');
         else

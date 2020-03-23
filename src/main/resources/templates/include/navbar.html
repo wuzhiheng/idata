@@ -26,4 +26,68 @@
 </nav>
 <!-- /.navbar -->
 
+
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="portal-navbar">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="d-sm-inline-block">
+            <a th:href="@{/}" class="nav-link nav-link-logo">
+                <img th:src="@{/images/logo.png}" />
+            </a>
+        </li>
+        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品介绍'} ? 'active')">
+            <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
+        </li>
+        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品套餐'} ? 'active')">
+            <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
+        </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="nav nav-pills ml-auto">
+        <li class="nav-item">
+            <a class="nav-link btn btn-green-outline show-login-modal">登录</a>
+        </li>
+        <li style="width: 1rem"></li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-green " th:href="@{/}">体验Demo</a>
+        </li>
+    </ul>
+</nav>
+
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="user-navbar">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class=" d-sm-inline-block">
+            <a th:href="@{/}" class="nav-link nav-link-logo">
+                <img th:src="@{/images/logo.png}" />
+            </a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
+        </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="nav nav-pills ml-auto">
+        <li class="nav-item">
+            <a class="nav-link btn btn-green" th:href="@{/}">开始分析</a>
+        </li>
+        <li style="width: 1rem"></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link btn btn-green-outline dropdown-toggle" data-toggle="dropdown">
+                135****4320
+                <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" tabindex="-1" href="#">退出登录</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
 </html>
