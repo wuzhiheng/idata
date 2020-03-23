@@ -118,7 +118,7 @@ img.can-show{
 }
 /*******************************************index.html--数据首页**********************************************/
 .table.table-sm td {
-    padding: .5rem 2px;
+    padding: .5rem 5px;
 }
 
 #page-1 #row-1 .card-body {
@@ -160,7 +160,7 @@ span.gl-rate {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 20px;
+    padding: 10px 10px 10px 20px;
 }
 
 #page-1 #row-2-r > div {
@@ -170,8 +170,6 @@ span.gl-rate {
     justify-content: center;
     padding: 10px 0 20px 20px;
     font-size: 0.875rem;
-    color: rgba(0, 0, 0, 0.47);
-
 }
 
 .xs-text {
@@ -199,7 +197,6 @@ span.gl-rate {
 
 .xs-pm-str {
     font-size: 1rem;
-    color: rgba(0, 0, 0, .47);
 }
 
 .xs-pm {
@@ -211,15 +208,6 @@ span.gl-rate {
 #page-1 #row-1-r-b {
     margin-top: 25px;
     font-size: 0.875rem;
-    color: rgba(0, 0, 0, 0.47);
-}
-
-#page-1 #row-1-r-b > div {
-    flex: 1;
-}
-
-#page-1 #row-1-r-b > div:nth-child(n+2) {
-    padding-left: 20px;
 }
 
 .xs-update-count {
@@ -239,7 +227,6 @@ span.gl-rate {
 
 #page-1 #row-3 {
     font-size: 0.875rem;
-    color: rgba(0, 0, 0, .47);
 }
 
 /*****************************************pages/portal/index.html--网站首页************************/
@@ -746,7 +733,7 @@ span.support-pt {
     font-size: .875rem;
 }
 
-#loginModal .btn-green {
+#loginModal .btn-block.btn-green {
     font-size: 1rem;
     padding: .5rem;
 }
@@ -814,7 +801,7 @@ span.support-pt {
     background: #52C41A;
 }
 .nav.nav-pills .btn{
-    padding: .375rem 1rem;
+    padding: .375rem .5rem;
     height: auto;
 }
 .nav-pills .show>.nav-link.btn-green-outline {
@@ -829,7 +816,11 @@ span.support-pt {
 .ztree .node_name {
     font-family: -apple-system-font, Helvetica Neue, sans-serif !important;
 }
-
+/*********************************footer--底部*********************************************/
+footer.main-footer{
+    background: #272f3f;
+    color: rgb(153,153,153);
+}
 /*********************************icons--图标*********************************************/
 .m-icon {
     padding-left: 18px;

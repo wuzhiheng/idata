@@ -6,7 +6,7 @@
 <body class="layout-top-nav" id="page-1">
 <div class="wrapper">
     <!-- navbar -->
-    <div th:replace="include/navbar::navbar"></div>
+    <div th:insert="include/navbar::data-navbar" th:with="active='首页'"></div>
 
     <div class="content-wrapper">
         <!-- Main content -->
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="d-flex" id="row-1-r-b">
+                                    <div class="d-flex justify-content-between" id="row-1-r-b">
                                         <div>
                                             <div class="xs-update-str">更新字数</div>
                                             <div class="xs-update-count">12656</div>
@@ -160,7 +160,7 @@
                                                 <th style="width: 10px">#</th>
                                                 <th style="width: 80px">流派</th>
                                                 <th style="width: auto">占比</th>
-                                                <th style="width: 10px"></th>
+                                                <th style="width: 30px"></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -172,7 +172,7 @@
                                                         <div class="progress-bar bg-primary" style="width: 50%"></div>
                                                     </div>
                                                 </td>
-                                                <td>50%</td>
+                                                <td class="text-center">50%</td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
@@ -182,7 +182,7 @@
                                                         <div class="progress-bar bg-primary" style="width: 40%"></div>
                                                     </div>
                                                 </td>
-                                                <td>40%</td>
+                                                <td class="text-center">40%</td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
@@ -192,7 +192,7 @@
                                                         <div class="progress-bar bg-primary" style="width: 30%"></div>
                                                     </div>
                                                 </td>
-                                                <td>30%</td>
+                                                <td class="text-center">30%</td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
@@ -202,7 +202,7 @@
                                                         <div class="progress-bar bg-primary" style="width: 20%"></div>
                                                     </div>
                                                 </td>
-                                                <td>20%</td>
+                                                <td class="text-center">20%</td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
@@ -212,7 +212,7 @@
                                                         <div class="progress-bar bg-primary" style="width: 10%"></div>
                                                     </div>
                                                 </td>
-                                                <td>10%</td>
+                                                <td class="text-center">10%</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -270,28 +270,28 @@
                                 </h3>
                             </div><!-- /.card-header -->
                             <div class="card-body">
-                                <div class="d-flex justify-content-between" style="padding-left: 20px">
-                                    <div class="flex-grow-1">
-                                        <div class="xs-pm-str">更新作品数</div>
+                                <div class="d-flex justify-content-between flex-wrap" style="padding:0 40px">
+                                    <div class="">
+                                        <div class="xs-pm-str ">更新作品数</div>
                                         <div class="xs-pm">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
-                                    <div class="flex-grow-1">
+                                    <div class="">
                                         <div class="xs-pm-str">活跃作家数</div>
                                         <div class="xs-pm">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
-                                    <div class="flex-grow-1">
+                                    <div class="">
                                         <div class="xs-pm-str">更新章节数</div>
                                         <div class="xs-pm">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
-                                    <div class="flex-grow-1">
+                                    <div class="">
                                         <div class="xs-pm-str">新书数</div>
                                         <div class="xs-pm">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
-                                    <div class="flex-grow-1">
+                                    <div class="">
                                         <div class="xs-pm-str">新增评论数</div>
                                         <div class="xs-pm">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
@@ -306,6 +306,8 @@
         </div>
         <!-- /.content -->
     </div>
+
+    <div th:replace="include/footer::footer"></div>
 </div>
 
 <!-- REQUIRED SCRIPTS -->

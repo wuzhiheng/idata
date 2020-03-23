@@ -2,25 +2,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="navbar">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="data-navbar">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>-->
-<!--        </li>-->
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="d-sm-inline-block">
+            <a th:href="@{/}" class="nav-link nav-link-logo">
+                <img th:src="@{/images/logo.png}" />
+            </a>
+        </li>
+        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '首页'} ? 'active')">
             <a th:href="@{/}" class="nav-link">首页</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a th:href="@{/page/portal/index}" class="nav-link">行业分析</a>
+        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '行业分析'} ? 'active')">
+            <a th:href="@{/}" class="nav-link">行业分析</a>
         </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                    class="fas fa-th-large"></i></a>
+            <a class="nav-link" th:href="@{/page/portal/package}">套餐订购</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="far fa-bell"></i>
+<!--                消息-->
+                <span class="badge badge-warning navbar-badge" style="right:0">15</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown user-menu d-none d-sm-inline-block">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2" alt="User Image">
+                <span>jimmy.qiu</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown d-none d-sm-inline-block">
+            <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown"href="#">
+                作品：暗月纪元
+                <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" tabindex="-1" href="#">暗月纪元</a>
+            </div>
         </li>
     </ul>
 </nav>
