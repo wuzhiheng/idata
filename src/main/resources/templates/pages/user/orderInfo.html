@@ -113,7 +113,7 @@
                 field: 'payFee',
                 title: '实际支付费用',
                 formatter: function (v, r, i) {
-                    return `<span class="text-theme">${v}</span>`;
+                    return '<span class="text-theme">'+v+'</span>';
                 }
             },
             {
@@ -123,11 +123,11 @@
                 formatter: function (v, r, i) {
                     let html;
                     if (v == '0') {
-                        html = `<button class="btn btn-sm btn-green" onclick="showPayModal()">立即支付</button>`;
+                        html = '<button class="btn btn-sm btn-green" onclick="showPayModal()">立即支付</button>';
                     } else if (v == '1') {
-                        html = `<span class="text-theme">支付成功</span>`;
+                        html = '<span class="text-theme">支付成功</span>';
                     } else if (v == '2') {
-                        html = `<span class="text-danger">支付取消</span>`;
+                        html = '<span class="text-danger">支付取消</span>';
                     }
                     return html;
                 }

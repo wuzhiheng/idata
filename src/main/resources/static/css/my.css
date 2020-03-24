@@ -1,13 +1,16 @@
 /*
 主题绿色 #52C41A
-表格文字灰色 rgba(0,0,0,.647)
+表格文字灰色 rgba(0,0,0,.65)
 表格边框灰色 #dee2e6
 更淡的灰色   #ebebeb
-文字默认颜色(偏黑色) #595959 #595959
-第二主题文字颜色（绿色）#52C41A
+文字默认颜色(偏黑色) #595959 rgba(0,0,0,.85)
+第二主题文字颜色（绿色）#52C41A #6dbf77
 */
 .modal {
     animation-duration: 200ms;
+}
+:focus{
+    outline: none;
 }
 
 body {
@@ -15,7 +18,7 @@ body {
     color: #595959;
     background: #f5f6f9;
     padding-top: 70px;
-    font-family:Source Han Sans CN,-apple-system-font,Helvetica Neue,sans-serif
+    font-family: Source Han Sans CN, -apple-system-font, Helvetica Neue, sans-serif
 }
 
 .main-header.navbar {
@@ -24,7 +27,7 @@ body {
     left: 0;
     top: 0;
     right: 0;
-    padding: .5rem 1rem ;
+    padding: .5rem 1rem;
 }
 
 ul {
@@ -110,12 +113,14 @@ a.btn.close {
     font-size: inherit !important;
 }
 
-img.can-show{
+img.can-show {
     cursor: pointer;
 }
-.custom-control-label{
+
+.custom-control-label {
     cursor: pointer;
 }
+
 /*******************************************index.html--数据首页**********************************************/
 .table.table-sm td {
     padding: .5rem 5px;
@@ -505,6 +510,7 @@ span.support-pt {
     padding-left: 0;
     border-left: 10px solid #f5f6f9;
 }
+
 .user-center h4 {
     margin-bottom: 30px;
 }
@@ -686,11 +692,12 @@ span.support-pt {
 }
 
 /****************************** modal--登录 *******************************************/
-@media (min-width: 576px){
+@media (min-width: 576px) {
     #loginModal .modal-dialog {
         max-width: 450px;
     }
 }
+
 #loginModal .modal-header {
     border: 0;
     padding-bottom: 0;
@@ -705,12 +712,14 @@ span.support-pt {
     margin-bottom: 30px;
     color: #999 !important;
 }
-#loginModal h3 img{
+
+#loginModal h3 img {
     width: 120px;
     display: inline-block;
     margin-top: -5px;
 }
-#loginModal h3 span{
+
+#loginModal h3 span {
     display: inline-block;
     margin-left: 1rem;;
     padding-left: 1rem;
@@ -743,84 +752,83 @@ span.support-pt {
     background-color: #52C41A;
 }
 
-/*imgBigModal*/
-/*@media (min-width: 576px){*/
-/*    #imgBigModal .modal-dialog {*/
-/*        width: auto;*/
-/*    }*/
-/*    #imgBigModal .modal-content{*/
-/*        box-shadow: none;*/
-/*    }*/
-/*}*/
-/*#imgBigModal.modal{*/
-/*    animation-duration: 200ms;*/
-/*}*/
-/*#imgBigModal .modal-dialog{*/
-/*    width: auto;*/
-/*    background: none;*/
-/*}*/
-/*#imgBigModal .modal-content{*/
-/*    background: none;*/
-/*    border: none;*/
-/*    box-shadow: none;*/
-/*}*/
-/*#imgBigModal .modal-body{*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-
-/*}*/
-/*#imgBigModal img{*/
-/*    width: auto;*/
-/*}*/
 /*********************************导航条--公用*********************************************/
-.nav-link-logo{
+.navbar-light .navbar-nav .nav-link {
+    color: #595959;
+}
+
+.nav-link-logo {
     padding-top: 3px;
     padding-bottom: 0;
 }
-.nav-link-logo img{
+
+.nav-link-logo img {
     vertical-align: top;
     width: 94px;
 }
-.navbar-nav .nav-item a{
-    padding-top: 0;
-    padding-bottom: 0;
-    color: #595959!important;
+
+.navbar-nav .nav-item a {
+    padding-top: 9px;
+    padding-bottom: 10px;
+    position: relative;
 }
-.navbar-nav .nav-item a::before{
+
+.navbar-nav .nav-item.active a,
+.navbar-nav .nav-item:hover a {
+    color: #52C41A !important;
+}
+
+.navbar-nav .nav-item.active a::before {
+    left: .8rem;
+    right: .8rem;
+}
+
+.navbar-nav .nav-item:not(.active):hover a::before {
+    left: .8rem;
+    right: .8rem;
+}
+
+.navbar-nav .nav-item a::before {
     content: '';
-    display: block;
-    height: 4px;
-    background: transparent;
-    margin-bottom: 6px;
-}
-.navbar-nav .nav-item.active a{
-    color: #52C41A!important;
-}
-.navbar-nav .nav-item.active a::before{
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0;
     background: #52C41A;
+    height: 4px;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
 }
-.nav.nav-pills .btn{
+
+.nav.nav-pills .btn {
     padding: .375rem .5rem;
     height: auto;
 }
-.nav-pills .show>.nav-link.btn-green-outline {
-    color: #fff!important;
+
+.nav-pills .show > .nav-link {
+    color: #fff !important;
+    background: none;
+}
+
+.nav-pills .show > .nav-link.btn-green-outline {
     background-color: #52C41A;
 }
+
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
-    font-family: "Font Awesome 5 Free" !important;
+    font-family: "Font Awesome 5 Free", serif !important;
 }
 
 .ztree .node_name {
     font-family: -apple-system-font, Helvetica Neue, sans-serif !important;
 }
+
 /*********************************footer--底部*********************************************/
-footer.main-footer{
+footer.main-footer {
     background: #272f3f;
-    color: rgb(153,153,153);
+    color: rgb(153, 153, 153);
 }
+
 /*********************************icons--图标*********************************************/
 .m-icon {
     padding-left: 18px;

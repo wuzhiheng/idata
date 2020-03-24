@@ -18,7 +18,7 @@ option = {
         left: '0%',
         right: '0%',
         bottom: '0%',
-        top: '32px',
+        top: '35px',
         containLabel: true
     },
     xAxis: {
@@ -34,8 +34,6 @@ option = {
         barWidth: '40%'
     }]
 };
-var myChart = echarts.init(document.getElementById('main'));
-myChart.setOption(option);
 
 option2 = {
     color: ['#5aa2f8', '#79c87e', '#f6d465', '#df5667', '#8f68de', '#71c9ca'],
@@ -45,26 +43,32 @@ option2 = {
     },
     legend: {
         formatter: function (name) {
-            var index = 0;
-            var clientlabels = this.option2.series[0].data.map(res=>res.name);
-            var clientcounts = this.option2.series[0].data.map(res=>parseInt(res.value));
-            var totalVal = clientcounts.reduce((v,res)=>{
+            let clientlabels = this.option2.series[0].data.map(function (res){
+                return res.name;
+            });
+            let clientcounts = this.option2.series[0].data.map(function (res){
+                return parseInt(res.value);
+            });
+            let totalVal = clientcounts.reduce(function(v,res){
                 return v+res
             },0);
+
+            let index = 0;
             clientlabels.forEach(function (value, i) {
                 if (value == name) {
                     index = i;
                     return false;
                 }
             });
-            return name + " | " + (clientcounts[index] / totalVal * 100).toFixed(1).replace('.0','') +"%";
+
+            return name  + " | " + (clientcounts[index] / totalVal * 100).toFixed(1).replace('.0','') +"%";
         },
         itemGap:20,
         icon: 'circle',
         itemWidth: 8,
         itemHeight: 8,
         orient: 'vertical',
-        right: 0,
+        right: 10,
         top: 'center',
         data: ['0年', '1年', '2年', '3-5年', '5-8年', '8年+']
     },
@@ -111,10 +115,34 @@ option3 = {
         formatter: '{a} <br/>{b}: {c} ({d}%)'
     },
     legend: {
+        formatter: function (name) {
+
+            let clientlabels = this.option3.series[0].data.map(function (res){
+                return res.name;
+            });
+            let clientcounts = this.option3.series[0].data.map(function (res){
+                return parseInt(res.value);
+            });
+            let totalVal = clientcounts.reduce(function(v,res){
+                return v+res
+            },0);
+
+            let index = 0;
+            clientlabels.forEach(function (value, i) {
+                if (value == name) {
+                    index = i;
+                    return false;
+                }
+            });
+
+            return name  + " | " + (clientcounts[index] / totalVal * 100).toFixed(1).replace('.0','') +"%";
+        },
+        itemGap:20,
         icon: 'circle',
-        itemWidth: 16,
+        itemWidth: 8,
+        itemHeight: 8,
         orient: 'vertical',
-        right: 0,
+        right: 10,
         top: 'center',
         data: ['1本', '2本', '3本', '4-8本', '8-15本', '15本']
     },
@@ -122,8 +150,8 @@ option3 = {
         {
             name: '读者订阅作品数',
             type: 'pie',
-            center: ['35%', '50%'],
-            radius: ['40%', '60%'],
+            center: ['30%', '50%'],
+            radius: ['30%', '50%'],
             avoidLabelOverlap: false,
             label: {
                 normal: {
@@ -155,8 +183,18 @@ option3 = {
     ]
 };
 
+var myChart = echarts.init(document.getElementById('main'));
 var myChart2 = echarts.init(document.getElementById('main2'));
 var myChart3 = echarts.init(document.getElementById('main3'));
+
+myChart.setOption(option);
 myChart2.setOption(option2);
 myChart3.setOption(option3);
+
+//当窗口尺寸发生改变时，重新渲染
+$(window).resize(function () {
+    myChart.resize();
+    myChart2.resize();
+    myChart3.resize();
+})
 

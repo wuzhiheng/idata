@@ -15,28 +15,29 @@ const animationOut = ["bounceOut", "bounceOutDown", "bounceOutLeft", "bounceOutR
 
 $.fn.extend({
     animateCss: function (animationName) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         this.addClass('animated ' + animationName).one(animationEnd, function() {
             //执行完动画后移除class
             $(this).removeClass('animated ' + animationName);
         });
     },
-    modalShow:function (animateName,modalOption={}) {
-        var _that = this;
+    modalShow:function (animateName,modalOption) {
+        modalOption = modalOption || {};
+        let _that = this;
         if(!animateName || animationIn.indexOf(animateName)==-1){
-            var intRandom =  Math.floor(Math.random()*animationIn.length);
+            let intRandom =  Math.floor(Math.random()*animationIn.length);
             animateName = animationIn[intRandom];
         }
         modalOption = $.extend({show:true,vertical:false},modalOption);
         if(modalOption.vertical){
             $(this).on('show.bs.modal', function() {
-                var $this = $(this);
-                var $modal_dialog = $this.find('.modal-dialog');
+                let $this = $(this);
+                let $modal_dialog = $this.find('.modal-dialog');
                 $this.css('display', 'block');
                 $modal_dialog.css({'margin-top': Math.max(0, ($(window).height() - $modal_dialog.height()) / 2)});
             })
         }
-        $(this).modal(modalOption)
+        $(this).modal(modalOption);
         $(this).show().animateCss(animateName);
         $(this).children().click(function(e){e.stopPropagation()});
         $('.modal-header .close,[data-dismiss=modal]',this).click(function () {
@@ -45,11 +46,11 @@ $.fn.extend({
     },
     modalHide:function (animateName) {
         if (!animateName || animationOut.indexOf(animateName) == -1) {
-            var intRandom = Math.floor(Math.random() * animationOut.length);
+            let intRandom = Math.floor(Math.random() * animationOut.length);
             animateName = animationOut[intRandom];
         }
         $(this).children().click(function (e) {
-            e.stopPropagation()
+            e.stopPropagation();
         });
         $(this).animateCss(animateName);
         $(this).delay(900).hide(1, function () {
