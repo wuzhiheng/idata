@@ -7,6 +7,12 @@ $.json = function (option) {
 
     config.success = function (data, textStatus, xhr) {
         loading.hide()
+        if(data && data.code == '401'){
+            console.log(data.msg);
+            showLoginModal();
+            $('#loginForm [name=forwardUrl]').val(data.data);
+            return;
+        }
         if (data && data.code && data.code != '200') {
             alert(data.msg);
             return;
@@ -171,6 +177,49 @@ function guid() {
     });
 }
 
+function createImgModal() {
+    let html =
+        '<div class="modal" id="imgBigModal" style="animation-duration: 200ms">' +
+        '<div class="modal-dialog" style="width: auto;background: none">' +
+        '<div class="modal-content" style="background: none;border: none;box-shadow: none;">' +
+        '<div class="modal-body p-0" style="display: flex;justify-content: center;align-items: center;">' +
+        '<img style="width: auto;"/>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $('body').append(html);
+}
+
+function showLoginModal() {
+    $('#loginModal').modalShow('zoomIn',{vertical:true});
+}
+function doLogin() {
+    let phone = $('#loginForm [name=phone]').val(),
+        smsCode = $('#loginForm [name=smsCode]').val();
+
+    if(!phone || !/\d{11}/.test(phone)){
+        alert("请填写正确的手机号码");
+        $('#loginForm [name=phone]').focus();
+        return;
+    }
+    if(!smsCode || !/\d{4}/.test(smsCode)){
+        alert("请填写正确的验证码");
+        $('#loginForm [name=smsCode]').focus();
+        return;
+    }
+
+    $.json({
+        url: ctx + 'login/smsLogin',
+        type: 'post',
+        data:$('#loginForm').serialize(),
+        success: function (data) {
+            let forwardUrl = $('#loginForm [name=forwardUrl]').val() || ctx;
+            window.location.href = forwardUrl;
+        }
+    })
+}
+
 // 点击图片放大功能
 $(function () {
     $('img.can-show').click(function () {
@@ -180,21 +229,18 @@ $(function () {
             exists || createImgModal();
             $('#imgBigModal img').attr('src', src);
             $('#imgBigModal').modalShow('zoomIn', {vertical: true});
+            setTimeout(function () {
+                let img = $('#imgBigModal img')[0];
+                $('#imgBigModal .modal-dialog').css(
+                    {
+                        'margin-top': Math.max(0, ($(window).height() - img.offsetHeight) / 2),
+                        'width':img.offsetWidth
+                    }
+                );
+            },50)
+
         }
     })
-
-    function createImgModal() {
-        let html =
-            '<div class="modal" id="imgBigModal" style="animation-duration: 200ms">' +
-            '<div class="modal-dialog" style="width: auto;background: none">' +
-            '<div class="modal-content" style="background: none;border: none;box-shadow: none;">' +
-            '<div class="modal-body" style="display: flex;justify-content: center;align-items: center;">' +
-            '<img style="width: auto;"/>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>';
-        $('body').append(html);
-    }
-
 })
+
+

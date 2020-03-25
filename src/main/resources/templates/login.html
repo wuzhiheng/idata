@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:insert="include/head::head" th:with="title='登录'"></head>
+
+<body>
+    <div th:replace="include/modal::loginModal"></div>
+</body>
+
+<script>
+    showLoginModal()
+</script>
+</html>

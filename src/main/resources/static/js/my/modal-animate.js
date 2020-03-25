@@ -14,14 +14,15 @@ const animationOut = ["bounceOut", "bounceOutDown", "bounceOutLeft", "bounceOutR
     "slideOutRight", "slideOutUp", "rollOut"];
 
 $.fn.extend({
-    animateCss: function (animationName) {
+    animateCss: function (animationName,callback) {
         let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         this.addClass('animated ' + animationName).one(animationEnd, function() {
             //执行完动画后移除class
             $(this).removeClass('animated ' + animationName);
+            callback && callback();
         });
     },
-    modalShow:function (animateName,modalOption) {
+    modalShow:function (animateName,modalOption,callback) {
         modalOption = modalOption || {};
         let _that = this;
         if(!animateName || animationIn.indexOf(animateName)==-1){
@@ -38,7 +39,7 @@ $.fn.extend({
             })
         }
         $(this).modal(modalOption);
-        $(this).show().animateCss(animateName);
+        $(this).show().animateCss(animateName,callback);
         $(this).children().click(function(e){e.stopPropagation()});
         $('.modal-header .close,[data-dismiss=modal]',this).click(function () {
             $(_that).modal('hide')

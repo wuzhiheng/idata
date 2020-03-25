@@ -25,7 +25,7 @@ import java.util.List;
 public class MyBatisPlusCodeGenerator {
 
     //包名
-    private static final String PACKAGE_NAME = "com.wonders.commonweb1";
+    private static final String PACKAGE_NAME = "com.wonders.generator";
 
     private static String URL = "jdbc:mysql://localhost:3306/idata?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";

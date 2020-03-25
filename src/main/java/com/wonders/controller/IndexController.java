@@ -20,6 +20,11 @@ public class IndexController extends BaseController{
         return "index";
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
 //    //门户网站首页
 //    @RequestMapping("page/portal")
 //    public String portal(){

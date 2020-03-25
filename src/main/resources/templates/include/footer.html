@@ -1,12 +1,57 @@
 <!-- 存放底部footer -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<div th:fragment="footer">
 
-<footer class="main-footer text-center" th:fragment="footer">
-    <strong>
-        Copyright © 2020 <a href="#">数据指南（idataplus.cn）</a>
-    </strong>
-    All rights reserved. 粤ICP备XXXX
-</footer>
+    <footer class="main-footer text-center" >
+        <strong>
+            Copyright © 2020 <a href="#">数据指南（idataplus.cn）</a>
+        </strong>
+        All rights reserved. 粤ICP备XXXX
+    </footer>
+
+    <div class="modal" tabindex="-1" role="dialog" id="loginModal" th:fragment="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="btn close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <h3 class="d-flex align-items-center">
+                        <img th:src="@{/images/logo.png}"/>
+                        <span>用户登录</span>
+                    </h3>
+                    <div class="">
+                        <form onsubmit="return false;" id="loginForm">
+                            <input name="forwardUrl" type="hidden" th:value="${session.forwardUrl}">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="手机号" name="phone"/>
+                            </div>
+                            <div class="form-group login-code-box d-flex">
+                                <input class="form-control" placeholder="验证码" name="smsCode"/>
+                                <button class="btn btn-green">获取验证码</button>
+                            </div>
+                            <div class="form-group d-flex justify-content-between">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox"
+                                           id="customCheckbox1" checked name="remember-me"/>
+                                    <label for="customCheckbox1" class="custom-control-label">自动登录</label>
+                                </div>
+                                <!--                            <a href="#">忘记密码</a>-->
+                            </div>
+
+                            <button class="btn btn-block btn-green" onclick="doLogin()">登 录 </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
 
 </html>

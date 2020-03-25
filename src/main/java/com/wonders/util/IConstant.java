@@ -1,9 +1,16 @@
 package com.wonders.util;
 
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
 /**
  * 创建日期：2017-12-15下午12:46:31
  * author:wuzhiheng
  */
+@Component
+@ConfigurationProperties(prefix = "constant")
+@Data
 public class IConstant {
 
 	//定义返回约定好的信息
@@ -14,18 +21,8 @@ public class IConstant {
 	public final static String MSG_ERROR = "操作失败！";
 	public final static String MSG_UNKONW = "未知错误！";
 
-	/**验证码**/
-	public final static String VERIFICATIONCODE = "verificationCode";
+	//spring-security不拦截路径
+	private String antMatchers;
 
-	public final static String SESSION_USER_NAME = "frmz_user";
-
-
-	public final static String KEYPAIR = "keyPair";
-
-	public final static String NO_PERMISSION = "没有权限！";
-
-	public final static String SALT = "";
-
-	public final static String FORWARD_PAGE = "forward_page";
 
 }

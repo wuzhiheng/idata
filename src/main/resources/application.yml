@@ -13,11 +13,16 @@ spring:
   thymeleaf:
     cache: false
 
+
 #spring-boot整合mybatis
 mybatis:
   mapper-locations: classpath:/mapper/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
+
+constant:
+  antMatchers: /,/login,/page/portal/**,/favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
+
 
 logging:
   level:

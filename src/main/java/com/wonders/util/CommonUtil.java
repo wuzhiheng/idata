@@ -12,7 +12,6 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.*;
@@ -249,14 +248,9 @@ public class CommonUtil {
         return null;
     }
 
-
-    public static String encryptPassword(String str) {
-        return MD5Utils.encrypt(IConstant.SALT + str);
-    }
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(encryptPassword(12345678 + ""));
-        System.out.println(URLEncoder.encode("12345678+", "utf-8"));
+    public static boolean isAjax(HttpServletRequest request){
+        return (request.getHeader("X-Requested-With") != null &&
+                "XMLHttpRequest".equals(request.getHeader("X-Requested-With").toString()));
     }
 
 }
