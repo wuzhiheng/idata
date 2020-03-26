@@ -5,6 +5,7 @@ import com.wonders.util.IConstant;
 import com.wonders.vo.ReturnMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,8 +27,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class GlobalExceptionHandler {
 
+	@ExceptionHandler(AccessDeniedException.class)
+	public String accessDeniedException(Exception e) throws Exception {
+		throw e;
+	}
+
 	@ExceptionHandler(Exception.class)
-//	@ResponseBody
 	public String handler(Exception e, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		log.error(e.getMessage());
 		e.printStackTrace();
@@ -38,7 +43,6 @@ public class GlobalExceptionHandler {
 		response.setContentType("application/json;charset=utf-8");
 		response.getWriter().write(new ObjectMapper().writeValueAsString(returnMsg));
 		return null;
-//		return returnMsg;
 	}
 
 	private boolean isAjax(HttpServletRequest request){

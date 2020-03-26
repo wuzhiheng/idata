@@ -17,12 +17,12 @@
     <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/adminlte.min.css}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/dist/css/google-font.css}">
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css}">
 
     <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">-->
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
     <link rel="stylesheet" th:href="@{/css/my.css}"/>
-
 
     <!--[if !IE]> -->
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
@@ -38,12 +38,21 @@
     <script th:src="@{/AdminLTE-3.0.2/dist/js/adminlte.js}" defer></script>
     <script th:src="@{/js/weui.min.js}" ></script>
     <script th:src="@{/js/my/modal-animate.js}" ></script>
+    <script th:src="@{/AdminLTE-3.0.2/plugins/sweetalert2/sweetalert2.min.js}"></script>
+
+
     <script th:src="@{/js/common.js}" ></script>
 
     <script th:inline="javascript">
         var ctx = location.protocol+'//'+location.host+[[@{/}]];
             console.log(ctx);
-
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: false,
+            timer: 3000,
+            padding:'.5rem'
+        });
         $(function () {
             $('.show-login-modal').click(function () {
                 $('#loginModal').modalShow('zoomIn',{vertical:true});
@@ -83,6 +92,18 @@
 <!-- plugin:validate -->
 <div th:fragment="validate">
     <script th:src="@{/js/jquery.validate.min.js}"></script>
+</div>
+
+<!-- plugin:sweetalert2 -->
+<div th:fragment="sweetalert2">
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css}">
+    <script th:src="@{/AdminLTE-3.0.2/plugins/sweetalert2/sweetalert2.min.js}"></script>
+</div>
+
+<!-- plugin:toastr -->
+<div th:fragment="toastr">
+    <link rel="stylesheet" th:href="@{/AdminLTE-3.0.2/plugins/toastr/toastr.min.css}">
+    <script th:src="@{/AdminLTE-3.0.2/plugins/toastr/toastr.min.js}"></script>
 </div>
 
 </html>

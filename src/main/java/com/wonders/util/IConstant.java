@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
  * 创建日期：2017-12-15下午12:46:31
  * author:wuzhiheng
  */
-@Component
-@ConfigurationProperties(prefix = "constant")
-@Data
 public class IConstant {
 
 	//定义返回约定好的信息
@@ -20,9 +17,5 @@ public class IConstant {
 	public final static String MSG_SUCCESS = "操作成功！";
 	public final static String MSG_ERROR = "操作失败！";
 	public final static String MSG_UNKONW = "未知错误！";
-
-	//spring-security不拦截路径
-	private String antMatchers;
-
 
 }

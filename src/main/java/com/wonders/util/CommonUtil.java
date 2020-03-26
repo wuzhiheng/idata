@@ -253,4 +253,8 @@ public class CommonUtil {
                 "XMLHttpRequest".equals(request.getHeader("X-Requested-With").toString()));
     }
 
+    public static HttpServletRequest getCurrentRequest(){
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+    }
+
 }

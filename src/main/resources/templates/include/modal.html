@@ -76,19 +76,18 @@
                     <form onsubmit="return false;" id="loginForm">
                         <input name="forwardUrl" type="hidden" th:value="${session.forwardUrl}">
                         <div class="form-group">
-                            <input class="form-control" placeholder="手机号" name="phone"/>
+                            <input class="form-control" placeholder="手机号" name="phone" value="11111111111"/>
                         </div>
                         <div class="form-group login-code-box d-flex">
-                            <input class="form-control" placeholder="验证码" name="smsCode"/>
+                            <input class="form-control" placeholder="验证码" name="smsCode" value="1234"/>
                             <button class="btn btn-green">获取验证码</button>
                         </div>
                         <div class="form-group d-flex justify-content-between">
                             <div class="custom-control custom-checkbox">
                                 <input class="custom-control-input" type="checkbox"
-                                       id="customCheckbox1" checked name="remember-me"/>
+                                       id="customCheckbox1" checked name="remember-me" value="true"/>
                                 <label for="customCheckbox1" class="custom-control-label">自动登录</label>
                             </div>
-<!--                            <a href="#">忘记密码</a>-->
                         </div>
 
                         <button class="btn btn-block btn-green" onclick="doLogin()">登 录 </button>

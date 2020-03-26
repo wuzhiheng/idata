@@ -72,9 +72,11 @@ public class UserEntity implements Serializable, UserDetails {
      */
     private Date updateTime;
 
+    private transient Collection<GrantedAuthority> authorities;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override

@@ -1,4 +1,4 @@
-$.json = function (option) {
+$.json = function (option,defaultHandle = true) {
     let config = {
         dataType: 'json',
         type: 'get'
@@ -13,12 +13,20 @@ $.json = function (option) {
             $('#loginForm [name=forwardUrl]').val(data.data);
             return;
         }
-        if (data && data.code && data.code != '200') {
-            alert(data.msg);
-            return;
+
+        if(defaultHandle){
+            if (data && data.code && data.code != '200') {
+                // alert(data.msg);
+                Toast.fire({
+                    type: 'error',
+                    title: '&nbsp;&nbsp;'+data.msg
+                })
+                return;
+            }
         }
         if (typeof option.success == 'function')
             option.success(data);
+
     };
     config.error = function (xhr, textStatus) {
         loading.hide()
@@ -199,12 +207,18 @@ function doLogin() {
         smsCode = $('#loginForm [name=smsCode]').val();
 
     if(!phone || !/\d{11}/.test(phone)){
-        alert("请填写正确的手机号码");
+        Toast.fire({
+            type: 'error',
+            title: '&nbsp;&nbsp;请填写正确的手机号码'
+        })
         $('#loginForm [name=phone]').focus();
         return;
     }
     if(!smsCode || !/\d{4}/.test(smsCode)){
-        alert("请填写正确的验证码");
+        Toast.fire({
+            type: 'error',
+            title: '&nbsp;&nbsp;请填写正确的验证码'
+        })
         $('#loginForm [name=smsCode]').focus();
         return;
     }

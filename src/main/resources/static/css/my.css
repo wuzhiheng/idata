@@ -107,6 +107,11 @@ a.btn.close {
 .table-theme .dropdown-menu {
     font-size: inherit !important;
 }
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
 
 /*bootstrap-table loading文字样式*/
 .bootstrap-table .fixed-table-container .fixed-table-body .fixed-table-loading .loading-wrap .loading-text {

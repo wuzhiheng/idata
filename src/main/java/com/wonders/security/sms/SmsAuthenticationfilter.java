@@ -8,10 +8,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @Author : wuzhiheng
@@ -21,22 +19,22 @@ import java.io.IOException;
 @Slf4j
 public class SmsAuthenticationfilter extends AbstractAuthenticationProcessingFilter {
     private boolean postOnly = true;
+    private String PARAMETER_KEY_PHONE = "phone";
+    private String PARAMETER_KEY_SMSCODE = "smsCode";
 
-    public SmsAuthenticationfilter() {
-        super(new AntPathRequestMatcher("/login/smsLogin", "POST"));
+    public SmsAuthenticationfilter(String url) {
+        super(new AntPathRequestMatcher(url, "POST"));
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         if (postOnly && !request.getMethod().equals("POST")) {
             throw new AuthenticationServiceException(
                     "Authentication method not supported: " + request.getMethod());
         }
 
-        log.info("进入了："+this.getClass());
-
-        String mobile = request.getParameter("phone");
-        String smsCode = request.getParameter("smsCode");
+        String mobile = request.getParameter(PARAMETER_KEY_PHONE);
+        String smsCode = request.getParameter(PARAMETER_KEY_SMSCODE);
         if (mobile == null) {
             mobile="";
         }
@@ -56,4 +54,11 @@ public class SmsAuthenticationfilter extends AbstractAuthenticationProcessingFil
         this.postOnly = postOnly;
     }
 
+    public void setPARAMETER_KEY_PHONE(String PARAMETER_KEY_PHONE) {
+        this.PARAMETER_KEY_PHONE = PARAMETER_KEY_PHONE;
+    }
+
+    public void setPARAMETER_KEY_SMSCODE(String PARAMETER_KEY_SMSCODE) {
+        this.PARAMETER_KEY_SMSCODE = PARAMETER_KEY_SMSCODE;
+    }
 }

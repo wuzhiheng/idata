@@ -1,8 +1,8 @@
 package com.wonders.config;
 
 import com.wonders.security.handler.*;
+import com.wonders.security.properties.SecurityProperties;
 import com.wonders.security.sms.SmsAuthenticationSecurityConfig;
-import com.wonders.util.IConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,10 +10,16 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 /**
  * SpringSecurity配置类
+ *
  * @Author Sans
  * @CreateTime 2019/10/1 9:40
  */
@@ -23,7 +29,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private IConstant iConstant;
+    private SecurityProperties securityProperties;
 
     /**
      * sms登录配置
@@ -35,83 +41,107 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * 自定义登录成功处理器
      */
     @Autowired
-    private UserLoginSuccessHandler userLoginSuccessHandler;
+    private UserLoginSuccessHandler loginSuccessHandler;
     /**
      * 自定义登录失败处理器
      */
     @Autowired
-    private UserLoginFailureHandler userLoginFailureHandler;
+    private UserLoginFailureHandler loginFailureHandler;
     /**
      * 自定义注销成功处理器
      */
     @Autowired
-    private UserLogoutSuccessHandler userLogoutSuccessHandler;
+    private UserLogoutSuccessHandler logoutSuccessHandler;
     /**
      * 自定义暂无权限处理器
      */
     @Autowired
-    private UserAuthAccessDeniedHandler userAuthAccessDeniedHandler;
+    private UserAuthAccessDeniedHandler authAccessDeniedHandler;
     /**
      * 自定义未登录的处理器
      */
     @Autowired
-    private UserAuthenticationEntryPointHandler userAuthenticationEntryPointHandler;
+    private UserAuthenticationEntryPointHandler authenticationEntryPointHandler;
 
     /**
      * 加密方式
+     *
      * @Author Sans
      * @CreateTime 2019/10/1 14:00
      */
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private PersistentTokenRepository tokenRepository;
+
+    //remember-me持久化
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        return jdbcTokenRepository;
     }
 
     /**
      * 配置security的控制逻辑
+     *
      * @Author Sans
      * @CreateTime 2019/10/1 16:56
-     * @Param  http 请求
+     * @Param http 请求
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // 不进行权限验证的请求或资源(从配置文件中读取)
-                .antMatchers(iConstant.getAntMatchers().split(",")).permitAll()
+                .antMatchers(securityProperties.getAntMatchers().split(",")).permitAll()
                 // 其他的需要登陆后才能访问
                 .anyRequest().authenticated()
-                .and()
-                // 配置未登录自定义处理类
-                .httpBasic().authenticationEntryPoint(userAuthenticationEntryPointHandler)
                 .and()
                 // 配置登录地址
                 .formLogin()
                     // 配置登录成功自定义处理类
-                    .successHandler(userLoginSuccessHandler)
+                    .successHandler(loginSuccessHandler)
                     // 配置登录失败自定义处理类
-                    .failureHandler(userLoginFailureHandler)
+                    .failureHandler(loginFailureHandler)
                 .and()
                 // 配置登出地址
                 .logout()
-                    .logoutUrl("/login/userLogout")
+                    .logoutUrl("/logout")
                     // 配置用户登出自定义处理类
-                    .logoutSuccessHandler(userLogoutSuccessHandler)
+                    .logoutSuccessHandler(logoutSuccessHandler)
                 .and()
                 // 配置没有权限自定义处理类
                 .exceptionHandling()
-                    .accessDeniedHandler(userAuthAccessDeniedHandler)
-                    .authenticationEntryPoint(userAuthenticationEntryPointHandler)
+                    // 403
+                    .accessDeniedHandler(authAccessDeniedHandler)
+                    // 401
+                    .authenticationEntryPoint(authenticationEntryPointHandler)
                 .and()
                 // 开启跨域
                 .cors()
                 .and()
                 // 取消跨站请求伪造防护
-                .csrf().disable();
+                .csrf().disable()
+                .rememberMe()
+                    .userDetailsService(userDetailsService)
+                    .tokenRepository(tokenRepository)
+                    .tokenValiditySeconds(securityProperties.getRememberMeSeconds());
 
         // 配置smsAuthenticationSecurityConfig
         http.apply(smsAuthenticationSecurityConfig);
 
-        // 禁用缓存
-        http.headers().cacheControl();
+        //默认是所有请求都加上cache-control:no-cache，需要禁掉
+        http.headers().cacheControl().disable();
+
+
     }
 }

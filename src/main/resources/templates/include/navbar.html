@@ -35,17 +35,19 @@
                 <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2" style="width: 2.1rem;height:2.1rem;line-height: 10px;margin-right: .4rem;margin-top: -8px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
-                <a class="dropdown-item p-0" tabindex="-1" href="#">
+                <div class="dropdown-item p-0" tabindex="-1" href="#">
                     <div class="card card-primary">
                         <div class="card-body">
                             <div class="d-flex m-15">
-                                <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
+                                <a th:href="@{/page/user/index}">
+                                    <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
+                                </a>
                                 <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu</div>
                             </div>
-                            <button class="btn btn-block btn-default ">安全退出</button>
+                            <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </li>
         <li class="nav-item dropdown d-none d-sm-inline-block">
@@ -117,17 +119,19 @@
                 135****4320
             </a>
             <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
-                <a class="dropdown-item p-0" tabindex="-1" href="#">
+                <div class="dropdown-item p-0" tabindex="-1" href="#">
                     <div class="card card-primary">
                         <div class="card-body">
                             <div class="d-flex m-15">
-                                <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
+                                <a th:href="@{/page/user/index}">
+                                    <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
+                                </a>
                                 <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu</div>
                             </div>
-                            <button class="btn btn-block btn-default ">安全退出</button>
+                            <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </li>
     </ul>
