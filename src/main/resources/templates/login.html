@@ -2,15 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head th:insert="include/head::head" th:with="title='登录'"></head>
 
-<body class="layout-top-nav layout-footer-fixed" id="page-1">
+<body class="layout-top-nav layout-footer-fixed modal-open" id="login-page" style="background: #fff!important;">
 <div class="wrapper">
     <div th:insert="include/navbar::portal-navbar "></div>
 
+    <div class="content-wrapper" style="background: #fff!important;">
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7 d-flex justify-content-center align-items-center">
+                        <img th:src="@{/images/login_bg.png}" style="width: 500px">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="login-box">
+                            <div class="card">
+                                <div class="card-header">
+                                    短信登录
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <form onsubmit="return false;" id="loginForm">
+                                            <input name="forwardUrl" type="hidden" th:value="${session.forwardUrl}">
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="手机号" name="phone" value="11111111111"/>
+                                            </div>
+                                            <div class="form-group login-code-box d-flex">
+                                                <input class="form-control" placeholder="验证码" name="smsCode" value="1234"/>
+                                                <button class="btn btn-green">获取验证码</button>
+                                            </div>
+                                            <div class="form-group d-flex justify-content-between">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input" type="checkbox"
+                                                           id="customCheckbox1" checked name="remember-me" value="true"/>
+                                                    <label for="customCheckbox1" class="custom-control-label">自动登录</label>
+                                                </div>
+                                            </div>
+
+                                            <button class="btn btn-block btn-green" onclick="doLogin()">登 录 </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div th:replace="include/footer::footer"></div>
 </div>
 </body>
 
 <script>
+    $(function () {
+        $('.col-md-7').height($(window).height()-130);
+    })
     showLoginModal()
 </script>
 </html>

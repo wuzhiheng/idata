@@ -17,6 +17,7 @@ spring:
     antMatchers:
       - /favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
       - /,/login,/page/portal/**
+      - /swagger-ui.html,/swagger-resources/**,/v2/**
     # 用户免登陆时间，单位s--1周
     rememberMeSeconds: 604800
     # 短信登录地址
@@ -37,3 +38,10 @@ logging:
     com.wonders: debug
     # 启动时打印请求路径列表
 #    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+swagger:
+  enabled: true
+  title: iData接口文档
+  description: 测试环境下启动的swagger2接口测试
+  base-package: com.wonders.controller
+  base-path: /**
+

@@ -33,44 +33,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
-    /**
-     * sms登录配置
-     */
+    // sms登录配置
     @Autowired
     private SmsAuthenticationSecurityConfig smsAuthenticationSecurityConfig;
 
-    /**
-     * 自定义登录成功处理器
-     */
+    // 自定义登录成功处理器
     @Autowired
     private UserLoginSuccessHandler loginSuccessHandler;
-    /**
-     * 自定义登录失败处理器
-     */
+    // 自定义登录失败处理器
     @Autowired
     private UserLoginFailureHandler loginFailureHandler;
-    /**
-     * 自定义注销成功处理器
-     */
+    // 自定义注销成功处理器
     @Autowired
     private UserLogoutSuccessHandler logoutSuccessHandler;
-    /**
-     * 自定义暂无权限处理器
-     */
+    // 自定义暂无权限处理器
     @Autowired
     private UserAuthAccessDeniedHandler authAccessDeniedHandler;
-    /**
-     * 自定义未登录的处理器
-     */
+    // 自定义未登录的处理器
     @Autowired
     private UserAuthenticationEntryPointHandler authenticationEntryPointHandler;
 
-    /**
-     * 加密方式
-     *
-     * @Author Sans
-     * @CreateTime 2019/10/1 14:00
-     */
+    // 加密方式
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -93,13 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return jdbcTokenRepository;
     }
 
-    /**
-     * 配置security的控制逻辑
-     *
-     * @Author Sans
-     * @CreateTime 2019/10/1 16:56
-     * @Param http 请求
-     */
+    // 配置security的控制逻辑
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 

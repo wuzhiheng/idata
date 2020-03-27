@@ -4,137 +4,152 @@
 
 <!--data-navbar-->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="data-navbar">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class="d-sm-inline-block">
-            <a th:href="@{/}" class="nav-link nav-link-logo">
-                <img th:src="@{/images/logo.png}" />
-            </a>
-        </li>
-        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '首页'} ? 'active')">
-            <a th:href="@{/}" class="nav-link">首页</a>
-        </li>
-        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '行业分析'} ? 'active')">
-            <a th:href="@{/}" class="nav-link">行业分析</a>
-        </li>
-    </ul>
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="d-sm-inline-block">
+                <a th:href="@{/}" class="nav-link nav-link-logo">
+                    <img th:src="@{/images/logo.png}"/>
+                </a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block ">
 
-    <!-- Right navbar links -->
-    <ul class="nav nav-pills ml-auto d-flex align-items-center">
-        <li class="nav-item">
-            <a class="nav-linkb btn btn-green" th:href="@{/page/portal/package}">套餐订购</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge" style="right:0;top:5px">15</span>
-            </a>
-        </li>
-        <li class="nav-item dropdown user-menu d-none d-sm-inline-block" id="dropdown-user">
-            <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
-                <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2" style="width: 2.1rem;height:2.1rem;line-height: 10px;margin-right: .4rem;margin-top: -8px;">
-            </a>
-            <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
-                <div class="dropdown-item p-0" tabindex="-1" href="#">
-                    <div class="card card-primary">
-                        <div class="card-body">
-                            <div class="d-flex m-15">
-                                <a th:href="@{/page/user/index}">
-                                    <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
-                                </a>
-                                <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu</div>
+            <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '首页'} ? 'active')">
+                <a th:href="@{/}" class="nav-link">首页</a>
+            </li>
+            <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '行业分析'} ? 'active')">
+                <a th:href="@{/}" class="nav-link">行业分析</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="nav nav-pills ml-auto d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-linkb btn btn-green" th:href="@{/page/portal/package}">套餐订购</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge" style="right:0;top:5px">15</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown user-menu d-none d-sm-inline-block" id="dropdown-user">
+                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                    <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2"
+                         style="width: 2.1rem;height:2.1rem;line-height: 10px;margin-right: .4rem;margin-top: -8px;">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
+                    <div class="dropdown-item p-0" tabindex="-1" href="#">
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <div class="d-flex m-15">
+                                    <a th:href="@{/page/user/index}">
+                                        <img th:src="@{/images/u3255.png}"
+                                             style="width: 75px;height:75px;border-radius: 50%"/>
+                                    </a>
+                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu
+                                    </div>
+                                </div>
+                                <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                             </div>
-                            <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li class="nav-item dropdown d-none d-sm-inline-block">
-            <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown"href="#" >
-                作品：暗月纪元
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" tabindex="-1" href="#">暗月纪元</a>
-            </div>
-        </li>
-    </ul>
+            </li>
+            <li class="nav-item dropdown d-none d-sm-inline-block">
+                <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown" href="#">
+                    作品：暗月纪元
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" tabindex="-1" href="#">暗月纪元</a>
+                </div>
+            </li>
+        </ul>
 </nav>
 
 <!--portal-navbar-->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="portal-navbar">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class="d-sm-inline-block">
-            <a th:href="@{/}" class="nav-link nav-link-logo">
-                <img th:src="@{/images/logo.png}" />
-            </a>
-        </li>
-        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品介绍'} ? 'active')">
-            <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
-        </li>
-        <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品套餐'} ? 'active')">
-            <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
-        </li>
-    </ul>
+    <div class="container">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="d-sm-inline-block">
+                <a th:href="@{/}" class="nav-link nav-link-logo">
+                    <img th:src="@{/images/logo.png}"/>
+                </a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block w85">
+            <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品介绍'} ? 'active')">
+                <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
+            </li>
+            <li th:class="'nav-item d-none d-sm-inline-block ' + (${active == '产品套餐'} ? 'active')">
+                <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
+            </li>
+        </ul>
 
-    <!-- Right navbar links -->
-    <ul class="nav nav-pills ml-auto d-flex align-items-center">
-        <li class="nav-item">
-            <a class="nav-link btn btn-green-outline" th:href="@{/page/user/index}"
-               th:text="${session.SPRING_SECURITY_CONTEXT == null} ? '登录' :'个人中心' "></a>
-        </li>
-        <li style="width: 1rem"></li>
-        <li class="nav-item">
-            <a class="nav-link btn btn-green " th:href="@{/}">体验Demo</a>
-        </li>
-    </ul>
+        <!-- Right navbar links -->
+        <ul class="nav nav-pills  d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link btn btn-green-outline" th:href="@{/page/user/index}"
+                   th:text="${session.SPRING_SECURITY_CONTEXT == null} ? '登录' :'个人中心' "></a>
+            </li>
+            <li style="width: 1rem"></li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-green " th:href="@{/}">体验Demo</a>
+            </li>
+        </ul>
+    </div>
+
 </nav>
 
 <!--user-navbar-->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light" th:fragment="user-navbar">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class=" d-sm-inline-block">
-            <a th:href="@{/}" class="nav-link nav-link-logo">
-                <img th:src="@{/images/logo.png}" />
-            </a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
-        </li>
-    </ul>
+    <div class="container">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class=" d-sm-inline-block">
+                <a th:href="@{/}" class="nav-link nav-link-logo">
+                    <img th:src="@{/images/logo.png}"/>
+                </a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block w85">
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/page/portal/index}" class="nav-link">产品介绍</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a th:href="@{/page/portal/package}" class="nav-link">产品套餐</a>
+            </li>
+        </ul>
 
-    <!-- Right navbar links -->
-    <ul class="nav nav-pills ml-auto d-flex align-items-center">
-        <li class="nav-item">
-            <a class="nav-link btn btn-green" th:href="@{/}">开始分析</a>
-        </li>
-        <li style="width: 1rem"></li>
-        <li class="nav-item dropdown" id="dropdown-user">
-            <a class="nav-link btn btn-green-outline dropdown-toggle" data-toggle="dropdown" >
-                135****4320
-            </a>
-            <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
-                <div class="dropdown-item p-0" tabindex="-1" href="#">
-                    <div class="card card-primary">
-                        <div class="card-body">
-                            <div class="d-flex m-15">
-                                <a th:href="@{/page/user/index}">
-                                    <img th:src="@{/images/u3255.png}" style="width: 75px;height:75px;border-radius: 50%"/>
-                                </a>
-                                <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu</div>
+        <!-- Right navbar links -->
+        <ul class="nav nav-pills ml-auto d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link btn btn-green" th:href="@{/}">开始分析</a>
+            </li>
+            <li style="width: 1rem"></li>
+            <li class="nav-item dropdown" id="dropdown-user">
+                <a class="nav-link btn btn-green-outline dropdown-toggle" data-toggle="dropdown">
+                    135****4320
+                </a>
+                <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
+                    <div class="dropdown-item p-0" tabindex="-1" href="#">
+                        <div class="card card-primary">
+                            <div class="card-body">
+                                <div class="d-flex m-15">
+                                    <a th:href="@{/page/user/index}">
+                                        <img th:src="@{/images/u3255.png}"
+                                             style="width: 75px;height:75px;border-radius: 50%"/>
+                                    </a>
+                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu
+                                    </div>
+                                </div>
+                                <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                             </div>
-                            <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 

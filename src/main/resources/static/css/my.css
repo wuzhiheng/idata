@@ -27,7 +27,7 @@ body {
     left: 0;
     top: 0;
     right: 0;
-    padding: .5rem 1rem;
+    padding: 10px 1rem 9px;
 }
 
 ul {
@@ -124,6 +124,11 @@ img.can-show {
 
 .custom-control-label {
     cursor: pointer;
+}
+
+.container{
+    padding-right: 0;
+    padding-left: 0;
 }
 
 /*******************************************index.html--数据首页**********************************************/
@@ -735,24 +740,24 @@ span.support-pt {
     margin-bottom: 20px;
 }
 
-#loginModal .login-code-box input {
+#loginForm .login-code-box input {
     flex: 1;
 }
 
-#loginModal .login-code-box .btn {
+#loginForm .login-code-box .btn {
     margin-left: 10px;
 }
 
-#loginModal .login-code-box + .form-group {
+#loginForm .login-code-box + .form-group {
     font-size: .875rem;
 }
 
-#loginModal .btn-block.btn-green {
+#loginForm .btn-block.btn-green {
     font-size: 1rem;
     padding: .5rem;
 }
 
-#loginModal .custom-control-input:checked ~ .custom-control-label::before {
+#loginForm .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #52C41A;
     background-color: #52C41A;
 }
@@ -762,9 +767,12 @@ span.support-pt {
     color: #595959;
 }
 
-.nav-link-logo {
-    padding-top: 3px;
-    padding-bottom: 0;
+.navbar-expand .nav-link.nav-link-logo {
+    padding: 3px 0 0;
+}
+#page-1 .navbar-expand .nav-link.nav-link-logo {
+    padding-right: .8rem;
+    padding-left: .8rem;
 }
 
 .nav-link-logo img {
@@ -806,8 +814,9 @@ span.support-pt {
 }
 
 .nav.nav-pills .btn {
-    padding: .375rem .5rem;
+    padding: .5rem 1rem;
     height: auto;
+    font-size: 12px;
 }
 
 .nav-pills .show > .nav-link {
@@ -817,6 +826,9 @@ span.support-pt {
 
 .nav-pills .show > .nav-link.btn-green-outline {
     background-color: #52C41A;
+}
+.w85{
+    width: 85px;
 }
 
 /*********************************other--其他*********************************************/

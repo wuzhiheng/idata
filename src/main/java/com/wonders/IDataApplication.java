@@ -1,14 +1,12 @@
 package com.wonders;
 
+import com.spring4all.swagger.EnableSwagger2Doc;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import java.text.ParseException;
@@ -23,6 +21,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 //@EnableAsync
 //@EnableCaching
 @MapperScan("com.wonders.**.dao")
+@EnableSwagger2Doc
 public class IDataApplication {
 
     public static void main(String[] args) {
@@ -42,10 +41,7 @@ public class IDataApplication {
         return executor;
     }
 
-    /**
-     * 注册日期绑定
-     * @return
-     */
+    // 注册日期绑定
     @Bean
     public Converter<String, Date> addNewConvert() {
         return new Converter<String, Date>() {
@@ -59,9 +55,7 @@ public class IDataApplication {
                     sdf = new SimpleDateFormat("yyyy-MM-dd");
                     try {
                         date = sdf.parse(source);
-                    } catch (ParseException e1) {
-                    }
-
+                    } catch (ParseException e1) {}
                 }
                 return date;
             }
