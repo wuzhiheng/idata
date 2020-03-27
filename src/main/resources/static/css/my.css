@@ -801,7 +801,7 @@ span.support-pt {
     top: 0;
     background: #52C41A;
     height: 4px;
-    transition-duration: .3s;
+    transition-duration: .2s;
     transition-timing-function: ease-out;
 }
 

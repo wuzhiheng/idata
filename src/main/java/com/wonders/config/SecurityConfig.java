@@ -16,6 +16,8 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * SpringSecurity配置类
@@ -100,9 +102,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        //组装antMatchers
+        String[] antMatchers = securityProperties.getAntMatchers().stream()
+                .map(s -> s.split(","))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .collect(Collectors.toList())
+                .toArray(new String[0]);
+
         http.authorizeRequests()
                 // 不进行权限验证的请求或资源(从配置文件中读取)
-                .antMatchers(securityProperties.getAntMatchers().split(",")).permitAll()
+                .antMatchers(antMatchers).permitAll()
                 // 其他的需要登陆后才能访问
                 .anyRequest().authenticated()
                 .and()
@@ -132,8 +143,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 取消跨站请求伪造防护
                 .csrf().disable()
                 .rememberMe()
+                    // cookie名称
+                    .rememberMeCookieName("rm")
                     .userDetailsService(userDetailsService)
                     .tokenRepository(tokenRepository)
+                    // cookie有效时间，单位s
                     .tokenValiditySeconds(securityProperties.getRememberMeSeconds());
 
         // 配置smsAuthenticationSecurityConfig

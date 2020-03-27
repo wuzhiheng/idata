@@ -2,8 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
 <head th:insert="include/head::head" th:with="title='登录'"></head>
 
-<body>
-    <div th:replace="include/modal::loginModal"></div>
+<body class="layout-top-nav layout-footer-fixed" id="page-1">
+<div class="wrapper">
+    <div th:insert="include/navbar::portal-navbar "></div>
+
+    <div th:replace="include/footer::footer"></div>
+</div>
 </body>
 
 <script>

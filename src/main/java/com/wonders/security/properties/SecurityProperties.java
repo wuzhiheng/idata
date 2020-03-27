@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @Author : wuzhiheng
  * @Description :
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class SecurityProperties {
 
     // 不拦截的路径，以,分割
-    private String AntMatchers;
+    private List<String> AntMatchers;
 
     // 记住我的时间，单位s
     private int rememberMeSeconds;

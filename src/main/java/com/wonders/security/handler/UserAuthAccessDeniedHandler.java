@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description 暂无权限处理类
+ * @Description 暂无权限处理类，注意不能在全局异常中处理，要想继续能在这个处理器处理，必须继续派出AccessDeniedException
  * @Author Sans
  * @CreateTime 2019/10/3 8:39
  */

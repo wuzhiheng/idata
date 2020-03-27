@@ -7,12 +7,15 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class MainsiteErrorController implements ErrorController {
     private static final String ERROR_PATH = "error";
     @RequestMapping(value=ERROR_PATH)
-    public String handleError(){
-        return "pages/error404";
+    public String handleError(HttpServletRequest request, HttpServletResponse response){
+        return "pages/error/error404";
     }
     @Override
     public String getErrorPath() {
