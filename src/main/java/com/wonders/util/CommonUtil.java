@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyDescriptor;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
@@ -20,7 +21,6 @@ import java.util.*;
  * 创建日期：2017-12-19下午6:39:34
  * author:wuzhiheng
  */
-@SuppressWarnings("all")
 public class CommonUtil {
     private static char[] codes = {'1', '2', '3', '5', '6', '7', '8', '9', '0'};
 
@@ -35,7 +35,7 @@ public class CommonUtil {
      * @return return
      */
     public static Integer putInteger(String str) {
-        return str != null && !"".equals(str) && str.matches("^\\d{1,}$") ? Integer.valueOf(str) : null;
+        return str != null && !"".equals(str) && str.matches("^\\d+$") ? Integer.valueOf(str) : null;
     }
 
     /**
@@ -45,7 +45,7 @@ public class CommonUtil {
      * @return return
      */
     public static Long putLong(String str) {
-        return str != null && !"".equals(str) && str.matches("^\\d{1,}$") ? Long.valueOf(str) : null;
+        return str != null && !"".equals(str) && str.matches("^\\d+$") ? Long.valueOf(str) : null;
     }
 
 
@@ -175,11 +175,11 @@ public class CommonUtil {
      *
      * @param <T1>      要转换的对象
      * @param <T2>      转换后的类
-     * @param orimodel  要转换的对象
+     * @param oriModel  要转换的对象
      * @param castClass 转换后的类
      * @return 转换后的对象
      */
-    public static <T1, T2> T2 convertBean(T1 orimodel, Class<T2> castClass) {
+    public static <T1, T2> T2 convertBean(T1 oriModel, Class<T2> castClass) {
         Class temp = castClass;
         T2 returnModel = null;
         try {
@@ -187,24 +187,24 @@ public class CommonUtil {
         } catch (Exception e) {
             throw new RuntimeException("创建" + castClass.getName() + "对象失败");
         }
-        List<Field> fieldlist = new ArrayList<Field>(); //要转换的字段集合
+        List<Field> fieldList = new ArrayList<Field>(); //要转换的字段集合
         while (castClass != null && //循环获取要转换的字段,包括父类的字段
                 !castClass.getName().toLowerCase().equals("java.lang.object")) {
-            fieldlist.addAll(Arrays.asList(castClass.getDeclaredFields()));
+            fieldList.addAll(Arrays.asList(castClass.getDeclaredFields()));
             castClass = (Class<T2>) castClass.getSuperclass(); //得到父类,然后赋给自己
         }
-        for (Field field : fieldlist) {
+        for (Field field : fieldList) {
             PropertyDescriptor getpd = null;
             PropertyDescriptor setpd = null;
             try {
-                getpd = new PropertyDescriptor(field.getName(), orimodel.getClass());
+                getpd = new PropertyDescriptor(field.getName(), oriModel.getClass());
                 setpd = new PropertyDescriptor(field.getName(), returnModel.getClass());
             } catch (Exception e) {
                 continue;
             }
             try {
                 Method getMethod = getpd.getReadMethod();
-                Object transValue = getMethod.invoke(orimodel);
+                Object transValue = getMethod.invoke(oriModel);
                 Method setMethod = setpd.getWriteMethod();
                 setMethod.invoke(returnModel, transValue);
             } catch (Exception e) {
@@ -236,7 +236,11 @@ public class CommonUtil {
             if (CommonUtil.StringIsNull(request.getParameter(paramName)) || NO_LOG_PARAM.contains(paramName)) {
                 continue;
             }
-            result.put(paramName, URLDecoder.decode(request.getParameter(paramName)));
+            try {
+                result.put(paramName, URLDecoder.decode(request.getParameter(paramName),"utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
 
         }
         try {
@@ -250,11 +254,7 @@ public class CommonUtil {
 
     public static boolean isAjax(HttpServletRequest request){
         return (request.getHeader("X-Requested-With") != null &&
-                "XMLHttpRequest".equals(request.getHeader("X-Requested-With").toString()));
-    }
-
-    public static HttpServletRequest getCurrentRequest(){
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+                "XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
     }
 
 }

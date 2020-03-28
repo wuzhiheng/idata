@@ -6,10 +6,12 @@ server:
 spring:
   profiles:
     active: dev
-  ##把数据库日期格式转换成json返回页面的格式
+  #把数据库日期格式转换成json返回页面的格式
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+    default-property-inclusion: always
+
   thymeleaf:
     cache: false
   security:
@@ -23,15 +25,11 @@ spring:
     # 短信登录地址
     smsLoginUrl: /login/smsLogin
 
-
-
 #spring-boot整合mybatis
 mybatis:
   mapper-locations: classpath:/mapper/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
-
-
 
 logging:
   level:
@@ -44,4 +42,5 @@ swagger:
   description: 测试环境下启动的swagger2接口测试
   base-package: com.wonders.controller
   base-path: /**
+
 

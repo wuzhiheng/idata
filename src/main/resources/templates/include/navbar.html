@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown user-menu d-none d-sm-inline-block" id="dropdown-user">
-                <a href="#" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="nav-link" data-toggle="dropdown"  aria-expanded="false">
                     <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2"
                          style="width: 2.1rem;height:2.1rem;line-height: 10px;margin-right: .4rem;margin-top: -8px;">
                 </a>
@@ -89,7 +89,9 @@
         <ul class="nav nav-pills  d-flex align-items-center">
             <li class="nav-item">
                 <a class="nav-link btn btn-green-outline" th:href="@{/page/user/index}"
-                   th:text="${session.SPRING_SECURITY_CONTEXT == null} ? '登录' :'个人中心' "></a>
+                   th:if="${session.SPRING_SECURITY_CONTEXT != null}">个人中心</a>
+                <a class="nav-link btn btn-green-outline" href="javascript:showLoginModal()"
+                th:if="${session.SPRING_SECURITY_CONTEXT == null}">登 录</a>
             </li>
             <li style="width: 1rem"></li>
             <li class="nav-item">

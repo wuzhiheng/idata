@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+    <!-- 日志存放路径 -->
+    <property name="log.path" value="logs" />
+
+    <!-- 日志输出格式 -->
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{20} [%method{10},%line] : %msg%n" />
+
+    <!-- 控制台输出 -->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${log.pattern}</pattern>
+        </layout>
+    </appender>
+
+    <!-- info文件 -->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 过滤掉error的日志，如果没有此设定，则会把info以上的日<!-- 日志最大的历史 60天 -->
+        <maxHistory>60</maxHistory>志都输出 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <!--滚动策略 每天一个文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <!--这里引用相对路径，idea跑时存放在工程的主目录下，jar包跑时存放在jar包的统同级目录-->
+            <fileNamePattern>${log.path}/info/info.%d.log</fileNamePattern>
+        </rollingPolicy>
+        <!-- 日志最大的历史 60天 -->
+<!--        <maxHistory>60</maxHistory>-->
+    </appender>
+
+    <!-- 错误日志输出 -->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 把error以下的日志过滤掉，只保留error日志，如果没有此设定，则会把info以上的日志都输出-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>${log.path}/error/error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 日志输出基本级别，默认是debug -->
+    <root level="info">
+        <!-- 将会引用到以下三个输出，只要符合的，都会打印 -->
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileInfoLog"/>
+        <appender-ref ref="fileErrorLog"/>
+    </root>
+
+    <!--  配置某个类的日志级别  -->
+    <!--<logger name="com.phfund" level="debug"/>-->
+
+</configuration>

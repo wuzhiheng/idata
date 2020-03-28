@@ -12,3 +12,6 @@ spring:
 
 swagger:
   enabled: false
+
+logging:
+  config: classpath:logback-spring-prod.xml

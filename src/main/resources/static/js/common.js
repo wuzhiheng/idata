@@ -201,12 +201,15 @@ function createImgModal() {
 
 function showLoginModal() {
     $('#loginModal').modalShow('zoomIn',{vertical:true});
+    if(!/\/login$/.test(location.href)){
+        $('#loginForm [name=forwardUrl]').val(location.href);
+    }
 }
 function doLogin() {
     let phone = $('#loginForm [name=phone]').val(),
         smsCode = $('#loginForm [name=smsCode]').val();
 
-    if(!phone || !/\d{11}/.test(phone)){
+    if(!phone || !/^\d{11}$/.test(phone)){
         Toast.fire({
             type: 'error',
             title: '&nbsp;&nbsp;请填写正确的手机号码'
@@ -214,7 +217,7 @@ function doLogin() {
         $('#loginForm [name=phone]').focus();
         return;
     }
-    if(!smsCode || !/\d{4}/.test(smsCode)){
+    if(!smsCode || !/^\d{4}$/.test(smsCode)){
         Toast.fire({
             type: 'error',
             title: '&nbsp;&nbsp;请填写正确的验证码'
@@ -254,6 +257,22 @@ $(function () {
             },50)
 
         }
+    })
+
+    //暂时
+    $('.get_code').click(function(){
+        let phone = $('#loginForm [name=phone]').val();
+        if(!/^\d{11}$/.test(phone)){
+            Toast.fire({
+                type: 'error',
+                title: '&nbsp;&nbsp;'+'手机号码不正确'
+            })
+            return;
+        }
+        Toast.fire({
+            type: 'success',
+            title: '&nbsp;&nbsp;'+'验证码为：1234'
+        })
     })
 })
 

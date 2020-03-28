@@ -1,3 +1,5 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
 /*
 主题绿色 #52C41A
 表格文字灰色 rgba(0,0,0,.65)
@@ -7,6 +9,7 @@
 第二主题文字颜色（绿色）#52C41A #6dbf77
 */
 .modal {
+    -webkit-animation-duration: 200ms;
     animation-duration: 200ms;
 }
 :focus{
@@ -53,6 +56,7 @@ a.btn.close {
 }
 
 .card {
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
@@ -171,17 +175,33 @@ span.gl-rate {
 }
 
 #page-1 #gl-4 > div {
+    -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 10px 10px 10px 20px;
 }
 
 #page-1 #row-2-r > div {
+    -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 10px 0 20px 20px;
     font-size: 0.875rem;
@@ -357,8 +377,14 @@ span.support-pt {
     height: 60px;
     margin: 0 auto;
     background: url('../images/u3065.png') 1px 2px no-repeat;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -392,9 +418,18 @@ span.support-pt {
 .package-desc-box > div {
     background: #fdefd0 url("../images/u3024.png") 0 0 no-repeat;
     background-size: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     padding: 10px 0 10px;
 }
@@ -472,9 +507,18 @@ span.support-pt {
 }
 
 .user-center .user-left-top {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 1rem;
     border-bottom: 1px solid #ebebeb;
@@ -547,8 +591,15 @@ span.support-pt {
 }
 
 #page-4 #col2-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding-top: 80px;
 }
@@ -560,9 +611,18 @@ span.support-pt {
 
 #page-4 #xs-list li {
     float: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin-right: 30px;
 }
@@ -739,8 +799,12 @@ span.support-pt {
 #loginModal .form-group {
     margin-bottom: 20px;
 }
-
+#loginForm .form-group input{
+    height: 40px;
+}
 #loginForm .login-code-box input {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
@@ -760,6 +824,37 @@ span.support-pt {
 #loginForm .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #52C41A;
     background-color: #52C41A;
+}
+
+.login-container{
+    border: 1px solid #dee2e6;
+    padding: 0 2rem;
+    width: 400px;
+    border-radius: 4px;
+}
+.login-container .card-header{
+    padding-left: 0;
+}
+.login-container .card-header .card-title{
+    border-color:  #52C41A;
+}
+.login-container .card-body{
+    padding: 3rem 0;
+}
+.phone{
+    position: relative;
+}
+.phone input{
+    padding-left: 50px;
+}
+.phone::before{
+    content: '+86';
+    position: absolute;
+    left: 12px;
+    top:8px;
+}
+/*********************************login--登录*********************************************/
+#login-page .fix-height{
 }
 
 /*********************************导航条--公用*********************************************/
@@ -809,7 +904,11 @@ span.support-pt {
     top: 0;
     background: #52C41A;
     height: 4px;
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
     transition-duration: .2s;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
 }
 
@@ -880,4 +979,7 @@ footer.main-footer {
     background: url('../images/icons/pinglun.png') left center no-repeat;
     background-size: 15px;
 }
-
+/*sweetalert2*/
+.swal2-success-circular-line-left,.swal2-success-circular-line-right,.swal2-success-fix{
+    background-color: transparent!important;
+}

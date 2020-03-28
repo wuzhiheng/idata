@@ -36,7 +36,7 @@ public class CSVUtil {
             }
             for (T t : data) {
                 for (String field : fields) {
-                    Object value = ReflectUtil.invoke(t,getMethodName(field),null);
+                    Object value = ReflectUtil.invoke(t,getMethodName(field), (Object) null);
                     writer.write("\""+value+"\",");
                 }
                 writer.write("\r\n");

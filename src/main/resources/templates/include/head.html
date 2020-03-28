@@ -22,7 +22,7 @@
     <!--<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">-->
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
-    <link rel="stylesheet" th:href="@{/css/my.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 
     <!--[if !IE]> -->
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
@@ -60,6 +60,15 @@
             $('.show-pay-modal').click(function () {
                 $('#payModal').modalShow('zoomIn',{vertical:true});
             })
+            // 添加下拉框的hover事件
+            $('.dropdown').hover(function() {
+                $(this).addClass('show')
+                $('dropdown-menu',this).addClass('show')
+            }, function() {
+                $(this).removeClass('show')
+                $('dropdown-menu',this).removeClass('show')
+
+            });
         })
     </script>
 
