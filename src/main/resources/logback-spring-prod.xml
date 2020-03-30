@@ -17,7 +17,7 @@
 
     <!-- info文件 -->
     <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 过滤掉error的日志，如果没有此设定，则会把info以上的日<!-- 日志最大的历史 60天 -->
+        <!-- 过滤掉error的日志，如果没有此设定，则会把info以上的日
         <maxHistory>60</maxHistory>志都输出 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>

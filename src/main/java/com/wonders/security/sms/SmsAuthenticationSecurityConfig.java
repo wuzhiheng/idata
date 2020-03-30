@@ -41,6 +41,8 @@ public class SmsAuthenticationSecurityConfig extends SecurityConfigurerAdapter<D
         SmsAuthenticationfilter smsAuthenticationfilter = new SmsAuthenticationfilter(securityProperties.getSmsLoginUrl());
         smsAuthenticationfilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
         smsAuthenticationfilter.setRememberMeServices(http.getSharedObject(RememberMeServices.class));
+        // 并发策略 在ConcurrentSessionFilter处理
+//        smsAuthenticationfilter.setSessionAuthenticationStrategy(http.getSharedObject(SessionAuthenticationStrategy.class));
         smsAuthenticationfilter.setAuthenticationSuccessHandler(loginSuccessHandler);
         smsAuthenticationfilter.setAuthenticationFailureHandler(loginFailureHandler);
 

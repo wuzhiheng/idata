@@ -4,12 +4,10 @@ import com.wonders.entity.UserEntity;
 import com.wonders.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,10 +24,6 @@ public class SmsAuthenticationProvide implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) {
         UsernamePasswordAuthenticationToken authenticationToken = (UsernamePasswordAuthenticationToken) authentication;
-        //将验证信息保存在SecurityContext以供UserDetailsService进行验证
-        SecurityContext context = SecurityContextHolder.getContext();
-        context.setAuthentication(authenticationToken);
-
         String phone = (String) authenticationToken.getPrincipal();
         String smsCode = (String) authenticationToken.getCredentials();
 
@@ -42,7 +36,7 @@ public class SmsAuthenticationProvide implements AuthenticationProvider {
         UserEntity user = userService.loadUserByPhone(phone);
 
         if (user == null) {
-            throw new InternalAuthenticationServiceException("can't obtain user info ");
+            throw new AuthenticationServiceException("can't obtain user info ");
         }
         return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
     }

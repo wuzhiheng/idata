@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wonders.dao.UserDao;
 import com.wonders.entity.UserEntity;
 import com.wonders.service.UserService;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -32,7 +32,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         queryWrapper.lambda()
                 .eq(UserEntity::getPhone,phone);
 
-        UserEntity user = getOne(queryWrapper, false);
+        UserEntity user = getOne(queryWrapper);
 
         if(user == null){
             user = new UserEntity()
@@ -45,12 +45,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
     }
 
     private void saveUser(UserEntity user){
-        if(!user.getPhone().matches("\\d{11}")){
-            throw new AuthenticationException("手机号码不正确"){};
+        if(!user.getPhone().matches("^\\d{11}$")){
+            throw new AuthenticationServiceException("手机号码不正确");
         }
         boolean save = save(user);
         if(!save)
-            throw new AuthenticationException("插入用户失败"){};
+            throw new AuthenticationServiceException("插入用户失败");
     }
 
     @Override

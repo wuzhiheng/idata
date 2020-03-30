@@ -1,7 +1,6 @@
 package com.wonders.security.sms;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class SmsAuthenticationfilter extends AbstractAuthenticationProcessingFilter {
-    private boolean postOnly = true;
     private String PARAMETER_KEY_PHONE = "phone";
     private String PARAMETER_KEY_SMSCODE = "smsCode";
 
@@ -28,10 +26,6 @@ public class SmsAuthenticationfilter extends AbstractAuthenticationProcessingFil
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        if (postOnly && !request.getMethod().equals("POST")) {
-            throw new AuthenticationServiceException(
-                    "Authentication method not supported: " + request.getMethod());
-        }
 
         String mobile = request.getParameter(PARAMETER_KEY_PHONE);
         String smsCode = request.getParameter(PARAMETER_KEY_SMSCODE);
@@ -44,14 +38,10 @@ public class SmsAuthenticationfilter extends AbstractAuthenticationProcessingFil
         mobile = mobile.trim();
         smsCode = smsCode.trim();
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(mobile,smsCode);
-
+        //保存ip和sessionId
         authRequest.setDetails(authenticationDetailsSource.buildDetails(request));
 
         return this.getAuthenticationManager().authenticate(authRequest);
-    }
-
-    public void setPostOnly(boolean postOnly) {
-        this.postOnly = postOnly;
     }
 
     public void setPARAMETER_KEY_PHONE(String PARAMETER_KEY_PHONE) {

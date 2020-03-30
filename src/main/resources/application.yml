@@ -2,6 +2,10 @@ server:
   port: 9000
   servlet:
     context-path: /idata
+  # 开启gzip压缩，默认情况下，仅会压缩 2048 字节以上的内容
+  compression:
+    enabled: true
+    min-response-size: 2KB
 
 spring:
   profiles:
@@ -20,8 +24,9 @@ spring:
       - /favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
       - /,/login,/page/portal/**
       - /swagger-ui.html,/swagger-resources/**,/v2/**
-    # 用户免登陆时间，单位s--1周
+    # 用户免登陆时间，单位s（604800：1周）
     rememberMeSeconds: 604800
+    rememberMeCookieName: rm
     # 短信登录地址
     smsLoginUrl: /login/smsLogin
 
@@ -37,7 +42,7 @@ logging:
     # 启动时打印请求路径列表
 #    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
 swagger:
-  enabled: true
+  enabled: false
   title: iData接口文档
   description: 测试环境下启动的swagger2接口测试
   base-package: com.wonders.controller

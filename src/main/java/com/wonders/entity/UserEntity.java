@@ -108,4 +108,5 @@ public class UserEntity implements Serializable, UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

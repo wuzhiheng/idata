@@ -25,4 +25,7 @@ public class SecurityProperties {
     // 短信登录的地址
     private String smsLoginUrl;
 
+    // 记住我的cookie名称
+    private String rememberMeCookieName;
+
 }

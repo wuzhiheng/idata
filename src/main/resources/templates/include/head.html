@@ -44,8 +44,8 @@
     <script th:src="@{/js/common.js}" ></script>
 
     <script th:inline="javascript">
-        var ctx = location.protocol+'//'+location.host+[[@{/}]];
-            console.log(ctx);
+        const ctx = location.protocol+'//'+location.host+[[@{/}]];
+        console.log(ctx);
         const Toast = Swal.mixin({
             toast: true,
             position: 'top',
@@ -55,18 +55,18 @@
         });
         $(function () {
             $('.show-login-modal').click(function () {
-                $('#loginModal').modalShow('zoomIn',{vertical:true});
+                $.modal.showLoginModal()
             })
             $('.show-pay-modal').click(function () {
-                $('#payModal').modalShow('zoomIn',{vertical:true});
+                $.modal.showLoginModal()
             })
             // 添加下拉框的hover事件
             $('.dropdown').hover(function() {
                 $(this).addClass('show')
-                $('dropdown-menu',this).addClass('show')
+                $('.dropdown-menu',this).addClass('show')
             }, function() {
                 $(this).removeClass('show')
-                $('dropdown-menu',this).removeClass('show')
+                $('.dropdown-menu',this).removeClass('show')
 
             });
         })

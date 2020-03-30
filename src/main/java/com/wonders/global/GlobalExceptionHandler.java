@@ -1,4 +1,4 @@
-package com.wonders.aop;
+package com.wonders.global;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wonders.util.IConstant;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  */
 @ControllerAdvice
 @Slf4j
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler{
 
 	@ExceptionHandler(AccessDeniedException.class)
 	public String accessDeniedException(Exception e) throws Exception {
@@ -38,7 +38,8 @@ public class GlobalExceptionHandler {
 		e.printStackTrace();
 		ReturnMsg returnMsg = new ReturnMsg(IConstant.CODE_UNKNOW, e.getMessage());
 		if(!isAjax(request)){
-			return "error404";	//如果不是ajax请求，这里只是简单的返回404页面，实际上应该返回一个反馈错误信息的页面
+			throw e; //抛给errorController处理
+//			return "pages/error/error404";	//如果不是ajax请求，这里只是简单的返回404页面，实际上应该返回一个反馈错误信息的页面
 		}
 		response.setContentType("application/json;charset=utf-8");
 		response.getWriter().write(new ObjectMapper().writeValueAsString(returnMsg));

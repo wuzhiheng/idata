@@ -17,7 +17,6 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 
 import javax.sql.DataSource;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * SpringSecurity配置类
@@ -79,14 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 配置security的控制逻辑
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         //组装antMatchers
         String[] antMatchers = securityProperties.getAntMatchers().stream()
                 .map(s -> s.split(","))
                 .flatMap(Arrays::stream)
                 .distinct()
-                .collect(Collectors.toList())
-                .toArray(new String[0]);
+                .toArray(String[]::new);
 
         http.authorizeRequests()
                 // 不进行权限验证的请求或资源(从配置文件中读取)
@@ -109,10 +106,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 // 配置没有权限自定义处理类
                 .exceptionHandling()
-                    // 403
-                    .accessDeniedHandler(authAccessDeniedHandler)
-                    // 401
-                    .authenticationEntryPoint(authenticationEntryPointHandler)
+                    .accessDeniedHandler(authAccessDeniedHandler)// 403
+                    .authenticationEntryPoint(authenticationEntryPointHandler)// 401
                 .and()
                 // 开启跨域
                 .cors()
@@ -121,11 +116,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .rememberMe()
                     // cookie名称
-                    .rememberMeCookieName("rm")
+                    .rememberMeCookieName(securityProperties.getRememberMeCookieName())
                     .userDetailsService(userDetailsService)
                     .tokenRepository(tokenRepository)
                     // cookie有效时间，单位s
-                    .tokenValiditySeconds(securityProperties.getRememberMeSeconds());
+                    .tokenValiditySeconds(securityProperties.getRememberMeSeconds())
+        .and()
+        .sessionManagement()
+        .maximumSessions(1)
+        .maxSessionsPreventsLogin(true)//false表示会踢掉前面的登录，true会禁止当前的登录
+        .expiredSessionStrategy(event ->{
+            event.getResponse().setContentType("application/json;charset=UTF-8");
+            event.getResponse().getWriter().write("并发登陆！！！");
+        })
+        ;
 
         // 配置smsAuthenticationSecurityConfig
         http.apply(smsAuthenticationSecurityConfig);
