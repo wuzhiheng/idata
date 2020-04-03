@@ -121,14 +121,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .tokenRepository(tokenRepository)
                     // cookie有效时间，单位s
                     .tokenValiditySeconds(securityProperties.getRememberMeSeconds())
-        .and()
-        .sessionManagement()
-        .maximumSessions(1)
-        .maxSessionsPreventsLogin(true)//false表示会踢掉前面的登录，true会禁止当前的登录
-        .expiredSessionStrategy(event ->{
-            event.getResponse().setContentType("application/json;charset=UTF-8");
-            event.getResponse().getWriter().write("并发登陆！！！");
-        })
+                .and()
+                .sessionManagement()
+                    .maximumSessions(1)
+                    .maxSessionsPreventsLogin(true)//false表示会踢掉前面的登录，true会禁止当前的登录
+                    .expiredSessionStrategy(event ->{
+                        event.getResponse().setContentType("application/json;charset=UTF-8");
+                        event.getResponse().getWriter().write("并发登陆！！！");
+                    })
         ;
 
         // 配置smsAuthenticationSecurityConfig

@@ -4,10 +4,10 @@ import com.wonders.entity.UserEntity;
 import com.wonders.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 /**
@@ -36,7 +36,7 @@ public class SmsAuthenticationProvide implements AuthenticationProvider {
         UserEntity user = userService.loadUserByPhone(phone);
 
         if (user == null) {
-            throw new AuthenticationServiceException("can't obtain user info ");
+            throw new UsernameNotFoundException("can't obtain user info ");
         }
         return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
     }

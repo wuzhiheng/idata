@@ -6,7 +6,7 @@
     <property name="log.path" value="logs" />
 
     <!-- 日志输出格式 -->
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{20} [%method{10},%line] : %msg%n" />
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{30} [%method{10},%line] : %msg%n" />
 
     <!-- 控制台输出 -->
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">

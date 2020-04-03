@@ -35,9 +35,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         UserEntity user = getOne(queryWrapper);
 
         if(user == null){
-            user = new UserEntity()
-                    .setPhone(phone)
-                    .setNick(phone);
+            user = new UserEntity().setPhone(phone).setNick(phone);
             saveUser(user);
         }
         user.setAuthorities(Arrays.asList(new SimpleGrantedAuthority("ROLE_baiyin")));

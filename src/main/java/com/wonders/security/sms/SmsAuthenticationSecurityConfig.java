@@ -24,14 +24,10 @@ public class SmsAuthenticationSecurityConfig extends SecurityConfigurerAdapter<D
     private SmsAuthenticationProvide smsAuthenticationProvide;
     @Autowired
     private SecurityProperties securityProperties;
-    /**
-     * 自定义登录成功处理器
-     */
+    // 自定义登录成功处理器
     @Autowired
     private UserLoginSuccessHandler loginSuccessHandler;
-    /**
-     * 自定义登录失败处理器
-     */
+    // 自定义登录失败处理器
     @Autowired
     private UserLoginFailureHandler loginFailureHandler;
 
