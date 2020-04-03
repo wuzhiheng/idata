@@ -283,7 +283,8 @@ span.gl-rate {
     background: url("../images/jieshao_bg.png") no-repeat 100% 0;
     background-size: 100%;
     border-radius: 0;
-    padding: 100px 0 0 0px;
+    padding: 100px 0 0 0;
+    margin-bottom: 10px;
 }
 #page-2 #row-1 h3,
 #page-2 #row-1 p{
@@ -326,8 +327,8 @@ span.gl-rate {
 }
 
 #page-2 #row-2 h4 {
-    margin: 10px 0 20px 0;
-    color: #595959 !important;
+    margin: 10px 0 15px 0;
+    color: #FA8C16 !important;
 }
 
 #page-2 h3 {
@@ -355,11 +356,15 @@ span.gl-rate {
     font-size: 28px;
     color: #595959
 }
-
-#page-2 #row-3 .row:nth-child(odd) .col-md-6:nth-child(1),
-#page-2 #row-3 .row:nth-child(even) .col-md-6:nth-child(2) {
-    padding-left: 2%;
+#page-2 #row-3 .row .col-md-6{
+    justify-content: start!important;
+    padding-left: 65px;
 }
+
+/*#page-2 #row-3 .row:nth-child(odd) .col-md-6,*/
+/*#page-2 #row-3 .row:nth-child(even) .col-md-6 {*/
+/*    padding-right: 6%;*/
+/*}*/
 
 span.support-pt {
     color: rgba(255, 0, 0, 0.65);
@@ -375,7 +380,14 @@ span.support-pt {
     margin: 10px auto;
     border-radius: 4px;
 }
-
+@media (max-width:768px) {
+    #page-2 .col-md-6 img {
+        width: 100%;
+    }
+    #page-2 #row-3 .row .col-md-6{
+        padding-left: 7.5px;
+    }
+}
 /*********************************************pages/portal/package--套餐页面****************************************************/
 #page-3 .card-body {
     padding: 1rem;

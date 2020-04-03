@@ -13,7 +13,7 @@ fi
 #不覆盖原文件
 rsync -avzu src/main/resources  ${remote}
 #覆盖原文件
-scp src/main/resources/static/css/my.css  ${remote}/resources/static/css/
+scp src/main/resources/static/css/style.css  ${remote}/resources/static/css/
 scp -r src/main/resources/templates   ${remote}/resources/
 scp -r src/main/resources/mapper  ${remote}/resources/
 scp -r src/main/resources/static/js   ${remote}/resources/static/
