@@ -978,7 +978,8 @@ span.support-pt {
 .user-dropdown-menu{
     border: none;
     width: 250px;
-    left:-95px
+    left: -95px;
+    top:calc(100% - 2px)
 }
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {

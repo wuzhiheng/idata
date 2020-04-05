@@ -25,6 +25,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         if(!file.exists()){
             file.mkdirs();
         }
+        // /avatar/** -> file/avatar/
         registry.addResourceHandler(iDataProperties.getFile().getAvatarPath()+"/**")
                 .addResourceLocations("file:"+file.getAbsolutePath()+"/");
     }

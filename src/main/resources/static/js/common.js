@@ -6,7 +6,7 @@
                 type: 'get'
             };
             $.extend(config, option);
-            config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/,'$1\/$2');
+            config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/, '$1\/$2');
 
             config.success = function (data, textStatus, xhr) {
                 loading.hide()
@@ -169,18 +169,56 @@
             }
         },
         toast: {
-            error:function(msg){
+            error: function (msg) {
                 Toast.fire({
                     type: 'error',
                     title: '&nbsp;&nbsp;' + msg
                 })
             },
-            success:function(msg){
+            success: function (msg) {
                 Toast.fire({
                     type: 'error',
                     title: '&nbsp;&nbsp;' + msg
                 })
             }
+        },
+    })
+
+    $.fn.extend({
+        // bootstrapTable
+        table: function (options) {
+            let defaults = {
+                method: 'post',
+                contentType: 'application/x-www-form-urlencoded',// 默认是post情况下是application/json
+                classes: 'table table-no-bordered',// 设置table的class 默认是table table-hover
+                cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true
+                striped: true,  //表格显示条纹，默认为false
+                pagination: true, // 在表格底部显示分页组件，默认false
+                pageList: [10, 20, 30, 40, 50], // 设置页面可以显示的数据条数
+                pageSize: 10, // 页面数据条数
+                pageNumber: 1, // 首页页码
+                sidePagination: 'server', // 设置为服务器端分页
+                toolbar: '#toolbar',
+                showColumns:false,
+                showRefresh:false,
+                showToggle:false,
+                iconSize: 'default',
+                queryParams: function (params) {
+                    var currentParams = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                        limit: params.limit,   //页面大小
+                        offset: params.offset,  //页码
+                    };
+                    if(this.form){
+                        $.extend(currentParams,$(this.form).serializeObject());
+                    }
+                    return currentParams;
+                },
+                singleSelect: true,
+
+            }
+            var newOptions = $.extend(defaults,options);
+            $('#tableGrid').bootstrapTable(newOptions);
+
         }
     })
 })(jQuery);

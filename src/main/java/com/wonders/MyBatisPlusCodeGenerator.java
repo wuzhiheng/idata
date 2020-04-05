@@ -25,7 +25,7 @@ import java.util.List;
 public class MyBatisPlusCodeGenerator {
 
     //包名
-    private static final String PACKAGE_NAME = "com.generator";
+    private static final String PACKAGE_NAME = "com.wonders";
 
     private static String URL = "jdbc:mysql://localhost:3306/idata?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
@@ -33,7 +33,7 @@ public class MyBatisPlusCodeGenerator {
     private static String USERNAME = "root";
     private static String PASSWORD = "root";
 
-    private static String[] tables = {"sys_operation_log"};
+    private static String[] tables = {"tb_order"};
 
     public static void main(String[] args) {
         executeCode(PACKAGE_NAME,tables);
@@ -133,7 +133,7 @@ public class MyBatisPlusCodeGenerator {
         strategy.setControllerMappingHyphenStyle(false);    //requestMapping
         strategy.setRestControllerStyle(true);              //使用启用restController
         // 表前缀
-        strategy.setTablePrefix("sys_");  //m_department => department（entity）
+        strategy.setTablePrefix("tb_");  //m_department => department（entity）
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

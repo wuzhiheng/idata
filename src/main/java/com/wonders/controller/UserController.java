@@ -41,16 +41,18 @@ public class UserController extends BaseController{
         if(file.isEmpty()){
             return ReturnMsg.errorTip("文件不能为空");
         }
+        if(!file.getOriginalFilename().matches(".*(jpg|jpeg|png|gif)$")){
+            return ReturnMsg.errorTip("图片格式错误");
+        }
 
         String avatarPath = getAvatarPath(file);
         File avatarFile = new File(iDataProperties.getFile().getAvatarLocation()+"/"+avatarPath);
+
         if(!avatarFile.getParentFile().exists()){
             avatarFile.getParentFile().mkdirs();
         }
-        if(!avatarFile.exists())
-            avatarFile.createNewFile();
 
-        FileCopyUtils.copy(file.getInputStream(),new FileOutputStream(iDataProperties.getFile().getAvatarLocation()+"/"+avatarPath));
+        FileCopyUtils.copy(file.getInputStream(),new FileOutputStream(avatarFile));
 
         UserEntity user = getUser();
         user.setAvatar(iDataProperties.getFile().getAvatarPath()+"/"+avatarPath);
@@ -62,7 +64,6 @@ public class UserController extends BaseController{
     }
 
     private String getAvatarPath(MultipartFile file) {
-
         String filename = file.getOriginalFilename();
         return getUser().getPhone()+"/"+new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+filename.substring(filename.lastIndexOf("."));
     }

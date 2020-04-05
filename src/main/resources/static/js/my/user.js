@@ -1,10 +1,9 @@
 $(function () {
     //头像上传
     $('#avatarUpload').change(function () {
-        let that = this;
         let file = this.files[0];
         if (file && file.name) {
-            if (!/jpg|jpeg|png|gif/.test(file.name)) {
+            if (!/(jpg|jpeg|png|gif)$/.test(file.name)) {
                 $.toast.error('格式错误')
                 return false;
             }
@@ -24,6 +23,6 @@ $(function () {
                 }
             });
         }
-        that.value = "";
+        this.value = "";
     })
 })

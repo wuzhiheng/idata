@@ -24,7 +24,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("user")
+@TableName("tb_user")
 public class UserEntity implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;
