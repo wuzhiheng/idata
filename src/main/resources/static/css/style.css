@@ -124,7 +124,7 @@ a.btn.close {
 }
 
 img.can-show {
-    cursor: pointer;
+    cursor: zoom-in;
 }
 
 .custom-control-label {
@@ -281,9 +281,9 @@ span.gl-rate {
 #page-2 #row-1{
     height: 530px;
     background: url("../images/jieshao_bg.png") no-repeat 100% 0;
-    background-size: 100%;
+    background-size: cover;
     border-radius: 0;
-    padding: 100px 0 0 0;
+    padding-top: 100px;
     margin-bottom: 10px;
 }
 #page-2 #row-1 h3,
@@ -296,11 +296,16 @@ span.gl-rate {
 }
 
 #page-2 #row-2 .col-md-4 ul {
-    padding-left: 40px;
+    margin:0 auto;
 }
-
-#page-2 #row-2 .col-md-4:nth-child(odd) ul {
-    padding-left: 55px;
+#page-2 #row-2 .col-md-4:nth-child(1) ul {
+    width: 240px;
+}
+#page-2 #row-2 .col-md-4:nth-child(2) ul {
+    width: 300px;
+}
+#page-2 #row-2 .col-md-4:nth-child(3) ul {
+    width: 260px;
 }
 
 #page-2 .col-md-6 img {
@@ -613,7 +618,7 @@ span.support-pt {
 }
 
 #page-4 #col2-left form .form-group {
-    margin: 25px 0;
+    /*margin: 25px 0;*/
 }
 
 #page-4 #col2-left form .btn-green-outline {
@@ -637,8 +642,10 @@ span.support-pt {
 }
 
 #page-4 #col2-right img {
-    width: 144px;
+    width: 140px;
+    height: 140px;
     margin-bottom: 20px;
+    border-radius: 50%;
 }
 
 #page-4 #xs-list li {
@@ -671,6 +678,12 @@ span.support-pt {
 
 #page-4 #col2-left h6 {
     margin: 20px 0;
+}
+#page-4 #saveBtn{
+    width: 100px;
+    margin: 20px 0;
+    border-radius: 20px;
+    border: none;
 }
 
 
@@ -962,6 +975,11 @@ span.support-pt {
     width: 85px;
 }
 
+.user-dropdown-menu{
+    border: none;
+    width: 250px;
+    left:-95px
+}
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free", serif !important;

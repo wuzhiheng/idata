@@ -1,19 +1,15 @@
-package com.wonders.security.properties;
+package com.wonders.properties;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * @Author : wuzhiheng
  * @Description :
- * @Date Created in 2:10 下午 2020/3/26
+ * @Date Created in 1:31 下午 2020/4/5
  */
 @Data
-@Component
-@ConfigurationProperties(prefix = "spring.security")
 public class SecurityProperties {
 
     // 不拦截的路径，以,分割

@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wonders.dao.UserDao;
 import com.wonders.entity.UserEntity;
+import com.wonders.properties.IDataProperties;
 import com.wonders.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +27,9 @@ import java.util.Arrays;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService, UserDetailsService {
 
+    @Autowired
+    private IDataProperties iDataProperties;
+
     @Override
     public UserEntity loadUserByPhone(String phone) {
 
@@ -35,7 +40,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         UserEntity user = getOne(queryWrapper);
 
         if(user == null){
-            user = new UserEntity().setPhone(phone).setNick(phone);
+            user = new UserEntity()
+                    .setPhone(phone)
+                    .setNick(phone.substring(0,3)+"****"+phone.substring(7))
+                    .setAvatar(iDataProperties.getFile().getDefaultAvatar());
             saveUser(user);
         }
         user.setAuthorities(Arrays.asList(new SimpleGrantedAuthority("ROLE_baiyin")));

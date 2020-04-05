@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonders.generator.dao.OperationLogDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wonders.generator.entity.OperationLogEntity">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="ip" property="ip" />
+        <result column="browser" property="browser" />
+        <result column="bussinesstype" property="bussinesstype" />
+        <result column="operation" property="operation" />
+        <result column="desc" property="desc" />
+        <result column="createtime" property="createtime" />
+    </resultMap>
+
+</mapper>

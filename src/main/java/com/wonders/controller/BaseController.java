@@ -1,7 +1,11 @@
 package com.wonders.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.wonders.entity.UserEntity;
+import com.wonders.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +36,14 @@ public class BaseController {
         int offset = Integer.parseInt(request.getParameter(OFFSET));
         int limit = Integer.parseInt(request.getParameter(LIMIT));
         PageHelper.offsetPage(offset, limit);
+    }
+
+    public Authentication getAuthentication(){
+        return SecurityContextHolder.getContext().getAuthentication();
+    }
+
+    public UserEntity getUser(){
+        return CommonUtil.getSessionUser();
     }
 
 

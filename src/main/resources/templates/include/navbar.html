@@ -34,20 +34,19 @@
             </li>
             <li class="nav-item dropdown user-menu d-none d-sm-inline-block" id="dropdown-user">
                 <a href="#" class="nav-link" data-toggle="dropdown"  aria-expanded="false">
-                    <img th:src="@{/images/u3255.png}" class="user-image img-circle elevation-2"
+                    <img class="user-image img-circle elevation-2 userAvatar"
                          style="width: 2.1rem;height:2.1rem;line-height: 10px;margin-right: .4rem;margin-top: -8px;">
                 </a>
-                <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
+                <div class="dropdown-menu shadow user-dropdown-menu">
                     <div class="dropdown-item p-0" tabindex="-1" href="#">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="d-flex m-15">
                                     <a th:href="@{/page/user/index}">
-                                        <img th:src="@{/images/u3255.png}"
+                                        <img class="userAvatar"
                                              style="width: 75px;height:75px;border-radius: 50%"/>
                                     </a>
-                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu
-                                    </div>
+                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center" th:text="${session.user.nick}"></div>
                                 </div>
                                 <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                             </div>
@@ -132,17 +131,16 @@
                 <a class="nav-link btn btn-green-outline dropdown-toggle" data-toggle="dropdown">
                     135****4320
                 </a>
-                <div class="dropdown-menu dropdown-menu-right border-0 shadow" style="width: 250px">
+                <div class="dropdown-menu shadow user-dropdown-menu">
                     <div class="dropdown-item p-0" tabindex="-1" href="#">
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="d-flex m-15">
                                     <a th:href="@{/page/user/index}">
-                                        <img th:src="@{/images/u3255.png}"
+                                        <img class="userAvatar"
                                              style="width: 75px;height:75px;border-radius: 50%"/>
                                     </a>
-                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center">jimmy.qiu
-                                    </div>
+                                    <div class="d-flex flex-grow-1 align-items-center justify-content-center" th:text="${session.user.nick}"></div>
                                 </div>
                                 <a class="btn btn-block btn-default" th:href="@{/logout}">安全退出</a>
                             </div>

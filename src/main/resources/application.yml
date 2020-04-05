@@ -20,17 +20,6 @@ spring:
 
   thymeleaf:
     cache: false
-  security:
-    # springsecurity不拦截的路径，以,分割
-    antMatchers:
-      - /favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
-      - /,/login,/page/portal/**
-      - /swagger-ui.html,/swagger-resources/**,/v2/**
-    # 用户免登陆时间，单位s（604800：1周）
-    rememberMeSeconds: 604800
-    rememberMeCookieName: rm
-    # 短信登录地址
-    smsLoginUrl: /login/smsLogin
 
 #spring-boot整合mybatis
 mybatis:
@@ -49,5 +38,22 @@ swagger:
   description: 测试环境下启动的swagger2接口测试
   base-package: com.wonders.controller
   base-path: /**
+
+idata:
+  security:
+    # springsecurity不拦截的路径，以,分割
+    antMatchers:
+      - /favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
+      - /,/login,/page/portal/**
+      - /swagger-ui.html,/swagger-resources/**,/v2/**
+    # 用户免登陆时间，单位s（604800：1周）
+    rememberMeSeconds: 604800
+    rememberMeCookieName: rm
+    # 短信登录地址
+    smsLoginUrl: /login/smsLogin
+  file:
+    avatarPath: /avatar
+    avatarLocation: file/avatar
+    defaultAvatar: /images/u3255.png
 
 

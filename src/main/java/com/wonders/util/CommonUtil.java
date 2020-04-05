@@ -1,7 +1,9 @@
 package com.wonders.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import cn.hutool.http.useragent.UserAgent;
+import cn.hutool.http.useragent.UserAgentUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wonders.entity.UserEntity;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -244,11 +246,11 @@ public class CommonUtil {
 
         }
         try {
-            return new ObjectMapper().writeValueAsString(request);
-        } catch (JsonProcessingException e) {
+            return new ObjectMapper().writeValueAsString(result);
+//            return JSONUtil.toJsonStr(result);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -257,4 +259,21 @@ public class CommonUtil {
                 "XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
     }
 
+    public static String browserInfo(HttpServletRequest request) {
+
+        UserAgent userAgent = UserAgentUtil.parse(request.getHeader("User-Agent"));
+        String browser = userAgent.getBrowser().getName();
+        String version = userAgent.getVersion();
+
+        return browser + "/" + version;
+    }
+
+    public static void refreshSessionUser(UserEntity user){
+        HttpServletRequest request = getRequest();
+        request.getSession().setAttribute("user",user);
+    }
+    public static UserEntity getSessionUser(){
+        HttpServletRequest request = getRequest();
+        return (UserEntity) request.getSession().getAttribute("user");
+    }
 }

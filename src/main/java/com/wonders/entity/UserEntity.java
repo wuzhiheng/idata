@@ -45,7 +45,7 @@ public class UserEntity implements Serializable, UserDetails {
     /**
      * 头像
      */
-    private String avator;
+    private String avatar;
 
     /**
      * 邮箱

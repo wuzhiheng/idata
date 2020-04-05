@@ -167,6 +167,20 @@
             showPayModal: function () {
                 $('#payModal').modalShow('zoomIn', {vertical: true});
             }
+        },
+        toast: {
+            error:function(msg){
+                Toast.fire({
+                    type: 'error',
+                    title: '&nbsp;&nbsp;' + msg
+                })
+            },
+            success:function(msg){
+                Toast.fire({
+                    type: 'error',
+                    title: '&nbsp;&nbsp;' + msg
+                })
+            }
         }
     })
 })(jQuery);
@@ -213,18 +227,12 @@ function doLogin() {
         smsCode = $('#loginForm [name=smsCode]').val();
 
     if (!phone || !/^\d{11}$/.test(phone)) {
-        Toast.fire({
-            type: 'error',
-            title: '&nbsp;&nbsp;请填写正确的手机号码'
-        })
+        $.toast.error('请填写正确的手机号码')
         $('#loginForm [name=phone]').focus();
         return;
     }
     if (!smsCode || !/^\d{4}$/.test(smsCode)) {
-        Toast.fire({
-            type: 'error',
-            title: '&nbsp;&nbsp;请填写正确的验证码'
-        })
+        $.toast.error('请填写正确的验证码')
         $('#loginForm [name=smsCode]').focus();
         return;
     }
@@ -266,16 +274,10 @@ $(function () {
     $('.get_code').click(function () {
         let phone = $('#loginForm [name=phone]').val();
         if (!/^\d{11}$/.test(phone)) {
-            Toast.fire({
-                type: 'error',
-                title: '&nbsp;&nbsp;' + '手机号码不正确'
-            })
+            $.toast.error('手机号码不正确');
             return;
         }
-        Toast.fire({
-            type: 'success',
-            title: '&nbsp;&nbsp;' + '验证码为：1234'
-        })
+        $.toast.success('验证码为：1234');
     })
 })
 

@@ -1,8 +1,8 @@
 package com.wonders.security.sms;
 
+import com.wonders.properties.IDataProperties;
 import com.wonders.security.handler.UserLoginFailureHandler;
 import com.wonders.security.handler.UserLoginSuccessHandler;
-import com.wonders.security.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -23,7 +23,7 @@ public class SmsAuthenticationSecurityConfig extends SecurityConfigurerAdapter<D
     @Autowired
     private SmsAuthenticationProvide smsAuthenticationProvide;
     @Autowired
-    private SecurityProperties securityProperties;
+    private IDataProperties iDataProperties;
     // 自定义登录成功处理器
     @Autowired
     private UserLoginSuccessHandler loginSuccessHandler;
@@ -34,7 +34,7 @@ public class SmsAuthenticationSecurityConfig extends SecurityConfigurerAdapter<D
     @Override
     public void configure(HttpSecurity http){
         //创建并配置好自定义SmsAuthenticationfilter，
-        SmsAuthenticationfilter smsAuthenticationfilter = new SmsAuthenticationfilter(securityProperties.getSmsLoginUrl());
+        SmsAuthenticationfilter smsAuthenticationfilter = new SmsAuthenticationfilter(iDataProperties.getSecurity().getSmsLoginUrl());
         smsAuthenticationfilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
         smsAuthenticationfilter.setRememberMeServices(http.getSharedObject(RememberMeServices.class));
         // 并发策略 在ConcurrentSessionFilter处理

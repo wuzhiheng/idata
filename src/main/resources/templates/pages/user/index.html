@@ -25,10 +25,10 @@
                                         <div class="row">
                                             <div class="col-md-6" id="col2-left">
                                                 <h4>账号设置</h4>
-                                                <form class="form-horizontal">
+                                                <form class="form-horizontal" th:object="${session.user}">
                                                     <div class="form-group">
                                                         <label>昵称</label>
-                                                        <input class="form-control" value="156***2649">
+                                                        <input class="form-control" th:value="*{nick}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>邮箱</label>
@@ -38,7 +38,7 @@
                                                         <label>手机号码</label>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <input class="form-control" value="156***2649">
+                                                                <input class="form-control" th:value="*{#strings.substring(phone,0,3)+'****'+#strings.substring(phone,7)}">
                                                             </div>
                                                             <div class="col-md-6 btn btn-green-outline">更换手机号码</div>
                                                         </div>
@@ -70,15 +70,15 @@
                                                     </li>
                                                 </ul>
 
-                                                <button class="btn btn-green">保存</button>
+                                                <button class="btn btn-green" id="saveBtn">保存</button>
                                             </div>
 
                                             <div class="col-md-6" id="col2-right">
-                                                <img th:src="@{/images/u3255.png}" >
-                                                <button class="btn btn-default" onclick="avatarUpload.click()">
-                                                    <input type="file" style="display: none" id="avatarUpload"/>
+                                                <img class="userAvatar">
+                                                <input type="file" style="display: none" id="avatarUpload"/>
+                                                <label class="btn btn-default font-weight-normal" for="avatarUpload">
                                                     <i class="fa fa-upload" aria-hidden="true"></i> 点击更换头像
-                                                </button>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -100,8 +100,8 @@
 
 
 <!-- REQUIRED SCRIPTS -->
+<script th:src="@{/js/my/user.js}"></script>
 <script>
-
 </script>
 </body>
 </html>

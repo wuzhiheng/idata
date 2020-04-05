@@ -1,7 +1,8 @@
 package com.wonders.config;
 
+import com.wonders.properties.IDataProperties;
+import com.wonders.properties.SecurityProperties;
 import com.wonders.security.handler.*;
-import com.wonders.security.properties.SecurityProperties;
 import com.wonders.security.sms.SmsAuthenticationSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +31,7 @@ import java.util.Arrays;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private SecurityProperties securityProperties;
+    private IDataProperties iDataProperties;
 
     // sms登录配置
     @Autowired
@@ -78,6 +79,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 配置security的控制逻辑
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        SecurityProperties securityProperties = iDataProperties.getSecurity();
+
         //组装antMatchers
         String[] antMatchers = securityProperties.getAntMatchers().stream()
                 .map(s -> s.split(","))
@@ -121,6 +125,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .tokenRepository(tokenRepository)
                     // cookie有效时间，单位s
                     .tokenValiditySeconds(securityProperties.getRememberMeSeconds())
+                    // 自动登录成功处理
+                    .authenticationSuccessHandler(loginSuccessHandler)
                 .and()
                 .sessionManagement()
                     .maximumSessions(1)
