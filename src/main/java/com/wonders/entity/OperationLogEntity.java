@@ -30,7 +30,7 @@ public class OperationLogEntity implements Serializable {
      * 主键
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 用户名

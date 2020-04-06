@@ -3,7 +3,7 @@
         json: function (option, defaultHandle = true) {
             let config = {
                 dataType: 'json',
-                type: 'get'
+                type: 'post'
             };
             $.extend(config, option);
             config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/, '$1\/$2');
@@ -166,6 +166,9 @@
             },
             showPayModal: function () {
                 $('#payModal').modalShow('zoomIn', {vertical: true});
+            },
+            hidePayModal: function () {
+                $('#payModal').modal('hide');
             }
         },
         toast: {
@@ -177,11 +180,27 @@
             },
             success: function (msg) {
                 Toast.fire({
-                    type: 'error',
+                    type: 'success',
                     title: '&nbsp;&nbsp;' + msg
                 })
             }
         },
+        bussiness:{
+            createOrder:function(){
+                var priceId = $('#payForm [name=priceId]').val();
+                $.json({
+                    url : ctx + '/order/create',
+                    data: {priceId:priceId},
+                    success:function(data){
+                        if(data.code == '200'){
+                            $.toast.success('购买成功')
+                            $.modal.hidePayModal();
+                        }
+
+                    }
+                })
+            }
+        }
     })
 
     $.fn.extend({
@@ -219,7 +238,8 @@
             var newOptions = $.extend(defaults,options);
             $('#tableGrid').bootstrapTable(newOptions);
 
-        }
+        },
+
     })
 })(jQuery);
 

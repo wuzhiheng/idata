@@ -24,28 +24,20 @@
                                         <div class="vip-text text-center">白银会员</div>
                                         <span class="vip-text-other text-center">仅支持“起点小说”</span>
                                     </div>
-                                    <div class="col-md-3 package-desc-box">
+
+                                    <div th:each="price : ${packages[0].prices}" th:object="${price}" class="col-md-3 package-desc-box">
                                         <div>
-                                            <div class="vip-price">￥<span>49</span>月</div>
-                                            <div class="vip-ori-price">原价：<span>￥99/月</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：50</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 package-desc-box">
-                                        <div>
-                                            <div class="vip-price">￥<span>249</span>半年</div>
-                                            <div class="vip-ori-price">原价：<span>￥594/半年</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：345</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 package-desc-box">
-                                        <div>
-                                            <div class="vip-price">￥<span>449</span>年</div>
-                                            <div class="vip-ori-price">原价：<span>￥1188/月</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：739</div>
+                                            <div class="vip-price">
+                                                ￥<em th:text="*{#strings.replace(payFee,'.0','')}"></em>
+                                                <span th:text="*{getPeriodStr()}"></span>
+                                            </div>
+                                            <div class="vip-ori-price">
+                                                原价：<span>￥<span th:text="|*{#strings.replace(packageFee,'.0','')}/*{getPeriodStr()}|"></span></span>
+                                            </div>
+                                            <div class="vip-buy" th:onclick="showPayModal([[*{id}]])">立即购买 &gt;</div>
+                                            <div class="vip-discount">
+                                                限时优惠：<span th:text="*{#strings.replace(discount,'.0','')}"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,11 +81,24 @@
 <div th:replace="include/modal::payModal"></div>
 <!-- REQUIRED SCRIPTS -->
 <script>
-    $(function () {
-        $('.vip-buy').click(function () {
-            $.modal.showPayModal();
+    function showPayModal(priceId) {
+        $.json({
+            url:ctx + 'package/price/'+priceId,
+            success:function (data) {
+                var priceInfo = data.data;
+                if(priceInfo){
+                    var packageInfo = priceInfo.packageInfo;
+                    $('#payForm [name=priceId]').val(priceInfo.id);
+                    $('#payModal [name=payFee]').text(priceInfo.payFee);
+                    $('#payModal [name=packageName]').text(packageInfo.packageName);
+                    $('#payModal [name=period]').text(priceInfo.period +'个月');
+                    $('#payModal [name=packageFee]').text(priceInfo.packageFee);
+                    $('#payModal [name=discount]').text(priceInfo.discount);
+                    $.modal.showPayModal()
+                }
+            }
         })
-    })
+    }
 </script>
 </body>
 </html>

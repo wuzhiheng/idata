@@ -30,7 +30,7 @@ public class UserEntity implements Serializable, UserDetails {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 手机号码

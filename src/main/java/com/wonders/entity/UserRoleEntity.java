@@ -27,17 +27,17 @@ public class UserRoleEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 用户id
      */
-    private String userId;
+    private Integer userId;
 
     /**
      * 角色id
      */
-    private String roleId;
+    private Integer roleId;
 
     private String removed;
 

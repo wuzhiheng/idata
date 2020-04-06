@@ -33,7 +33,7 @@ public class MyBatisPlusCodeGenerator {
     private static String USERNAME = "root";
     private static String PASSWORD = "root";
 
-    private static String[] tables = {"tb_order"};
+    private static String[] tables = {"tb_package","tb_package_price"};
 
     public static void main(String[] args) {
         executeCode(PACKAGE_NAME,tables);

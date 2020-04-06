@@ -476,11 +476,12 @@ span.support-pt {
     margin: 10px 0 10px;
 }
 
-.vip-price span {
+.vip-price em {
     display: inline-block;
     font-size: 28px;
     font-weight: bold;
     margin: 0 5px;
+    font-style: normal;
 }
 
 .vip-ori-price {

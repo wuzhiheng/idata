@@ -1,8 +1,10 @@
 package com.wonders.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.wonders.global.PricePeriodEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -12,7 +14,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 订单信息
+ * 套餐定价信息
  * </p>
  *
  * @author wuzhiheng
@@ -21,41 +23,18 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tb_order")
-public class OrderEntity implements Serializable {
+@TableName("tb_package_price")
+public class PackagePriceEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 订单ID
-     */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
-
-    /**
-     * 用户ID
-     */
-    private Integer userId;
-
-    /**
-     * 订单时间
-     */
-    private Date orderTime;
-
-    /**
-     * 订单类型，1：购买 2：续费 3：升级
-     */
-    private String orderType;
+    private Integer id;
 
     /**
      * 套餐ID
      */
     private Integer packageId;
-
-    /**
-     * 套餐名称
-     */
-    private String packageName;
 
     /**
      * 购买时长（月）
@@ -78,14 +57,9 @@ public class OrderEntity implements Serializable {
     private double payFee;
 
     /**
-     * 支付方式
+     * 序号
      */
-    private String payWay;
-
-    /**
-     * 订单状态
-     */
-    private String status;
+    private Integer seq;
 
     /**
      * 数据是否有效
@@ -101,6 +75,19 @@ public class OrderEntity implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
+    @TableField(exist = false)
+    private PackageEntity packageInfo;
+
+
+    public String getPeriodStr(){
+
+        for (PricePeriodEnum value : PricePeriodEnum.values()) {
+            if (value.getMonth().equals(this.period))
+                return value.getText();
+        }
+        return null;
+    }
 
 
 }
