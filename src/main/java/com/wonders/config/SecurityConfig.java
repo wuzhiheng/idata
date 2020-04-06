@@ -7,12 +7,15 @@ import com.wonders.security.sms.SmsAuthenticationSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -76,23 +79,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return jdbcTokenRepository;
     }
 
+    @Bean
+    @Lazy
+    public RememberMeServices rememberMeServices() throws Exception {
+        return getHttp().getSharedObject(RememberMeServices.class);
+    }
+
     // 配置security的控制逻辑
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         SecurityProperties securityProperties = iDataProperties.getSecurity();
 
-        //组装antMatchers
-        String[] antMatchers = securityProperties.getAntMatchers().stream()
-                .map(s -> s.split(","))
-                .flatMap(Arrays::stream)
-                .distinct()
-                .toArray(String[]::new);
-
         http.authorizeRequests()
-                // 不进行权限验证的请求或资源(从配置文件中读取)
-                .antMatchers(antMatchers).permitAll()
-                // 其他的需要登陆后才能访问
                 .anyRequest().authenticated()
                 .and()
                 // 配置登录地址
@@ -142,7 +141,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         //默认是所有请求都加上cache-control:no-cache，需要禁掉
         http.headers().cacheControl().disable();
+    }
 
+    /**
+     * web ignore比较适合配置前端相关的静态资源，它是完全绕过spring security的所有filter的；
+     * permitAll，会给没有登录的用户适配一个AnonymousAuthenticationToken，设置到SecurityContextHolder，方便后面的filter可以统一处理authentication
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        SecurityProperties securityProperties = iDataProperties.getSecurity();
 
+        //组装antMatchers
+        String[] antMatchers = securityProperties.getAntMatchers().stream()
+                .map(s -> s.split(","))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .toArray(String[]::new);
+        web.ignoring().antMatchers(antMatchers);
     }
 }

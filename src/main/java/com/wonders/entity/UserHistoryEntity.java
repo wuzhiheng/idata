@@ -12,17 +12,17 @@ import java.util.Date;
 
 /**
  * <p>
- * 角色表
+ * 用户表-修改历史
  * </p>
  *
  * @author wuzhiheng
- * @since 2020-04-05
+ * @since 2020-04-08
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tb_role")
-public class RoleEntity implements Serializable {
+@TableName("tb_user_history")
+public class UserHistoryEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,14 +30,48 @@ public class RoleEntity implements Serializable {
     private Integer id;
 
     /**
-     * 角色名称
+     * 用户id
      */
-    private String name;
+    private Integer userId;
 
+    /**
+     * 手机号码
+     */
+    private String phone;
+
+    /**
+     * 昵称
+     */
+    private String nick;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 用户状态
+     */
+    private String status;
+
+    /**
+     * 数据是否有效
+     */
     private String removed;
 
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
 

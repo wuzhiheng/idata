@@ -3,7 +3,7 @@
         json: function (option, defaultHandle = true) {
             let config = {
                 dataType: 'json',
-                type: 'get'
+                type: 'post'
             };
             $.extend(config, option);
             config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/, '$1\/$2');
@@ -142,6 +142,11 @@
                         v = c == 'x' ? r : (r & 0x3 | 0x8);
                     return v.toString(16);
                 });
+            },
+            hidePhone:function (phone) {
+                if(/^\d{11}$/.test(phone)){
+                    return phone.substring(0,3)+'****'+phone.substr(7);
+                }
             }
         },
         modal: {
@@ -166,6 +171,14 @@
             },
             showPayModal: function () {
                 $('#payModal').modalShow('zoomIn', {vertical: true});
+            },
+            showPhoneModal: function () {
+                $('#phoneModal').removeClass('step-2').addClass('step-1');
+                $('#phoneModal input').val('');
+                $('#phoneModal').modalShow('zoomIn', {vertical: true});
+            },
+            hideModal: function (modal) {
+                $(modal).modal('hide');
             }
         },
         toast: {
@@ -177,11 +190,62 @@
             },
             success: function (msg) {
                 Toast.fire({
-                    type: 'error',
+                    type: 'success',
                     title: '&nbsp;&nbsp;' + msg
                 })
             }
         },
+        bussiness: {
+            createOrder: function () {
+                var priceId = $('#payForm [name=priceId]').val();
+                if(!priceId){
+                    return false;
+                }
+                $.json({
+                    url: ctx + '/order/create',
+                    data: {priceId: priceId},
+                    success: function (data) {
+                        if (data.code == '200') {
+                            Swal.fire({
+                                type: 'success',
+                                title: '购买成功',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $.modal.hideModal('#payModal');
+                        }
+
+                    }
+                })
+            },
+            checkPhoneByStep1:function() {
+                let code = $('#phoneModal.step-1 .step-1 [name=code]').val();
+                if(code && code == '1234'){
+                    $('#phoneModal.step-1').removeClass('step-1').addClass('step-2');
+                }else {
+                    $.toast.error('验证码不正确');
+                }
+            },
+            bindPhone:function(){
+                let code = $('#phoneModal.step-2 .step-2 [name=code]').val();
+                let phone = $('#phoneModal.step-2 .step-2 [name=phone]').val();
+                if(!code || !phone){
+                    $.toast.error('信息不完善');
+                }else if(!/^\d{11}$/.test(phone)){
+                    $.toast.error('手机号码不正确');
+                }else{
+                    $.json({
+                        url:ctx+'/user/bindPhone',
+                        data:{code:code,phone:phone,"remember-me":"true"},
+                        success:function(data){
+                            $.toast.success('修改成功');
+                            $.modal.hideModal('#phoneModal');
+                            $('.phone-number').text($.str.hidePhone(phone)).val($.str.hidePhone(phone));
+                        }
+                    })
+                }
+            }
+        }
     })
 
     $.fn.extend({
@@ -199,27 +263,28 @@
                 pageNumber: 1, // 首页页码
                 sidePagination: 'server', // 设置为服务器端分页
                 toolbar: '#toolbar',
-                showColumns:false,
-                showRefresh:false,
-                showToggle:false,
+                showColumns: false,
+                showRefresh: false,
+                showToggle: false,
                 iconSize: 'default',
                 queryParams: function (params) {
                     var currentParams = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
                         limit: params.limit,   //页面大小
                         offset: params.offset,  //页码
                     };
-                    if(this.form){
-                        $.extend(currentParams,$(this.form).serializeObject());
+                    if (this.form) {
+                        $.extend(currentParams, $(this.form).serializeObject());
                     }
                     return currentParams;
                 },
                 singleSelect: true,
 
             }
-            var newOptions = $.extend(defaults,options);
+            var newOptions = $.extend(defaults, options);
             $('#tableGrid').bootstrapTable(newOptions);
 
-        }
+        },
+
     })
 })(jQuery);
 

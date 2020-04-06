@@ -1,13 +1,17 @@
 package com.wonders.controller;
 
+import com.wonders.entity.PackageEntity;
+import com.wonders.service.PackageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,6 +25,9 @@ import java.util.List;
 @RequestMapping
 @Api(tags = "专门处理网页的controller")
 public class IndexController extends BaseController {
+
+    @Autowired
+    private PackageService packageService;
 
     @GetMapping("/")
     public String toIndex() {
@@ -38,12 +45,14 @@ public class IndexController extends BaseController {
 //    public String portal(){
 //        return "pages/portal/index";
 //    }
-//    //门户网站套餐介绍
-//    @RequestMapping("page/package")
-//    public String packages(){
-//        return "pages/portal/package";
-//    }
-//
+    //门户网站套餐介绍
+    @RequestMapping("page/portal/package")
+    public String packages(Model model){
+        List<PackageEntity> packages = packageService.allPackages();
+        model.addAttribute("packages",packages);
+        return "pages/portal/package";
+    }
+
 //    //个人中心
 //    @RequestMapping("page/user")
 //    public String user(){

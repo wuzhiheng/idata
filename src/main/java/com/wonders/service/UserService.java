@@ -15,4 +15,6 @@ public interface UserService extends IService<UserEntity> {
 
     UserEntity loadUserByPhone(String phone);
 
+    void updateUser(UserEntity newUser);
+
 }

@@ -58,7 +58,7 @@ $(function () {
                 }
             },
             {
-                field: 'actualFee',
+                field: 'payFee',
                 title: '实际支付费用',
                 formatter: function (v, r, i) {
                     return '<span class="text-theme">￥' + v + '</span>';

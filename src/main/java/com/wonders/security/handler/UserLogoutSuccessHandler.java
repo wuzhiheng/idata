@@ -2,6 +2,7 @@ package com.wonders.security.handler;
 
 import com.wonders.dao.OperationLogDao;
 import com.wonders.entity.OperationLogEntity;
+import com.wonders.entity.UserEntity;
 import com.wonders.global.LogManager;
 import com.wonders.util.CommonUtil;
 import com.wonders.util.IPUtils;
@@ -9,7 +10,6 @@ import com.wonders.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.stereotype.Component;
 
@@ -55,10 +55,12 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler {
 
     // 用户登录日志
     private void saveLog(HttpServletRequest request, Authentication authentication) {
+        UserEntity user = (UserEntity) authentication.getPrincipal();
         OperationLogEntity log = new OperationLogEntity()
+                .setUserId(user.getId())
                 .setIp(IPUtils.getIpAddr(request))
                 .setBrowser(CommonUtil.browserInfo(request))
-                .setUsername(((UserDetails)authentication.getPrincipal()).getUsername())
+                .setUsername(user.getPhone())
                 .setBussinessType("用户操作")
                 .setOperation("用户退出")
                 .setRequestParam(CommonUtil.getParamDesc(request));

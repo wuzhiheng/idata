@@ -4,6 +4,7 @@ import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wonders.entity.UserEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -268,9 +269,8 @@ public class CommonUtil {
         return browser + "/" + version;
     }
 
-    public static void refreshSessionUser(UserEntity user){
-        HttpServletRequest request = getRequest();
-        request.getSession().setAttribute("user",user);
+    public static void saveSessionUser(HttpServletRequest request){
+        request.getSession().setAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
     public static UserEntity getSessionUser(){
         HttpServletRequest request = getRequest();

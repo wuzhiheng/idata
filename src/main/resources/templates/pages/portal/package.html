@@ -15,57 +15,83 @@
                 <div class="card card-primary">
                     <div class="card-body" id="vip-member-box">
                         <div class="row">
-                            <div class="col-md-8 baiyin-box">
+
+                            <div th:each="package : ${packages}" th:class="${package.status == '1' ? 'col-md-8' : 'col-md-2'}">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div th:class="${package.status == '1' ? 'col-md-3' : 'col-md-12'}">
                                         <div class="vip-icon-bg">
-                                            <img th:src="@{/images/u3020.png}"/>
+                                            <img th:src="|${#request.getContextPath()}${package.icon}|"/>
                                         </div>
-                                        <div class="vip-text text-center">白银会员</div>
-                                        <span class="vip-text-other text-center">仅支持“起点小说”</span>
+                                        <div class="vip-text text-center" th:text="${package.name}"></div>
+                                        <span class="vip-text-other text-center" th:if="${package.status == '1'}">仅支持“起点小说”</span>
+                                        <span class="vip-text-other text-center" th:unless="${package.status == '1'}">即将携带</span>
+                                        <span class="vip-text-other text-center" th:unless="${package.status == '1'}">全新功能前来</span>
                                     </div>
-                                    <div class="col-md-3 package-desc-box">
+
+                                    <div th:each="price : ${package.prices}" class="col-md-3 package-desc-box">
                                         <div>
-                                            <div class="vip-price">￥<span>49</span>月</div>
-                                            <div class="vip-ori-price">原价：<span>￥99/月</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：50</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 package-desc-box">
-                                        <div>
-                                            <div class="vip-price">￥<span>249</span>半年</div>
-                                            <div class="vip-ori-price">原价：<span>￥594/半年</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：345</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 package-desc-box">
-                                        <div>
-                                            <div class="vip-price">￥<span>449</span>年</div>
-                                            <div class="vip-ori-price">原价：<span>￥1188/月</span></div>
-                                            <div class="vip-buy">立即购买 &gt;</div>
-                                            <div class="vip-discount">限时优惠：739</div>
+                                            <div class="vip-price">
+                                                ￥<em th:text="${#strings.replace(price.payFee,'.00','')}"></em>
+                                                <span th:text="${price.getPeriodStr()}"></span>
+                                            </div>
+                                            <div class="vip-ori-price">
+                                                原价：<span>￥<span th:text="|${#strings.replace(price.packageFee,'.00','')}/${price.getPeriodStr()}|"></span></span>
+                                            </div>
+                                            <div class="vip-buy" th:onclick="|showPayModal(${price.id})|">立即购买 &gt;</div>
+                                            <div class="vip-discount">
+                                                限时优惠：<span th:text="|${#strings.replace(price.discount,'.00','')} 元|"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 huangjin-box">
-                                <div class="vip-icon-bg">
-                                    <img th:src="@{/images/u3066.png}"/>
+
+                            <div style="display: none">
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="vip-icon-bg">
+                                                <img th:src="@{/images/u3020.png}"/>
+                                            </div>
+                                            <div class="vip-text text-center">白银会员</div>
+                                            <span class="vip-text-other text-center">仅支持“起点小说”</span>
+                                        </div>
+
+                                        <div th:each="price : ${packages[0].prices}" th:object="${price}" class="col-md-3 package-desc-box">
+                                            <div>
+                                                <div class="vip-price">
+                                                    ￥<em th:text="*{#strings.replace(payFee,'.00','')}"></em>
+                                                    <span th:text="*{getPeriodStr()}"></span>
+                                                </div>
+                                                <div class="vip-ori-price">
+                                                    原价：<span>￥<span th:text="|*{#strings.replace(packageFee,'.00','')}/*{getPeriodStr()}|"></span></span>
+                                                </div>
+                                                <div class="vip-buy" th:onclick="showPayModal([[*{id}]])">立即购买 &gt;</div>
+                                                <div class="vip-discount">
+                                                    限时优惠：<span th:text="|*{#strings.replace(discount,'.00','')} 元|"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="vip-text text-center">黄金会员</div>
-                                <span class="vip-text-other text-center">即将携带</span>
-                                <span class="vip-text-other text-center">全新功能前来</span>
-                            </div>
-                            <div class="col-md-2 zhuanshi-box">
-                                <div class="vip-icon-bg">
-                                    <img th:src="@{/images/u3070.png}"/>
+                                <div class="col-md-2">
+                                    <div class="vip-icon-bg">
+                                        <img th:src="@{/images/u3066.png}"/>
+                                    </div>
+                                    <div class="vip-text text-center">黄金会员</div>
+                                    <span class="vip-text-other text-center">即将携带</span>
+                                    <span class="vip-text-other text-center">全新功能前来</span>
                                 </div>
-                                <div class="vip-text text-center">钻石会员</div>
-                                <span class="vip-text-other text-center">即将携带</span>
-                                <span class="vip-text-other text-center">全新功能前来</span>
+                                <div class="col-md-2">
+                                    <div class="vip-icon-bg">
+                                        <img th:src="@{/images/u3070.png}"/>
+                                    </div>
+                                    <div class="vip-text text-center">钻石会员</div>
+                                    <span class="vip-text-other text-center">即将携带</span>
+                                    <span class="vip-text-other text-center">全新功能前来</span>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -89,11 +115,24 @@
 <div th:replace="include/modal::payModal"></div>
 <!-- REQUIRED SCRIPTS -->
 <script>
-    $(function () {
-        $('.vip-buy').click(function () {
-            $.modal.showPayModal();
+    function showPayModal(priceId) {
+        $.json({
+            url:ctx + 'package/price/'+priceId,
+            success:function (data) {
+                var priceInfo = data.data;
+                if(priceInfo){
+                    var packageInfo = priceInfo.packageInfo;
+                    $('#payForm [name=priceId]').val(priceInfo.id);
+                    $('#payModal [name=payFee]').text(priceInfo.payFee);
+                    $('#payModal [name=packageName]').text(packageInfo.packageName);
+                    $('#payModal [name=period]').text(priceInfo.period +'个月');
+                    $('#payModal [name=packageFee]').text(priceInfo.packageFee);
+                    $('#payModal [name=discount]').text(priceInfo.discount);
+                    $.modal.showPayModal()
+                }
+            }
         })
-    })
+    }
 </script>
 </body>
 </html>

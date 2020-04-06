@@ -1,17 +1,20 @@
 package com.wonders.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -30,7 +33,7 @@ public class UserEntity implements Serializable, UserDetails {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 手机号码
@@ -72,11 +75,14 @@ public class UserEntity implements Serializable, UserDetails {
      */
     private Date updateTime;
 
-    private transient Collection<GrantedAuthority> authorities;
+    @TableField(exist = false)
+    private List<RoleEntity> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        if(roles == null)
+            return null;
+        return AuthorityUtils.createAuthorityList(roles.stream().map(RoleEntity::getName).toArray(String[]::new));
     }
 
     @Override

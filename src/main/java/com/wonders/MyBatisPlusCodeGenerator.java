@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
+import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
@@ -33,7 +33,7 @@ public class MyBatisPlusCodeGenerator {
     private static String USERNAME = "root";
     private static String PASSWORD = "root";
 
-    private static String[] tables = {"tb_order"};
+    private static String[] tables = {"tb_user_history"};
 
     public static void main(String[] args) {
         executeCode(PACKAGE_NAME,tables);
@@ -76,11 +76,11 @@ public class MyBatisPlusCodeGenerator {
         config.setPassword(PASSWORD);
 
         //类型转换，数据库->java
-        config.setTypeConvert(new OracleTypeConvert(){
+        config.setTypeConvert(new MySqlTypeConvert(){
             @Override
             public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
-                if(fieldType.toLowerCase().contains("number"))
-                    return DbColumnType.INTEGER;
+                if(fieldType.toLowerCase().contains("tinyint"))
+                    return DbColumnType.STRING;
                 return super.processTypeConvert(globalConfig, fieldType);
             }
         });

@@ -12,31 +12,34 @@
                 </a>
             </div>
             <div class="modal-body">
+                <form id="payForm">
+                    <input type="hidden" name="priceId"/>
+                </form>
                 <table class="table">
                     <tr>
                         <td>购买套餐：</td>
-                        <td>白银会员</td>
+                        <td name="packageName">白银会员</td>
                         <td>当前套餐到期时间：</td>
                         <td>2019年7月20日</td>
                     </tr>
                     <tr>
                         <td>购买时长：</td>
-                        <td>372天</td>
+                        <td name="period">372天</td>
                         <td>预计套餐到期时间：</td>
                         <td>2020年7月31日</td>
                     </tr>
                     <tr>
                         <td>所需费用：</td>
-                        <td colspan="3">￥49</td>
+                        <td colspan="3">￥<span name="packageFee">49</span></td>
                     </tr>
                     <tr>
                         <td>扣减费用：</td>
-                        <td>￥49</td>
+                        <td>￥<span name="discount">49</span></td>
                         <td colspan="2">扣减说明：原套餐升级</td>
                     </tr>
                     <tr>
                         <td>支付金额：</td>
-                        <td colspan="3">￥0 (支付前请阅读开通须知）</td>
+                        <td colspan="3">￥<span name="payFee">0</span> (支付前请阅读开通须知）</td>
                     </tr>
                     <tr>
                         <td>支付方式：</td>
@@ -50,7 +53,7 @@
             <div class="modal-footer">
                 <div class="float-right">
                     <button class="btn btn-green-outline" data-dismiss="modal">取消</button>
-                    <button class="btn btn-green">立即支付</button>
+                    <button class="btn btn-green" onclick="$.bussiness.createOrder()">立即支付</button>
                 </div>
             </div>
         </div>
@@ -99,6 +102,58 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+<div class="modal step-1" role="dialog" id="phoneModal" th:fragment="phoneModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="step-1">
+                <div class="modal-header">
+                    <h5 class="modal-title text-theme">安全验证</h5>
+                    <a class="btn close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <p>为了保证你的账号安全，请先验证身份，验证成功后进行下一步操作，验证码10分钟内有效</p>
+                    <h5 class="text-center">
+                        <small>用手机</small>
+                        <span class="phone-number"
+                              th:text="${#strings.substring(session.user.phone,0,3)+'****'+#strings.substring(session.user.phone,7)}">
+                        </span>
+                        <small>验证</small></h5>
+                    <div class="form-group">
+                        <input type="text" name="code" class="form-control" placeholder="验证码"/>
+                        <i class="iconfont icon-yanzhengma"></i>
+                        <span class="btn-in-resend btn-green get_code">发送验证码</span>
+                    </div>
+                    <button class="btn btn-block btn-green" onclick="$.bussiness.checkPhoneByStep1()">确 认</button>
+                </div>
+            </div>
+            <div class="step-2">
+                <div class="modal-header">
+                    <h5 class="modal-title text-theme">绑定手机</h5>
+                    <a class="btn close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group phone">
+                        <input type="text" name="phone" class="form-control " placeholder="手机号"/>
+<!--                        <i class="iconfont icon-shoujihe"></i>-->
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="code" class="form-control" placeholder="验证码"/>
+                        <i class="iconfont icon-yanzhengma"></i>
+                        <span class="btn-in-resend btn-green get_code">发送验证码</span>
+                    </div>
+                    <button class="btn btn-block btn-green" onclick="$.bussiness.bindPhone()">确 认</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 
 </html>

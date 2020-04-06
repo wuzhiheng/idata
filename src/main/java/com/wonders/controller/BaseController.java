@@ -42,9 +42,9 @@ public class BaseController {
         return SecurityContextHolder.getContext().getAuthentication();
     }
 
+    // 注意，这里获取的user其实就是authentication里面的UserDetails
     public UserEntity getUser(){
         return CommonUtil.getSessionUser();
     }
-
 
 }

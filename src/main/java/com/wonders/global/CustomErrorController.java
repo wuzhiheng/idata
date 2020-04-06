@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Controller
 public class CustomErrorController implements ErrorController {
-    private static final String ERROR_PATH = "error";
+    public static final String ERROR_PATH = "error";
     private ErrorAttributes errorAttributes;
 
     public CustomErrorController(ErrorAttributes errorAttributes) {
@@ -28,7 +28,11 @@ public class CustomErrorController implements ErrorController {
     public String handleError(HttpServletRequest request, Model model){
         ServletWebRequest requestAttributes =  new ServletWebRequest(request);
         Map<String, Object> attr = this.errorAttributes.getErrorAttributes(requestAttributes, false);
-        model.addAttribute("status",attr.get("status"));
+        Integer status = (Integer)attr.get("status");
+        if(status == 200){
+            status = 500;
+        }
+        model.addAttribute("status",status);
         model.addAttribute("message",attr.get("message"));
         return "pages/error";
     }

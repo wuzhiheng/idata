@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -19,7 +20,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 //@EnableScheduling
 @Slf4j
 //@EnableAsync
-//@EnableCaching
+@EnableCaching
 @MapperScan("com.wonders.**.dao")
 @EnableSwagger2Doc
 public class IDataApplication {

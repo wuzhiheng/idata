@@ -53,7 +53,7 @@ img {
 }
 
 a.btn.close {
-    font-size: 1rem !important;
+    font-size: 1.5rem !important;
 }
 
 .card {
@@ -443,7 +443,7 @@ span.support-pt {
     font-size: 0.875rem;
 }
 
-.huangjin-box, .zhuanshi-box {
+#vip-member-box .col-md-2 {
     border-left: 10px solid #f2f2f2;
 }
 
@@ -476,11 +476,12 @@ span.support-pt {
     margin: 10px 0 10px;
 }
 
-.vip-price span {
+.vip-price em {
     display: inline-block;
     font-size: 28px;
     font-weight: bold;
     margin: 0 5px;
+    font-style: normal;
 }
 
 .vip-ori-price {
@@ -897,6 +898,67 @@ span.support-pt {
     position: absolute;
     left: 12px;
     top:8px;
+}
+/*********************************phoneModal--手机号码验证*********************************************/
+#phoneModal .modal-header{
+    padding-left: 2rem;
+}
+#phoneModal .modal-body{
+    padding: 1rem 2rem 2rem;
+}
+#phoneModal .modal-body p{
+    color: #969696;
+}
+#phoneModal .modal-body h5{
+    margin: 1.5rem 0;
+}
+#phoneModal .modal-body .form-group{
+    position: relative;
+}
+
+#phoneModal .modal-body .form-control{
+    height: 50px;
+    padding-left: 45px;
+}
+#phoneModal .modal-body .btn{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 1rem 0  0;
+}
+#phoneModal .modal-body .btn-in-resend{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 100px;
+    height: 36px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    line-height: 36px;
+    cursor: pointer;
+}
+#phoneModal .form-group i{
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    font-size: 18px;
+    color: #969696;
+}
+#phoneModal .phone::before {
+    left: 10px;
+    top: 13px;
+}
+#phoneModal .modal-content>div{
+    display: none;
+}
+#phoneModal.step-1 .modal-content>div.step-1{
+    display: block;
+}
+#phoneModal.step-2 .modal-content>div.step-2{
+    display: block;
 }
 /*********************************login--登录*********************************************/
 #login-page .fix-height{
