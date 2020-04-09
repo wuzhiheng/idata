@@ -26,12 +26,13 @@
                                     <div class="">
                                         <form onsubmit="return false;" id="loginForm">
                                             <input name="forwardUrl" type="hidden" th:value="${session.forwardUrl}">
-                                            <div class="form-group phone">
+                                            <div class="form-group phone-box">
                                                 <input class="form-control " placeholder="请输入手机号码" name="phone" value="11111111111"/>
                                             </div>
-                                            <div class="form-group login-code-box d-flex">
-                                                <input class="form-control" placeholder="请输入验证码" name="smsCode" value="1234"/>
-                                                <button class="btn btn-green get_code">获取验证码</button>
+                                            <div class="form-group code-box">
+                                                <input type="text" name="smsCode" class="form-control" placeholder="请输入验证码"/>
+                                                <i class="iconfont icon-yanzhengma"></i>
+                                                <span class="btn-in-resend btn-green get_code">发送验证码</span>
                                             </div>
                                             <div class="form-group d-flex justify-content-between">
                                                 <div class="custom-control custom-checkbox">

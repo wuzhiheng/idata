@@ -23,7 +23,7 @@
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
     <link rel="stylesheet" th:href="@{/css/animate.css}"/>
     <link rel="stylesheet" th:href="@{/css/iconfont/iconfont.css}"/>
-    <link rel="stylesheet" th:href="@{/css/style.css?v=1}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css?v=2}"/>
 
     <!--[if !IE]> -->
     <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
@@ -42,7 +42,7 @@
     <script th:src="@{/AdminLTE-3.0.2/plugins/sweetalert2/sweetalert2.min.js}"></script>
 
 
-    <script th:src="@{/js/common.js}" ></script>
+    <script th:src="@{/js/common.js?v=2}" ></script>
 
     <script th:inline="javascript">
         const ctx = location.protocol+'//'+location.host+[[${#request.getContextPath()}]]+'/';
@@ -73,7 +73,7 @@
 
             let user = [[${session.user}]];
             if(user){
-                $('img.userAvatar').attr('src',ctx.replace(/\/$/,'')+user.avatar);
+                $.bussiness.refreshUserAvatar(ctx.replace(/\/$/,'')+user.avatar);
             }
         })
     </script>
@@ -106,7 +106,8 @@
 
 <!-- plugin:validate -->
 <div th:fragment="validate">
-    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/plugins/validate/jquery.validate.min.js}"></script>
+    <script th:src="@{/plugins/validate/messages_zh.js}"></script>
 </div>
 
 <!-- plugin:sweetalert2 -->

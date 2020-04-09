@@ -164,20 +164,24 @@
                 $('body').append(html);
             },
             showLoginModal: function () {
+                $.modal.hideModal();
                 $('#loginModal').modalShow('zoomIn', {vertical: true});
                 if (!/\/login$/.test(location.href)) {
                     $('#loginForm [name=forwardUrl]').val(location.href);
                 }
             },
             showPayModal: function () {
+                $.modal.hideModal();
                 $('#payModal').modalShow('zoomIn', {vertical: true});
             },
             showPhoneModal: function () {
                 $('#phoneModal').removeClass('step-2').addClass('step-1');
                 $('#phoneModal input').val('');
+                $.modal.hideModal();
                 $('#phoneModal').modalShow('zoomIn', {vertical: true});
             },
             hideModal: function (modal) {
+                modal = modal || '.modal';
                 $(modal).modal('hide');
             }
         },
@@ -244,6 +248,26 @@
                         }
                     })
                 }
+            },
+            // 个人中心，保存用户信息
+            saveUserInfo:function() {
+                let nick = $('#userForm [name=nick]').val(),
+                    email = $('#userForm [name=email]').val();
+
+                $.json({
+                    url : ctx + '/user/save',
+                    data:{nick:nick,email:email},
+                    success:function (data) {
+                        $.toast.success('修改成功');
+                        $.bussiness.refreshUserNick(nick);
+                    }
+                })
+            },
+            refreshUserNick:function (nick) {
+                $('.userNick').text(nick).val(nick);
+            },
+            refreshUserAvatar:function (avatar) {
+                $('img.userAvatar').attr('src', avatar);
             }
         }
     })

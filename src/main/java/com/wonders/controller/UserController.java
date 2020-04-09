@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.File;
@@ -53,6 +54,16 @@ public class UserController extends BaseController {
     private RememberMeServices rememberMeService;
 
     private volatile PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
+
+    @PostMapping("/save")
+    public ReturnMsg save(@NotBlank(message = "昵称不能为空") String nick,String email){
+        UserEntity user = getUser();
+        user.setNick(nick);
+        user.setEmail(email);
+        userService.updateUser(user);
+
+        return ReturnMsg.successTip();
+    }
 
     @PostMapping("/avatar/upload")
     public Object avatar_upload(MultipartFile file) throws IOException {
@@ -105,6 +116,7 @@ public class UserController extends BaseController {
     // 刷新authentication和cookie
     private void refreshAuthentication(HttpServletRequest request, HttpServletResponse response, Authentication oldAuthentication) {
         if(checkCookie(request)){
+            // 先删除就的token然后创建新的token
             getPersistentTokenBasedRememberMeServices().logout(request,response,oldAuthentication);
             rememberMeService.loginSuccess(request, response, getAuthentication());
         }
@@ -137,7 +149,8 @@ public class UserController extends BaseController {
         return getUser().getPhone() + "/" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + filename.substring(filename.lastIndexOf("."));
     }
 
-    public PersistentTokenBasedRememberMeServices getPersistentTokenBasedRememberMeServices() {
+    // 单例-加锁
+    private PersistentTokenBasedRememberMeServices getPersistentTokenBasedRememberMeServices() {
         if(persistentTokenBasedRememberMeServices == null){
             synchronized (this){
                 if(persistentTokenBasedRememberMeServices == null) {

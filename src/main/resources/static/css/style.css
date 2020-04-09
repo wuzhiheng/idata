@@ -845,26 +845,14 @@ span.support-pt {
 #loginModal .form-group {
     margin-bottom: 20px;
 }
-#loginForm .form-group input{
-    height: 40px;
-}
-#loginForm .login-code-box input {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
 
-#loginForm .login-code-box .btn {
-    margin-left: 10px;
-}
-
-#loginForm .login-code-box + .form-group {
+#loginForm .code-box + .form-group {
     font-size: .875rem;
 }
 
 #loginForm .btn-block.btn-green {
     font-size: 1rem;
-    padding: .5rem;
+    height: 46px;
 }
 
 #loginForm .custom-control-input:checked ~ .custom-control-label::before {
@@ -887,17 +875,49 @@ span.support-pt {
 .login-container .card-body{
     padding: 3rem 0;
 }
-.phone{
+.phone-box{
     position: relative;
 }
-.phone input{
+.phone-box input{
     padding-left: 50px;
 }
-.phone::before{
+.phone-box::before{
     content: '+86';
     position: absolute;
     left: 12px;
     top:8px;
+}
+.form-group.code-box .btn-in-resend{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 100px;
+    height: 36px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    border-radius: 20px;
+    line-height: 36px;
+    cursor: pointer;
+}
+.form-group.code-box i{
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    font-size: 18px;
+    color: #969696;
+}
+.phone-box::before {
+    left: 10px;
+    top: 13px;
+}
+.form-group.code-box{
+    position: relative;
+}
+.form-group.code-box input,
+.form-group.phone-box input{
+    height: 50px;
+    padding-left: 45px;
 }
 /*********************************phoneModal--手机号码验证*********************************************/
 #phoneModal .modal-header{
@@ -912,14 +932,7 @@ span.support-pt {
 #phoneModal .modal-body h5{
     margin: 1.5rem 0;
 }
-#phoneModal .modal-body .form-group{
-    position: relative;
-}
 
-#phoneModal .modal-body .form-control{
-    height: 50px;
-    padding-left: 45px;
-}
 #phoneModal .modal-body .btn{
     font-weight: bold;
     font-size: 16px;
@@ -927,30 +940,7 @@ span.support-pt {
     border-radius: 20px;
     margin: 1rem 0  0;
 }
-#phoneModal .modal-body .btn-in-resend{
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 100px;
-    height: 36px;
-    font-size: 13px;
-    text-align: center;
-    color: #fff;
-    border-radius: 20px;
-    line-height: 36px;
-    cursor: pointer;
-}
-#phoneModal .form-group i{
-    position: absolute;
-    top: 11px;
-    left: 12px;
-    font-size: 18px;
-    color: #969696;
-}
-#phoneModal .phone::before {
-    left: 10px;
-    top: 13px;
-}
+
 #phoneModal .modal-content>div{
     display: none;
 }
@@ -961,8 +951,6 @@ span.support-pt {
     display: block;
 }
 /*********************************login--登录*********************************************/
-#login-page .fix-height{
-}
 
 /*********************************导航条--公用*********************************************/
 .navbar-light .navbar-nav .nav-link {

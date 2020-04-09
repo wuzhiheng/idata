@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
  */
 public class ProxyUtil {
 
+    // CglibAopProxy
     public static Object getCglibProxyTargetObject(Object proxy) throws Exception {
         Field h = proxy.getClass().getDeclaredField("CGLIB$CALLBACK_0");
         h.setAccessible(true);
@@ -23,12 +24,11 @@ public class ProxyUtil {
         return ((AdvisedSupport) advised.get(dynamicAdvisedInterceptor)).getTargetSource().getTarget();
     }
 
-
+    // JdkDynamicAopProxy
     public static Object getJdkDynamicProxyTargetObject(Object proxy) throws Exception {
         Field h = proxy.getClass().getSuperclass().getDeclaredField("h");
         h.setAccessible(true);
         AopProxy aopProxy = (AopProxy) h.get(proxy);
-
         Field advised = aopProxy.getClass().getDeclaredField("advised");
         advised.setAccessible(true);
 

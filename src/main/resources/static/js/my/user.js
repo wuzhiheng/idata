@@ -17,12 +17,46 @@ $(function () {
                 contentType: false,
                 success: function (data) {
                     if (data.code == '200') {
-                        let src = ctx.replace(/\/$/, '') + data.data
-                        $('.userAvatar').attr('src', src);
+                        let avatar = ctx.replace(/\/$/, '') + data.data;
+                        $.bussiness.refreshUserAvatar(avatar);
                     }
                 }
             });
         }
         this.value = "";
     })
+
+    //校验form
+    $('#userForm').validate({
+        //校验表单成功后的回调
+        submitHandler: function () {
+            $.bussiness.saveUserInfo();
+        },
+        rules: {
+            nick: {
+                required: true,
+            },
+            email:{
+                email:true
+            }
+        },
+        messages: {
+            nick: {
+                required: "昵称不能为空",
+            },
+        },
+        //显示错误的包裹元素
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.after(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+
+    });
 })
