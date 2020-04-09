@@ -27,14 +27,15 @@ $(function () {
     })
 
     //校验form
-    $('#userForm').validate({
-        //校验表单成功后的回调
+    $.form.validate({
+        form:'#userForm',
+        // 校验表单成功后的回调
         submitHandler: function () {
             $.bussiness.saveUserInfo();
         },
         rules: {
             nick: {
-                required: true,
+                required: true
             },
             email:{
                 email:true
@@ -45,18 +46,5 @@ $(function () {
                 required: "昵称不能为空",
             },
         },
-        //显示错误的包裹元素
-        errorElement: 'span',
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            element.after(error);
-        },
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        }
-
     });
 })

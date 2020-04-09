@@ -49,7 +49,7 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler {
             resultData.put("msg", "登出成功");
             ResultUtil.responseJson(response,ResultUtil.resultSuccess(resultData));
         }else {
-            response.sendRedirect(request.getContextPath() + "/page/user/index");
+            response.sendRedirect(request.getContextPath() + "/profile");
         }
     }
 

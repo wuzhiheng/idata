@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
-<head th:insert="include/head::head" th:with="title='会员信息'"></head>
+<head th:include="include/head::head" th:with="title='会员信息'"></head>
 
-<body class="layout-top-nav user-center" id="page-5">
+<body class="layout-top-nav" id="page-5">
 <div class="wrapper">
     <!-- navbar -->
     <div th:insert="include/navbar::user-navbar"></div>
@@ -15,7 +15,7 @@
                     <div class="card-body p-0">
                         <div class="row">
 
-                            <div class="col-md-2" id="col-1" th:insert="include/sidebar::user-sidebar"
+                            <div class="col-md-2 idata-sidebar" id="col-1" th:insert="include/sidebar::user-sidebar"
                                  th:with="active='会员信息'"></div>
 
                             <div class="col-md-10" id="col-2">

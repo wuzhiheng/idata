@@ -86,7 +86,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
     // 新增用户
     public void saveUser(UserEntity user) {
-        if (!user.getPhone().matches("^\\d{11}$")) {
+        if (!user.getPhone().matches("^1[3456789]\\d{9}$")) {
             throw new AuthenticationServiceException("手机号码不正确");
         }
         save(user);

@@ -130,16 +130,56 @@
 <!-- 用户中心左边菜单栏 -->
 <div class="card card-primary" th:fragment="user-sidebar">
     <div class="card-body">
-        <div class="user-left-top">
+        <div class="left-top">
             <img th:src="@{/images/uuu.png}" >
             <div class="text-theme">个人中心</div>
         </div>
-        <ul>
-            <li th:class="${active == '账号设置'} ? 'active'"><a th:href="@{/page/user/index}">账号设置</a></li>
-            <li th:class="${active == '会员信息'} ? 'active'"><a th:href="@{/page/user/info}">会员信息</a></li>
-            <li th:class="${active == '订购记录'} ? 'active'"><a th:href="@{/page/user/orderInfo}">订购记录</a></li>
+        <ul class="main-menu">
+            <li th:class="${active == '账号设置'} ? 'active'"><a th:href="@{/profile}">账号设置</a></li>
+            <li th:class="${active == '会员信息'} ? 'active'"><a th:href="@{/profile/vip}">会员信息</a></li>
+            <li th:class="${active == '订购记录'} ? 'active'"><a th:href="@{/profile/order}">订购记录</a></li>
         </ul>
     </div>
 </div>
+
+<!-- 行业分析左边菜单栏 -->
+<div class="card card-primary" th:fragment="analysis-sidebar">
+    <div class="card-body">
+        <div class="left-top">
+            <img th:src="@{/images/u333.png}" >
+            <div class="text-theme" th:text="${title}"></div>
+        </div>
+        <ul class="main-menu idata-menu">
+            <li>
+                <div class="title">行业分析</div>
+                <ul>
+                    <li th:class="${active == '行业大盘'} ? 'active'"><a th:href="@{/analysis/market}">行业大盘</a></li>
+                    <li th:class="${active == '行业趋势'} ? 'active'"><a th:href="@{/}">行业趋势</a></li>
+                    <li th:class="${active == '飙升分类'} ? 'active'"><a th:href="@{/}">飙升分类</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="title title-special">竞争分析</div>
+            </li>
+            <li>
+                <div class="title">流派分析</div>
+                <ul>
+                    <li th:class="${active == '行业趋势'} ? 'active'"><a th:href="@{/}">行业趋势</a></li>
+                    <li th:class="${active == '飙升流派'} ? 'active'"><a th:href="@{/}">飙升流派</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="title">读者分析</div>
+                <ul>
+                    <li th:class="${active == '书龄分布'} ? 'active'"><a th:href="@{/}">书龄分布</a></li>
+                    <li th:class="${active == '订阅作品数分布'} ? 'active'"><a th:href="@{/}">订阅作品数分布</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
 
 </html>

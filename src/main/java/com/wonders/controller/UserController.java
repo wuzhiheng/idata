@@ -100,7 +100,7 @@ public class UserController extends BaseController {
 
     @PostMapping("/bindPhone")
     public ReturnMsg bindPhone(@NotNull(message = "验证码不能为空") @Pattern(regexp = "^1234$", message = "验证码不正确") String code,
-                               @NotNull(message = "手机号不能为空") @Pattern(regexp = "^\\d{11}$", message = "手机号码不正确") String phone) {
+                               @NotNull(message = "手机号不能为空") @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号码不正确") String phone) {
         checkPhone(phone);
         UserEntity user = getUser();
         String olePhone = user.getPhone();
@@ -143,7 +143,7 @@ public class UserController extends BaseController {
             throw new RuntimeException("该手机已绑定其他用户");
     }
 
-
+    // 拼接头像存储的地址
     private String getAvatarPath(MultipartFile file) {
         String filename = file.getOriginalFilename();
         return getUser().getPhone() + "/" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + filename.substring(filename.lastIndexOf("."));

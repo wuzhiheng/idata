@@ -30,10 +30,5 @@ public class LogManager {
         executor.schedule(task, OPERATE_DELAY_TIME, TimeUnit.MILLISECONDS);
     }
 
-    public static void main(String[] args) throws Exception{
-
-
-    }
-
 
 }

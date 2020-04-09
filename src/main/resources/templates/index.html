@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
-<head th:insert="include/head::head" th:with="title='首页'"></head>
+<head th:include="include/head::head" th:with="title='首页'"></head>
 <head th:include="include/head::echarts"></head>
 
 <body class="layout-top-nav" id="page-1">
@@ -123,7 +123,6 @@
                                 <div class="card">
                                     <div class="card-header ui-sortable-handle">
                                         <h3 class="card-title">
-
                                             读者书龄
                                         </h3>
                                     </div><!-- /.card-header -->
@@ -136,7 +135,6 @@
                                 <div class="card">
                                     <div class="card-header ui-sortable-handle">
                                         <h3 class="card-title">
-
                                             读者订阅作品数
                                         </h3>
                                     </div><!-- /.card-header -->
@@ -149,12 +147,11 @@
                                 <div class="card">
                                     <div class="card-header ui-sortable-handle">
                                         <h3 class="card-title">
-
                                             TOP5 读者偏好流派
                                         </h3>
                                     </div><!-- /.card-header -->
                                     <div class="card-body" style="padding-left: 5px;padding-right: 5px">
-                                        <table class="table table-sm" id="reader-hobby-pm">
+                                        <table class="table table-sm idata-table-pm" >
                                             <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
@@ -236,24 +233,24 @@
                             <div class="card-body">
                                 <div class="d-flex flex-wrap" id="row-2-r">
                                     <div>
-                                        <div class="xs-pm-str">全站 · 排名</div>
-                                        <div class="xs-pm">12</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str">全站 · 排名</div>
+                                        <div class="pm-value">12</div>
+                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div>
-                                        <div class="xs-pm-str">男频  · 排名</div>
-                                        <div class="xs-pm">12</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str">男频  · 排名</div>
+                                        <div class="pm-value">12</div>
+                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div>
-                                        <div class="xs-pm-str">科幻 · 排名</div>
-                                        <div class="xs-pm">12</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str">科幻 · 排名</div>
+                                        <div class="pm-value">12</div>
+                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div>
-                                        <div class="xs-pm-str">未来世界  · 排名</div>
-                                        <div class="xs-pm">12</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str">未来世界  · 排名</div>
+                                        <div class="pm-value">12</div>
+                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                 </div>
                             </div><!-- /.card-body -->
@@ -272,28 +269,28 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between flex-wrap" style="padding:0 40px">
                                     <div class="">
-                                        <div class="xs-pm-str ">更新作品数</div>
-                                        <div class="xs-pm">12,000</div>
+                                        <div class="pm-str ">更新作品数</div>
+                                        <div class="pm-value">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div class="">
-                                        <div class="xs-pm-str">活跃作家数</div>
-                                        <div class="xs-pm">12,000</div>
+                                        <div class="pm-str">活跃作家数</div>
+                                        <div class="pm-value">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div class="">
-                                        <div class="xs-pm-str">更新章节数</div>
-                                        <div class="xs-pm">12,000</div>
+                                        <div class="pm-str">更新章节数</div>
+                                        <div class="pm-value">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div class="">
-                                        <div class="xs-pm-str">新书数</div>
-                                        <div class="xs-pm">12,000</div>
+                                        <div class="pm-str">新书数</div>
+                                        <div class="pm-value">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                     <div class="">
-                                        <div class="xs-pm-str">新增评论数</div>
-                                        <div class="xs-pm">12,000</div>
+                                        <div class="pm-str">新增评论数</div>
+                                        <div class="pm-value">12,000</div>
                                         <div>较前日<span class="m-icon icon-up">5</span></div>
                                     </div>
                                 </div>

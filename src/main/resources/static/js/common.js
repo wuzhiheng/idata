@@ -3,13 +3,14 @@
         json: function (option, defaultHandle = true) {
             let config = {
                 dataType: 'json',
-                type: 'post'
+                type: 'post',
+                loading:true
             };
             $.extend(config, option);
             config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/, '$1\/$2');
 
             config.success = function (data, textStatus, xhr) {
-                loading.hide()
+                if(loading) loading.hide()
                 if (data && data.code == '401') {
                     console.log(data.msg);
                     $.modal.showLoginModal();
@@ -20,10 +21,7 @@
                 if (defaultHandle) {
                     if (data && data.code && data.code != '200') {
                         // alert(data.msg);
-                        Toast.fire({
-                            type: 'error',
-                            title: '&nbsp;&nbsp;' + data.msg
-                        })
+                        $.toast.error(data.msg);
                         return;
                     }
                 }
@@ -32,11 +30,8 @@
 
             };
             config.error = function (xhr, textStatus) {
-                loading.hide()
-                if (window.toastr)
-                    toastr.error('服务正忙,请稍后再试');
-                else
-                    weui.topTips('服务正忙,请稍后再试');
+                if(loading) loading.hide()
+                $.toast.error('服务正忙,请稍后再试');
                 console.log(arguments);
                 if (typeof option.error == 'function')
                     option.error(xhr, textStatus);
@@ -45,10 +40,11 @@
                 if (typeof option.complete == 'function')
                     option.complete(xhr, textStatus);
             };
-
-            let loading = weui.loading('loading', {
-                content: '请稍后...'
-            });
+            if(config.loading){
+                var loading = weui.loading('loading', {
+                    content: '请稍后...'
+                });
+            }
 
             //真正发起请求
             $.ajax(config);
@@ -111,6 +107,32 @@
                         this.initSelectOption(option);
                     }
                 });
+            },
+            validate:function (options) {
+                if(!options.form){
+                    throw 'form选择器没有配置';
+                }
+                let defaults = {
+                    submitHandler: function () {
+                        console.log('还没有设置表单提交');
+                    },
+                    //显示错误的包裹元素
+                    errorElement: 'span',
+                    errorPlacement: function (error, element) {
+                        error.addClass('invalid-feedback');
+                        element.after(error);
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass('is-invalid');
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).removeClass('is-invalid');
+                    }
+                }
+                options = $.extend(defaults,options);
+
+                $(options.form).validate(options);
+
             }
         },
         str: {
@@ -144,9 +166,12 @@
                 });
             },
             hidePhone:function (phone) {
-                if(/^\d{11}$/.test(phone)){
+                if($.str.isPhone(phone)){
                     return phone.substring(0,3)+'****'+phone.substr(7);
                 }
+            },
+            isPhone:function (phone) {
+                return /^1[3456789]\d{9}$/.test(phone);
             }
         },
         modal: {
@@ -235,7 +260,7 @@
                 let phone = $('#phoneModal.step-2 .step-2 [name=phone]').val();
                 if(!code || !phone){
                     $.toast.error('信息不完善');
-                }else if(!/^\d{11}$/.test(phone)){
+                }else if(!$.str.isPhone(phone)){
                     $.toast.error('手机号码不正确');
                 }else{
                     $.json({
@@ -353,7 +378,7 @@ function doLogin() {
     let phone = $('#loginForm [name=phone]').val(),
         smsCode = $('#loginForm [name=smsCode]').val();
 
-    if (!phone || !/^\d{11}$/.test(phone)) {
+    if (!phone || !$.str.isPhone(phone)) {
         $.toast.error('请填写正确的手机号码')
         $('#loginForm [name=phone]').focus();
         return;
@@ -369,8 +394,7 @@ function doLogin() {
         type: 'post',
         data: $('#loginForm').serialize(),
         success: function (data) {
-            let forwardUrl = $('#loginForm [name=forwardUrl]').val() || ctx;
-            window.location.href = forwardUrl;
+            window.location.href = $('#loginForm [name=forwardUrl]').val() || ctx;
         }
     })
 }
@@ -400,7 +424,7 @@ $(function () {
     //暂时
     $('.get_code').click(function () {
         let phone = $('#loginForm [name=phone]').val();
-        if (!/^\d{11}$/.test(phone)) {
+        if (!$.str.isPhone(phone)) {
             $.toast.error('手机号码不正确');
             return;
         }

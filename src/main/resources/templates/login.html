@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
-<head th:insert="include/head::head" th:with="title='登录'"></head>
+<head th:include="include/head::head" th:with="title='登录'"></head>
 
 <body class="layout-top-nav layout-footer-fixed modal-open" id="login-page" style="background: #fff!important;">
 <div class="wrapper">
@@ -27,10 +27,10 @@
                                         <form onsubmit="return false;" id="loginForm">
                                             <input name="forwardUrl" type="hidden" th:value="${session.forwardUrl}">
                                             <div class="form-group phone-box">
-                                                <input class="form-control " placeholder="请输入手机号码" name="phone" value="11111111111"/>
+                                                <input class="form-control " placeholder="请输入手机号码" name="phone" value="13111111111"/>
                                             </div>
                                             <div class="form-group code-box">
-                                                <input type="text" name="smsCode" class="form-control" placeholder="请输入验证码"/>
+                                                <input type="text" name="smsCode" class="form-control" placeholder="请输入验证码" value="1234"/>
                                                 <i class="iconfont icon-yanzhengma"></i>
                                                 <span class="btn-in-resend btn-green get_code">发送验证码</span>
                                             </div>

@@ -29,41 +29,55 @@ public class IndexController extends BaseController {
     @Autowired
     private PackageService packageService;
 
-    @GetMapping("/")
-    public String toIndex() {
-        return "index";
-    }
-
     @GetMapping("/login")
     @ApiOperation("登录页")
     public String login() {
         return "login";
     }
 
-//    //门户网站首页
-//    @RequestMapping("page/portal")
-//    public String portal(){
-//        return "pages/portal/index";
-//    }
+    @GetMapping("/")
+    public String toIndex() {
+        return "index";
+    }
+
+    // 行业大盘
+    @GetMapping("/analysis/market")
+    public String market(){
+        return "pages/analysis/market";
+    }
+
+    //门户网站首页
+    @RequestMapping("/introduction")
+    public String portal(){
+        return "pages/portal/introduction";
+    }
+
     //门户网站套餐介绍
-    @RequestMapping("page/portal/package")
+    @GetMapping("/package")
     public String packages(Model model){
         List<PackageEntity> packages = packageService.allPackages();
         model.addAttribute("packages",packages);
         return "pages/portal/package";
     }
 
-//    //个人中心
-//    @RequestMapping("page/user")
-//    public String user(){
-//        return "pages/user/index";
-//    }
-
-    //网页跳转-后期细分
-    @GetMapping("page/**")
-    public String page() {
-        return "pages/" + request.getServletPath().replaceFirst("page/", "");
+    //账号设置
+    @GetMapping("/profile")
+    public String profile(){
+        return "pages/user/profile";
     }
+
+    //会员信息
+    @GetMapping("/profile/vip")
+    public String vip(){
+        return "pages/user/vip";
+    }
+
+    //订购记录
+    @GetMapping("/profile/order")
+    public String order(){
+        return "pages/user/order";
+    }
+
 
     // 动态修改权限
     public void dynamic() {

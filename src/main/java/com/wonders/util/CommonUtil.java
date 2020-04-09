@@ -3,6 +3,7 @@ package com.wonders.util;
 import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.PageHelper;
 import com.wonders.entity.UserEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -157,18 +158,6 @@ public class CommonUtil {
         return new Color(r, g, b);
     }
 
-
-    /**
-     * 判断集合是否为空
-     *
-     * @param list
-     * @return return
-     */
-    public static boolean listNotBlank(List<?> list) {
-        return list != null && list.size() > 0;
-    }
-
-
     public static HttpServletRequest getRequest() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
@@ -260,6 +249,7 @@ public class CommonUtil {
                 "XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
     }
 
+    // 获取浏览器信息，浏览器名称/版本号
     public static String browserInfo(HttpServletRequest request) {
 
         UserAgent userAgent = UserAgentUtil.parse(request.getHeader("User-Agent"));
@@ -272,8 +262,17 @@ public class CommonUtil {
     public static void saveSessionUser(HttpServletRequest request){
         request.getSession().setAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
+    // 获取user
     public static UserEntity getSessionUser(){
         HttpServletRequest request = getRequest();
         return (UserEntity) request.getSession().getAttribute("user");
+    }
+
+    //统一的分页
+    public static void startPage(){
+        HttpServletRequest request = getRequest();
+        int offset = Integer.parseInt(request.getParameter("offset"));
+        int limit = Integer.parseInt(request.getParameter("limit"));
+        PageHelper.offsetPage(offset, limit);
     }
 }

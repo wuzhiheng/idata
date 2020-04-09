@@ -16,7 +16,7 @@ import java.util.Map;
 public class XssConfig {
 
 	//不需要拦截的路径
-	private String excludes = "/favicon.ico,/images/*,/js/*,/css/*,/AdminLTE-3.0.2/*,/plugins/*";
+	private String excludes = "/favicon.ico,/images/*,/js/*,/css/*,/AdminLTE-3.0.2/*,/plugins/*,/webjars/*";
 
 	/**
 	 * xss过滤拦截器

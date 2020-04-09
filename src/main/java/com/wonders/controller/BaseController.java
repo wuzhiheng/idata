@@ -27,14 +27,10 @@ public class BaseController {
     @Autowired
     protected HttpSession session;
 
-    private final String OFFSET = "offset";
-
-    private final String LIMIT = "limit";
-
     //统一的分页
     public void startPage(){
-        int offset = Integer.parseInt(request.getParameter(OFFSET));
-        int limit = Integer.parseInt(request.getParameter(LIMIT));
+        int offset = Integer.parseInt(request.getParameter("offset"));
+        int limit = Integer.parseInt(request.getParameter("limit"));
         PageHelper.offsetPage(offset, limit);
     }
 

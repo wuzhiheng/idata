@@ -1,18 +1,17 @@
 /* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
 /*
 主题绿色 #63c595
 表格文字灰色 rgba(0,0,0,.65)
+辅助文字灰色 #8d8d8d
 表格边框灰色 #dee2e6
 更淡的灰色   #ebebeb
 文字默认颜色(偏黑色) #595959 rgba(0,0,0,.85)
 第二主题文字颜色（绿色）#63c595 #6dbf77
 */
-.modal {
-    -webkit-animation-duration: 200ms;
-    animation-duration: 200ms;
-}
-:focus{
+:focus {
     outline: none;
 }
 
@@ -22,16 +21,6 @@ body {
     background: #f5f6f9;
     padding-top: 55px;
     font-family: Source Han Sans CN, -apple-system-font, Helvetica Neue, sans-serif
-}
-
-.main-header.navbar {
-    background: #fff;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    padding: 10px 1rem;
-    height: 45px;
 }
 
 ul {
@@ -52,29 +41,7 @@ img {
     height: auto;
 }
 
-a.btn.close {
-    font-size: 1.5rem !important;
-}
-
-.card {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-.card-header {
-    padding-left: 5px;
-    height: 44px;
-}
-
-.card-title {
-    padding: 0 5px 10px 5px;
-    border-bottom: 2px solid red;
-}
-
-.card-body {
-    padding: 1rem 1.25rem;
-}
-
+/*******************************************common--我的公用**********************************************/
 .btn-green-outline {
     color: #63c595 !important;
     border: 1px solid #63c595 !important;
@@ -112,10 +79,36 @@ a.btn.close {
 .table-theme .dropdown-menu {
     font-size: inherit !important;
 }
-.alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+
+img.can-show {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+/*******************************************common--针对框架已有的样式修改**********************************************/
+.container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.modal {
+    -webkit-animation-duration: 200ms;
+    animation-duration: 200ms;
+}
+
+.main-header.navbar {
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding: 10px 1rem;
+    height: 45px;
+}
+
+/*自定义的复选框*/
+.custom-control-label {
+    cursor: pointer;
 }
 
 /*bootstrap-table loading文字样式*/
@@ -123,17 +116,42 @@ a.btn.close {
     font-size: inherit !important;
 }
 
-img.can-show {
-    cursor: zoom-in;
+.form-control[readonly] {
+    background-color: #fff;
 }
 
-.custom-control-label {
-    cursor: pointer;
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
-.container{
-    padding-right: 0;
-    padding-left: 0;
+a.btn.close {
+    font-size: 1.5rem !important;
+}
+
+.card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.card-header {
+    padding-left: 5px;
+    height: 44px;
+}
+
+.card-title {
+    padding: 0 5px 10px 5px;
+    border-bottom: 2px solid red;
+}
+
+.card-body {
+    padding: 1rem 1.25rem;
+}
+
+/*sweetalert2*/
+.swal2-success-circular-line-left, .swal2-success-circular-line-right, .swal2-success-fix {
+    background-color: transparent !important;
 }
 
 /*******************************************index.html--数据首页**********************************************/
@@ -231,13 +249,13 @@ span.gl-rate {
     font-weight: bold;
 }
 
-.xs-pm-str {
-    font-size: 1rem;
+.pm-str {
+    font-size: 14px;
 }
 
-.xs-pm {
-    font-size: 20px;
-    color: rgba(0, 0, 0, .8);
+.pm-value {
+    font-size: 28px;
+    color: #262626;
     margin: 2px 0
 }
 
@@ -252,12 +270,15 @@ span.gl-rate {
     margin: 5px 0;
 }
 
-#page-1 #reader-hobby-pm .progress {
+.idata-table-pm th{
+    border: 0;
+}
+.idata-table-pm .progress {
     margin-top: 4px;
     height: 10px;
 }
 
-#page-1 #reader-hobby-pm * {
+.idata-table-pm * {
     font-size: 13px;
 }
 
@@ -265,20 +286,122 @@ span.gl-rate {
     font-size: 0.875rem;
 }
 
-/*****************************************pages/portal/index.html--网站首页************************/
-#page-2{
-    padding-top: 45px;
+/*****************************************pages/analysis/market.html--行业大盘************************/
+#page-market #right-row-1 .card-body{
+    padding:.5rem 1rem
 }
-#page-2 .main-header{
+#page-market #right-row-1 .time{
+    font-size: 14px;
+    color: #8d8d8d;
+}
+#page-market #right-row-1 .describe{
+    font-size: 14px;
+    margin-top: .5rem;
+    color: #8d8d8d;
+}
+.category-box{
+    margin-bottom: 0;
+}
+
+.category-box > li{
+    display: flex;
+}
+.category-box > li:not(:last-child){
+    margin-bottom: .5rem;
+}
+.category-box > li >div {
+    padding: 3px 0;
+    font-size: 14px;
+}
+.category-box > li > ul>li {
+    float: left;
+}
+.category-box > li > ul>li>label {
+    font-size: 12px;
+    display: inline-block;
+    border-radius: 4px;
+    float: left;
+    padding: 3px 16px;
+    margin-right: .5rem;
+    background: #f0eeed;
+    margin-bottom:0;
+    font-weight: normal!important;
+    cursor: pointer;
+}
+.category-box > li > ul>li.active label{
+    color: #fff;
+    background: #63c595;
+}
+
+.category-box li input{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+
+#page-market #right-row-3 .gl{
+    padding: 1rem 1rem 1rem 0;
+}
+#page-market #right-row-3 .gl>div{
+    float: left;
+    width: 20%;
+    padding-left: 1rem;
+}
+#page-market #right-row-3 .gl>div>div{
+    border: 1px solid #ccc;
+    padding: 10px 0 10px 25px;
+    border-radius: 4px;
+}
+.idata-nav-tabs{
     border-bottom: 0;
 }
+.idata-nav-tabs .nav-link {
+    border: 0;
+    border-top: 4px solid transparent;
+    color: #595959;
+    font-size: 14px;
+}
+.idata-nav-tabs .nav-item.show .nav-link, .idata-nav-tabs .nav-link.active {
+    color: #63c595;
+    background-color: #fff;
+    border-color: #63c595;
+}
+.tab-content{
+    font-size: 14px;
+}
+.tab-content .title{
+    border-left: 4px solid #63c595;
+    padding-left: 1rem;
+}
+#page-market .idata-table-pm td{
+    border: 0;
+    padding: 11px 5px;
+}
+#page-market .idata-table-pm{
+    margin-top: 20px;
+    width: 95%;
+}
+
+/*****************************************pages/portal/index.html--网站首页************************/
+#page-2 {
+    padding-top: 45px;
+}
+
+#page-2 .main-header {
+    border-bottom: 0;
+}
+
 #page-2 .card-body {
     padding: 1.8rem 1.5rem;
 }
-#page-2  #row-1{
+
+#page-2 #row-1 {
     margin: 0 -.5rem;
 }
-#page-2 #row-1{
+
+#page-2 #row-1 {
     height: 530px;
     background: url("../images/jieshao_bg.png") no-repeat 100% 0;
     background-size: cover;
@@ -286,9 +409,10 @@ span.gl-rate {
     padding-top: 100px;
     margin-bottom: 10px;
 }
+
 #page-2 #row-1 h3,
-#page-2 #row-1 p{
-    color: #fff!important;
+#page-2 #row-1 p {
+    color: #fff !important;
 }
 
 .two-btn button:nth-child(2) {
@@ -296,14 +420,17 @@ span.gl-rate {
 }
 
 #page-2 #row-2 .col-md-4 ul {
-    margin:0 auto;
+    margin: 0 auto;
 }
+
 #page-2 #row-2 .col-md-4:nth-child(1) ul {
     width: 240px;
 }
+
 #page-2 #row-2 .col-md-4:nth-child(2) ul {
     width: 300px;
 }
+
 #page-2 #row-2 .col-md-4:nth-child(3) ul {
     width: 260px;
 }
@@ -361,8 +488,11 @@ span.gl-rate {
     font-size: 28px;
     color: #595959
 }
-#page-2 #row-3 .row .col-md-6{
-    justify-content: start!important;
+
+#page-2 #row-3 .row .col-md-6 {
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    justify-content: start !important;
     padding-left: 65px;
 }
 
@@ -385,14 +515,17 @@ span.support-pt {
     margin: 10px auto;
     border-radius: 4px;
 }
-@media (max-width:768px) {
+
+@media (max-width: 768px) {
     #page-2 .col-md-6 img {
         width: 100%;
     }
-    #page-2 #row-3 .row .col-md-6{
+
+    #page-2 #row-3 .row .col-md-6 {
         padding-left: 7.5px;
     }
 }
+
 /*********************************************pages/portal/package--套餐页面****************************************************/
 #page-3 .card-body {
     padding: 1rem;
@@ -540,73 +673,6 @@ span.support-pt {
 
 /*********************************pages/user/index--个人中心*********************************************/
 
-.user-center #col-1 .card-body {
-    padding: 0;
-}
-
-.user-center .user-left-top {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    font-size: 1rem;
-    border-bottom: 1px solid #ebebeb;
-    padding: 20px 0;
-    font-weight: bold;
-}
-
-.user-center .user-left-top img {
-    width: 50px;
-    margin-bottom: 20px;
-}
-
-.user-center #col-1 ul {
-    padding-top: 20px;
-}
-
-.user-center #col-1 ul li {
-    font-size: 0.875rem;
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    border-left: 5px solid transparent;
-}
-
-.user-center #col-1 ul li a {
-    color: inherit;
-    display: block;
-    height: 100%;
-    padding: 10px 0;
-}
-
-.user-center #col-1 ul li.active {
-    color: #63c595;
-    background-color: #cbf6df;
-    border-color: #63c595;
-}
-
-.user-center #col-1 {
-    padding-right: 0;
-}
-
-.user-center #col-2 {
-    padding-left: 0;
-    border-left: 10px solid #f5f6f9;
-}
-
-.user-center h4 {
-    margin-bottom: 30px;
-}
-
 #page-4 #col2-left form {
     width: 80%;
     padding-bottom: 1px;
@@ -616,10 +682,6 @@ span.support-pt {
 #page-4 #col2-left form input {
     font-weight: normal;
     font-size: 0.875rem;
-}
-
-#page-4 #col2-left form .form-group {
-    /*margin: 25px 0;*/
 }
 
 #page-4 #col2-left form .btn-green-outline {
@@ -680,7 +742,8 @@ span.support-pt {
 #page-4 #col2-left h6 {
     margin: 20px 0;
 }
-#page-4 #saveBtn{
+
+#page-4 #saveBtn {
     width: 100px;
     margin: 20px 0;
     border-radius: 20px;
@@ -723,10 +786,6 @@ span.support-pt {
     margin-bottom: 25px;
 }
 
-#page-6 #container {
-    padding: 0;
-}
-
 #page-6 table#tableGrid thead tr:nth-child(1) {
     background: #fafafa;
     border-left: 1px solid #dee2e6;
@@ -744,7 +803,7 @@ span.support-pt {
     border-bottom: 1px solid #dee2e6;
 }
 
-/*********************************modal--其他*********************************************/
+/*********************************modal--绑定手机*********************************************/
 @media (min-width: 800px) {
     #payModal .modal-dialog {
         max-width: 600px;
@@ -860,34 +919,41 @@ span.support-pt {
     background-color: #63c595;
 }
 
-.login-container{
+.login-container {
     border: 1px solid #dee2e6;
     padding: 0 2rem;
     width: 400px;
     border-radius: 4px;
 }
-.login-container .card-header{
+
+.login-container .card-header {
     padding-left: 0;
 }
-.login-container .card-header .card-title{
-    border-color:  #63c595;
+
+.login-container .card-header .card-title {
+    border-color: #63c595;
 }
-.login-container .card-body{
+
+.login-container .card-body {
     padding: 3rem 0;
 }
-.phone-box{
+
+.phone-box {
     position: relative;
 }
-.phone-box input{
+
+.phone-box input {
     padding-left: 50px;
 }
-.phone-box::before{
+
+.phone-box::before {
     content: '+86';
     position: absolute;
     left: 12px;
-    top:8px;
+    top: 8px;
 }
-.form-group.code-box .btn-in-resend{
+
+.form-group.code-box .btn-in-resend {
     position: absolute;
     top: 7px;
     right: 7px;
@@ -900,56 +966,67 @@ span.support-pt {
     line-height: 36px;
     cursor: pointer;
 }
-.form-group.code-box i{
+
+.form-group.code-box i {
     position: absolute;
     top: 11px;
     left: 12px;
     font-size: 18px;
     color: #969696;
 }
+
 .phone-box::before {
     left: 10px;
     top: 13px;
 }
-.form-group.code-box{
+
+.form-group.code-box {
     position: relative;
 }
+
 .form-group.code-box input,
-.form-group.phone-box input{
+.form-group.phone-box input {
     height: 50px;
     padding-left: 45px;
 }
+
 /*********************************phoneModal--手机号码验证*********************************************/
-#phoneModal .modal-header{
+#phoneModal .modal-header {
     padding-left: 2rem;
 }
-#phoneModal .modal-body{
+
+#phoneModal .modal-body {
     padding: 1rem 2rem 2rem;
 }
-#phoneModal .modal-body p{
+
+#phoneModal .modal-body p {
     color: #969696;
 }
-#phoneModal .modal-body h5{
+
+#phoneModal .modal-body h5 {
     margin: 1.5rem 0;
 }
 
-#phoneModal .modal-body .btn{
+#phoneModal .modal-body .btn {
     font-weight: bold;
     font-size: 16px;
     padding: 10px;
     border-radius: 20px;
-    margin: 1rem 0  0;
+    margin: 1rem 0 0;
 }
 
-#phoneModal .modal-content>div{
+#phoneModal .modal-content > div {
     display: none;
 }
-#phoneModal.step-1 .modal-content>div.step-1{
+
+#phoneModal.step-1 .modal-content > div.step-1 {
     display: block;
 }
-#phoneModal.step-2 .modal-content>div.step-2{
+
+#phoneModal.step-2 .modal-content > div.step-2 {
     display: block;
 }
+
 /*********************************login--登录*********************************************/
 
 /*********************************导航条--公用*********************************************/
@@ -960,7 +1037,8 @@ span.support-pt {
 .navbar-expand .nav-link.nav-link-logo {
     padding: 3px 0 0;
 }
-#page-1 .navbar-expand .nav-link.nav-link-logo {
+
+.data-navbar.navbar-expand .nav-link.nav-link-logo {
     padding-right: .8rem;
     padding-left: .8rem;
 }
@@ -999,6 +1077,7 @@ span.support-pt {
     top: 0;
     background: #63c595;
     height: 4px;
+    border-radius: 4px;
     -webkit-transition-duration: .2s;
     -o-transition-duration: .2s;
     transition-duration: .2s;
@@ -1021,16 +1100,123 @@ span.support-pt {
 .nav-pills .show > .nav-link.btn-green-outline {
     background-color: #63c595;
 }
-.w85{
+
+.w85 {
     width: 85px;
 }
 
-.user-dropdown-menu{
+.user-dropdown-menu {
     border: none;
     width: 250px;
     left: -95px;
-    top:calc(100% - 2px)
+    top: calc(100% - 2px)
 }
+
+/*********************************sidebar--左侧导航栏*********************************************/
+.idata-sidebar .card-body {
+    padding: 0;
+}
+
+.idata-sidebar .left-top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 20px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.idata-sidebar .left-top img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.idata-sidebar ul.main-menu {
+    padding-top: 20px;
+}
+
+.idata-sidebar ul.main-menu > li {
+    font-size: 0.875rem;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+}
+
+.idata-sidebar ul.main-menu > li > a {
+    color: inherit;
+    display: block;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.idata-sidebar ul.main-menu li.active {
+    color: #63c595;
+    background-color: #cbf6df;
+    border-color: #63c595;
+}
+
+.idata-sidebar {
+    padding-right: 0;
+}
+
+.idata-sidebar + #col-2 {
+    padding-left: 0;
+    border-left: 10px solid #f5f6f9;
+}
+
+.idata-sidebar h4 {
+    margin-bottom: 30px;
+}
+
+/**/
+.idata-menu > li {
+    border-left: 0 !important;
+}
+
+.idata-menu > li .title {
+    text-align: left;
+    padding-left: 3rem;
+    color: #8C8C8C;
+    font-weight: bold;
+    /*font-size: 1rem;*/
+    margin-left: 5px;
+}
+
+.idata-menu .title-special {
+    padding-bottom: 10px;
+}
+
+.idata-menu > li ul {
+    text-align: left;
+
+    color: #262626;
+}
+
+.idata-menu > li ul > li {
+    border-left: 5px solid transparent;
+}
+
+.idata-menu > li ul > li a {
+    color: inherit;
+    display: block;
+    height: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
 /*********************************other--其他*********************************************/
 .fa, .far, .fas {
     font-family: "Font Awesome 5 Free", serif !important;
@@ -1079,8 +1265,4 @@ footer.main-footer {
 .icon-pl {
     background: url('../images/icons/pinglun.png') left center no-repeat;
     background-size: 15px;
-}
-/*sweetalert2*/
-.swal2-success-circular-line-left,.swal2-success-circular-line-right,.swal2-success-fix{
-    background-color: transparent!important;
 }
