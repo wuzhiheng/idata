@@ -80,8 +80,9 @@ public class UserEntity implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(roles == null)
+        if(roles == null) {
             return null;
+        }
         return AuthorityUtils.createAuthorityList(roles.stream().map(RoleEntity::getName).toArray(String[]::new));
     }
 

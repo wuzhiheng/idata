@@ -172,6 +172,10 @@
             },
             isPhone:function (phone) {
                 return /^1[3456789]\d{9}$/.test(phone);
+            },
+            getTextClass(str) {
+                str = str || '';
+                return str.indexOf('+') == 0 ? 'up_sub' : 'down_sub';
             }
         },
         modal: {
@@ -294,6 +298,37 @@
             refreshUserAvatar:function (avatar) {
                 $('img.userAvatar').attr('src', avatar);
             }
+        },
+        common:{
+            initDatePicker:function(){
+                //date-picker
+                var startDate1=new Date(new Date().setDate(1));
+                var endDate1=new Date(new Date(new Date().setMonth(new Date().getMonth()+1)).setDate(0));
+                //定义接收上个月的第一天和最后一天
+                var startDate2=new Date(new Date(new Date().setMonth(new Date().getMonth()-1)).setDate(1));
+                var endDate2=new Date(new Date().setDate(0));
+
+                laydate.render({
+                    elem: '#date-picker',
+                    eventElem: ".date-picker-icon",
+                    trigger: 'click',
+                    type: 'date',
+                    range: '~',
+                    format: 'yyyy-MM-dd',
+                    max:new Date().format('yyyy-MM-dd'),//可选最大日期
+                    extrabtns: [
+                        {id:'today', text:'今天', range:[new Date(), new Date()]},
+                        {id:'lastday-7', text:'过去7天', range:[new Date(new Date().setDate(new Date().getDate()-7)),
+                                new Date(new Date().setDate(new Date().getDate()-1))]},
+                        {id:'lastday-30', text:'过去30天', range:[new Date(new Date().setDate(new Date().getDate()-30)),
+                                new Date(new Date().setDate(new Date().getDate()-1))]},
+                        {id:'yesterday', text:'昨天', range:[new Date(new Date().setDate(new Date().getDate()-1)),
+                                new Date(new Date().setDate(new Date().getDate()-1))]},
+                        {id:'thismonth', text:'本月', range:[startDate1,endDate1]},
+                        {id:'lastmonth', text:'上个月', range:[startDate2,endDate2]}
+                    ]
+                });
+            }
         }
     })
 
@@ -311,7 +346,7 @@
                 pageSize: 10, // 页面数据条数
                 pageNumber: 1, // 首页页码
                 sidePagination: 'server', // 设置为服务器端分页
-                toolbar: '#toolbar',
+                // toolbar: '#toolbar',
                 showColumns: false,
                 showRefresh: false,
                 showToggle: false,
@@ -330,7 +365,7 @@
 
             }
             var newOptions = $.extend(defaults, options);
-            $('#tableGrid').bootstrapTable(newOptions);
+            $(this).bootstrapTable(newOptions);
 
         },
 

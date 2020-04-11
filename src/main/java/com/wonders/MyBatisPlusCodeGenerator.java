@@ -79,8 +79,9 @@ public class MyBatisPlusCodeGenerator {
         config.setTypeConvert(new MySqlTypeConvert(){
             @Override
             public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
-                if(fieldType.toLowerCase().contains("tinyint"))
+                if(fieldType.toLowerCase().contains("tinyint")) {
                     return DbColumnType.STRING;
+                }
                 return super.processTypeConvert(globalConfig, fieldType);
             }
         });
@@ -106,6 +107,7 @@ public class MyBatisPlusCodeGenerator {
         };
         List<FileOutConfig> focList = new ArrayList<>();
         focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+            @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
                 if (StringUtils.isEmpty(pc.getModuleName())) {

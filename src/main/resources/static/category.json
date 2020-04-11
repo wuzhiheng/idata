@@ -1,0 +1,95 @@
+{
+  "total": 10,
+  "rows": [
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "1",
+      "up": "+3"
+    },
+    {
+      "channel": "女频",
+      "category": "科幻",
+      "category_sub": "古武机甲",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "2",
+      "up": "+1"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "3",
+      "up": "+6"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "4",
+      "up": "NEW"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "5",
+      "up": "NEW"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "6",
+      "up": "+6"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "7",
+      "up": "-7"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "8",
+      "up": "NEW"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "9",
+      "up": "NEW"
+    },
+    {
+      "channel": "男频",
+      "category": "玄幻",
+      "category_sub": "东方玄幻",
+      "indexNumbers": "2000,000",
+      "raise": "2000,000",
+      "raiseRank": "10",
+      "up": "+3"
+    }
+  ]
+}

@@ -35,8 +35,9 @@ public class MD5Utils {
 
 	}
 	public static String encrypt(String s, String charsetName) {
-		if (s == null)
+		if (s == null) {
 			return "";
+		}
 		try {
 			byte buff[] = s.getBytes(charsetName);
 			MessageDigest messagedigest = MessageDigest.getInstance("MD5");
@@ -50,16 +51,18 @@ public class MD5Utils {
 
 
 	public static String byte2Hex(byte b[]) {
-		if (b == null)
+		if (b == null) {
 			return "";
+		}
 		StringBuffer tmp = new StringBuffer();
 		int len = b.length;
 		for (int i = 0; i < len; i++) {
 			tmp.append((char) hexBase[(b[i] & 0xF0) >> 4]);
 			tmp.append((char) hexBase[b[i] & 0x0F]);
 		}
-		while (tmp.length() < 16)
+		while (tmp.length() < 16) {
 			tmp.append("00");
+		}
 
 		return tmp.toString();
 	}

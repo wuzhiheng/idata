@@ -13,7 +13,7 @@ import java.util.List;
 public class SecurityProperties {
 
     // 不拦截的路径，以,分割
-    private List<String> AntMatchers;
+    private List<String> antMatchers;
 
     // 记住我的时间，单位s
     private int rememberMeSeconds;

@@ -73,7 +73,7 @@ public class CommonUtil {
      * @param str
      * @return return
      */
-    public static boolean StringIsNull(String str) {
+    public static boolean stringIsNull(String str) {
         return str == null || "".equals(str) || "null".equals(str);
     }
 
@@ -148,10 +148,12 @@ public class CommonUtil {
      */
     private static Color getRandColor(int fc, int bc) {
         Random random = new Random();
-        if (fc > 255)
+        if (fc > 255) {
             fc = 255;
-        if (bc > 255)
+        }
+        if (bc > 255) {
             bc = 255;
+        }
         int r = fc + random.nextInt(bc - fc);
         int g = fc + random.nextInt(bc - fc);
         int b = fc + random.nextInt(bc - fc);
@@ -181,7 +183,7 @@ public class CommonUtil {
         }
         List<Field> fieldList = new ArrayList<Field>(); //要转换的字段集合
         while (castClass != null && //循环获取要转换的字段,包括父类的字段
-                !castClass.getName().toLowerCase().equals("java.lang.object")) {
+                !"java.lang.object".equals(castClass.getName().toLowerCase())) {
             fieldList.addAll(Arrays.asList(castClass.getDeclaredFields()));
             castClass = (Class<T2>) castClass.getSuperclass(); //得到父类,然后赋给自己
         }
@@ -212,7 +214,7 @@ public class CommonUtil {
 
     public static List<Integer> getIntList(String str) {
         List<Integer> list = new ArrayList<>();
-        if (!StringIsNull(str)) {
+        if (!stringIsNull(str)) {
             for (String s : str.split(",")) {
                 list.add(new Integer(s));
             }
@@ -225,7 +227,7 @@ public class CommonUtil {
         Enumeration params = request.getParameterNames();
         while (params.hasMoreElements()) {
             String paramName = (String) (params.nextElement());
-            if (CommonUtil.StringIsNull(request.getParameter(paramName)) || NO_LOG_PARAM.contains(paramName)) {
+            if (CommonUtil.stringIsNull(request.getParameter(paramName)) || NO_LOG_PARAM.contains(paramName)) {
                 continue;
             }
             try {

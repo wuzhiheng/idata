@@ -111,8 +111,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
                 .eq(UserEntity::getPhone, phone);
 
         UserEntity user = getOne(queryWrapper);
-        if (user == null)
+        if (user == null) {
             throw new UsernameNotFoundException("用户不存在");
+        }
         List<RoleEntity> roles = userDao.getAllRole(user.getId());
         user.setRoles(roles);
         return user;

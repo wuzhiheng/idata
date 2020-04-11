@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @author fengshuonan
  * @date 2017-03-30 16:29
  */
+@SuppressWarnings("AlibabaThreadShouldSetName")
 public class LogManager {
 
     //日志记录操作延时

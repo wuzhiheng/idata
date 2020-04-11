@@ -54,7 +54,7 @@ public class GlobalExceptionHandler{
 	//处理Get请求中 使用@Valid 验证路径中请求实体校验失败后抛出的异常，详情继续往下看代码
 	@ExceptionHandler(BindException.class)
 	@ResponseBody
-	public ReturnMsg BindExceptionHandler(BindException e) {
+	public ReturnMsg bindExceptionHandler(BindException e) {
 		log.error("{}",e);
 //		String message = e.getBindingResult().getAllErrors().stream().findFirst().map(DefaultMessageSourceResolvable::getDefaultMessage).get();
 		String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
@@ -64,7 +64,7 @@ public class GlobalExceptionHandler{
 	//处理请求参数格式错误 @RequestParam上validate失败后抛出的异常是javax.validation.ConstraintViolationException
 	@ExceptionHandler(ConstraintViolationException.class)
 	@ResponseBody
-	public ReturnMsg ConstraintViolationExceptionHandler(ConstraintViolationException e) {
+	public ReturnMsg constraintViolationExceptionHandler(ConstraintViolationException e) {
 		log.error("{}",e);
 //		String message = e.getConstraintViolations().stream().findFirst().map(ConstraintViolation::getMessage).get();
 		String message = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
@@ -74,7 +74,7 @@ public class GlobalExceptionHandler{
 	//处理请求参数格式错误 @RequestBody上validate失败后抛出的异常是MethodArgumentNotValidException异常。
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseBody
-	public ReturnMsg MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
+	public ReturnMsg methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
 		log.error("{}",e);
 //		String message = e.getBindingResult().getAllErrors().stream().findFirst().map(DefaultMessageSourceResolvable::getDefaultMessage).get();
 		String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());

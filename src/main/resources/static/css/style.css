@@ -84,7 +84,9 @@ img.can-show {
     cursor: -webkit-zoom-in;
     cursor: zoom-in;
 }
-
+.no-pagination .fixed-table-pagination{
+    display: none!important;
+}
 /*******************************************common--针对框架已有的样式修改**********************************************/
 .container {
     padding-right: 0;
@@ -287,14 +289,17 @@ span.gl-rate {
 }
 
 /*****************************************pages/analysis/market.html--行业大盘************************/
-#page-market #right-row-1 .card-body{
+#col-2 .card-body{
+    padding: 10px 1rem;
+}
+#right-row-1 .card-body{
     padding:.5rem 1rem
 }
-#page-market #right-row-1 .time{
+#right-row-1 .time{
     font-size: 14px;
     color: #8d8d8d;
 }
-#page-market #right-row-1 .describe{
+#right-row-1 .describe{
     font-size: 14px;
     margin-top: .5rem;
     color: #8d8d8d;
@@ -383,6 +388,66 @@ span.gl-rate {
     margin-top: 20px;
     width: 95%;
 }
+
+/*****************************************pages/analysis/tendency.html--行业趋势************************/
+.date-picker-box{
+    font-size: 12px;
+}
+.date-picker-box>*{
+    float: left;
+}
+.date-picker-box>label {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 3px 10px;
+    margin-right: 5px;
+    background: #f0eeed;
+    margin-bottom:0;
+    font-weight: normal!important;
+    cursor: pointer;
+}
+.date-picker-box>label.active{
+    color: #fff;
+    background: #63c595;
+}
+.date-picker-box>label input{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+.date-picker-box .date-picker-input-box{
+    position: relative;
+}
+.date-picker-box .date-picker-input-box i{
+    color: #999;
+    position: absolute;
+    right: 5px;
+    top:7px;
+    cursor: pointer;
+}
+.date-picker-box .date-picker-input-box input{
+    border: 0;
+    border: 1px solid #ccc;
+    width: 180px;
+    padding: 3px 20px 3px 10px;
+    border-radius: 4px;
+    color: #595959;
+}
+
+.category_sub,.up_sub,.down_sub{
+    font-size: 14px;
+}
+.category_sub{
+    color: #989898;
+}
+.up_sub{
+    color: #F14764;
+}
+.down_sub{
+    color: #52C41A;
+}
+/*****************************************pages/analysis/category.html--网站首页************************/
 
 /*****************************************pages/portal/index.html--网站首页************************/
 #page-2 {
@@ -777,7 +842,7 @@ span.support-pt {
     padding: 10px 5px;
 }
 
-/*********************************pages/user/orderInfo.html--订单记录*********************************************/
+/*********************************pages/user/order.html--订单记录*********************************************/
 #page-6 #col-2 {
     font-size: 14px;
 }
@@ -786,21 +851,30 @@ span.support-pt {
     margin-bottom: 25px;
 }
 
-#page-6 table#tableGrid thead tr:nth-child(1) {
+#tableGrid thead tr:nth-child(1),
+.tableGrid thead tr:nth-child(1){
     background: #fafafa;
     border-left: 1px solid #dee2e6;
     border-right: 1px solid #dee2e6;
 }
-
-#page-6 table#tableGrid th {
+#tableGrid,.tableGrid{
+    font-size: 14px;
+}
+#tableGrid thead th,.tableGrid thead th {
     border-bottom: 1px solid #dee2e6;
 }
 
-#page-6 table#tableGrid td {
+#tableGrid td,.tableGrid td {
     padding: 1rem .75rem;
     color: rgba(0, 0, 0, .647);
     border-top: 0;
     border-bottom: 1px solid #dee2e6;
+}
+.card-body.p-0 .table thead>tr>th:first-of-type{
+    padding-left: 0;
+}
+.card-body.p-0 .table thead>tr>th:last-of-type {
+    padding-right: 0;
 }
 
 /*********************************modal--绑定手机*********************************************/
@@ -1265,4 +1339,17 @@ footer.main-footer {
 .icon-pl {
     background: url('../images/icons/pinglun.png') left center no-repeat;
     background-size: 15px;
+}
+
+.rank-1{
+    background: url("../images/icons/rank-1.png") center  no-repeat;
+}
+.rank-2{
+    background: url("../images/icons/rank-2.png") center  no-repeat;
+}
+.rank-3{
+    background: url("../images/icons/rank-3.png") center  no-repeat;
+}
+td.rank{
+    background-position: center 3px;
 }

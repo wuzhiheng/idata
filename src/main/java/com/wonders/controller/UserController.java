@@ -66,7 +66,7 @@ public class UserController extends BaseController {
     }
 
     @PostMapping("/avatar/upload")
-    public Object avatar_upload(MultipartFile file) throws IOException {
+    public Object avatarUpload(MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             return ReturnMsg.errorTip("文件不能为空");
         }
@@ -127,8 +127,9 @@ public class UserController extends BaseController {
         Cookie[] cookies = request.getCookies();
         if(cookies != null){
             for (Cookie cookie : cookies) {
-                if(iDataProperties.getSecurity().getRememberMeCookieName().equals(cookie.getName()))
+                if(iDataProperties.getSecurity().getRememberMeCookieName().equals(cookie.getName())) {
                     return true;
+                }
             }
         }
         return false;
@@ -139,8 +140,9 @@ public class UserController extends BaseController {
         QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda()
                 .eq(UserEntity::getPhone, phone);
-        if (userService.getOne(queryWrapper) != null)
+        if (userService.getOne(queryWrapper) != null) {
             throw new RuntimeException("该手机已绑定其他用户");
+        }
     }
 
     // 拼接头像存储的地址

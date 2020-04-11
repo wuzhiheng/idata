@@ -23,13 +23,14 @@ public class TreeUtil<T extends TreeUtil.TreeNode> {
 
     public <T extends TreeUtil.TreeNode> List<T> bulidTree(List<T> list) {
         List<T> tree = new ArrayList<>();
-        if (!CollectionUtils.isEmpty(list))
+        if (!CollectionUtils.isEmpty(list)) {
             for (T node : list) {
                 if (rootCondition.isRootNode(node)) {
                     tree.add(node);
                     buid(list, node);
                 }
             }
+        }
         return tree;
     }
 

@@ -35,7 +35,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         }
         name = JsoupUtil.clean(name);
         String value = super.getParameter(name);
-        if (!CommonUtil.StringIsNull(value)) {
+        if (!CommonUtil.stringIsNull(value)) {
             value = JsoupUtil.clean(value);
         }
         return value;
@@ -62,7 +62,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     public String getHeader(String name) {
         name = JsoupUtil.clean(name);
         String value = super.getHeader(name);
-        if (!CommonUtil.StringIsNull(value)) {
+        if (!CommonUtil.stringIsNull(value)) {
             value = JsoupUtil.clean(value);
         }
         return value;

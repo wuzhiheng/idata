@@ -84,8 +84,9 @@ public class PackagePriceEntity implements Serializable {
     public String getPeriodStr(){
 
         for (PricePeriodEnum value : PricePeriodEnum.values()) {
-            if (value.getMonth().equals(this.period))
+            if (value.getMonth().equals(this.period)) {
                 return value.getText();
+            }
         }
         return null;
     }
