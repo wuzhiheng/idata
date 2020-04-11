@@ -23,6 +23,7 @@ $(function () {
             {
                 field: 'orderType',
                 title: '订单类型',
+                align: 'center',
                 formatter: function (v, r, i) {
                     let orderTypeDic = {
                         "1": "购买",
@@ -35,10 +36,12 @@ $(function () {
             {
                 field: 'packageName',
                 title: '套餐类型',
+                align: 'center',
             },
             {
                 field: 'period',
                 title: '购买时长',
+                align: 'center',
                 formatter: function (v, r, i) {
                     return v + '个月'
                 }
@@ -46,6 +49,7 @@ $(function () {
             {
                 field: 'packageFee',
                 title: '套餐费用',
+                align: 'center',
                 formatter: function (v, r, i) {
                     return '￥' + v;
                 }
@@ -53,6 +57,7 @@ $(function () {
             {
                 field: 'discount',
                 title: '扣减费用',
+                align: 'center',
                 formatter: function (v, r, i) {
                     return '￥' + v;
                 }
@@ -60,6 +65,7 @@ $(function () {
             {
                 field: 'payFee',
                 title: '实际支付费用',
+                align: 'center',
                 formatter: function (v, r, i) {
                     return '<span class="text-theme">￥' + v + '</span>';
                 }

@@ -45,6 +45,17 @@ public class IndexController extends BaseController {
     public String market(){
         return "pages/analysis/market";
     }
+    // 行业趋势
+    @GetMapping("/analysis/tendency")
+    public String tendency(){
+        return "pages/analysis/tendency";
+    }
+    // 飙升分类
+    @GetMapping("/analysis/category")
+    public String category(){
+        return "pages/analysis/category";
+    }
+
 
     //门户网站首页
     @RequestMapping("/introduction")

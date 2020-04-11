@@ -172,6 +172,10 @@
             },
             isPhone:function (phone) {
                 return /^1[3456789]\d{9}$/.test(phone);
+            },
+            getTextClass(str) {
+                str = str || '';
+                return str.indexOf('+') == 0 ? 'up_sub' : 'down_sub';
             }
         },
         modal: {

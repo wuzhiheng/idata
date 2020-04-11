@@ -154,8 +154,8 @@
                 <div class="title">行业分析</div>
                 <ul>
                     <li th:class="${active == '行业大盘'} ? 'active'"><a th:href="@{/analysis/market}">行业大盘</a></li>
-                    <li th:class="${active == '行业趋势'} ? 'active'"><a th:href="@{/}">行业趋势</a></li>
-                    <li th:class="${active == '飙升分类'} ? 'active'"><a th:href="@{/}">飙升分类</a></li>
+                    <li th:class="${active == '行业趋势'} ? 'active'"><a th:href="@{/analysis/tendency}">行业趋势</a></li>
+                    <li th:class="${active == '飙升分类'} ? 'active'"><a th:href="@{/analysis/category}">飙升分类</a></li>
                 </ul>
             </li>
             <li>
@@ -164,7 +164,7 @@
             <li>
                 <div class="title">流派分析</div>
                 <ul>
-                    <li th:class="${active == '行业趋势'} ? 'active'"><a th:href="@{/}">行业趋势</a></li>
+                    <li th:class="${active == '流派趋势'} ? 'active'"><a th:href="@{/}">流派趋势</a></li>
                     <li th:class="${active == '飙升流派'} ? 'active'"><a th:href="@{/}">飙升流派</a></li>
                 </ul>
             </li>
