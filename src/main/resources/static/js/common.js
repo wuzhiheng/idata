@@ -307,7 +307,7 @@
                 //定义接收上个月的第一天和最后一天
                 var startDate2=new Date(new Date(new Date().setMonth(new Date().getMonth()-1)).setDate(1));
                 var endDate2=new Date(new Date().setDate(0));
-
+                $('#date-picker').attr('readonly',true)
                 laydate.render({
                     elem: '#date-picker',
                     eventElem: ".date-picker-icon",

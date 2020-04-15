@@ -41,19 +41,19 @@ public class IndexController extends BaseController {
     }
 
     // 行业大盘
-    @GetMapping("/analysis/market")
+    @GetMapping("/industry/market")
     public String market(){
-        return "pages/analysis/market";
+        return "pages/industry/market";
     }
     // 行业趋势
-    @GetMapping("/analysis/tendency")
+    @GetMapping("/industry/tendency")
     public String tendency(){
-        return "pages/analysis/tendency";
+        return "pages/industry/tendency";
     }
     // 飙升分类
-    @GetMapping("/analysis/category")
+    @GetMapping("/industry/category")
     public String category(){
-        return "pages/analysis/category";
+        return "pages/industry/category";
     }
 
 

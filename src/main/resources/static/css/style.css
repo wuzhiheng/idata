@@ -155,6 +155,20 @@ a.btn.close {
 .swal2-success-circular-line-left, .swal2-success-circular-line-right, .swal2-success-fix {
     background-color: transparent !important;
 }
+/*laydate*/
+.laydate-footer-btns span{
+    border-radius: 0!important;
+}
+.laydate-footer-btns span:first-child {
+    border-radius: 2px 0 0 2px!important;
+}
+
+.laydate-footer-btns span:last-child {
+    border-radius: 0 2px 2px 0!important;
+}
+.layui-laydate td.layui-this {
+    background-color: #63c595!important;
+}
 
 /*******************************************index.html--数据首页**********************************************/
 .table.table-sm td {
@@ -276,7 +290,7 @@ span.gl-rate {
     border: 0;
 }
 .idata-table-pm .progress {
-    margin-top: 4px;
+    margin-top: 4px!important;
     height: 10px;
 }
 
@@ -289,6 +303,9 @@ span.gl-rate {
 }
 
 /*****************************************pages/analysis/market.html--行业大盘************************/
+#col-2 .card{
+    margin-bottom: 14px;
+}
 #col-2 .card-body{
     padding: 10px 1rem;
 }
@@ -310,13 +327,15 @@ span.gl-rate {
 
 .category-box > li{
     display: flex;
+    height:22px;
+    line-height:22px;
 }
 .category-box > li:not(:last-child){
     margin-bottom: .5rem;
 }
 .category-box > li >div {
-    padding: 3px 0;
     font-size: 14px;
+
 }
 .category-box > li > ul>li {
     float: left;
@@ -326,7 +345,7 @@ span.gl-rate {
     display: inline-block;
     border-radius: 4px;
     float: left;
-    padding: 3px 16px;
+    padding: 0 16px;
     margin-right: .5rem;
     background: #f0eeed;
     margin-bottom:0;
@@ -347,7 +366,7 @@ span.gl-rate {
 
 
 #page-market #right-row-3 .gl{
-    padding: 1rem 1rem 1rem 0;
+    padding-left: 0;
 }
 #page-market #right-row-3 .gl>div{
     float: left;
@@ -1261,7 +1280,7 @@ span.support-pt {
 
 .idata-menu > li .title {
     text-align: left;
-    padding-left: 3rem;
+    padding: 5px 0 5px 2rem;
     color: #8C8C8C;
     font-weight: bold;
     /*font-size: 1rem;*/
@@ -1269,7 +1288,7 @@ span.support-pt {
 }
 
 .idata-menu .title-special {
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;*/
 }
 
 .idata-menu > li ul {
@@ -1287,7 +1306,7 @@ span.support-pt {
     display: block;
     height: 100%;
     padding: 10px 0;
-    text-align: center;
+    padding-left: 3rem;
 }
 
 
@@ -1351,5 +1370,5 @@ footer.main-footer {
     background: url("../images/icons/rank-3.png") center  no-repeat;
 }
 td.rank{
-    background-position: center 3px;
+    background-position: center 5px;
 }
