@@ -209,6 +209,70 @@
                 $.modal.hideModal();
                 $('#phoneModal').modalShow('zoomIn', {vertical: true});
             },
+            showTendencyModal: function () {
+                $('#tendencyModal').on('shown.bs.modal', function (e) {
+                    var chart = echarts.init(document.getElementById('tendency-chart'))
+                    option = {
+                        color: ['#3398DB'],
+                        tooltip: {
+                            trigger: 'axis',
+                        },
+                        grid: {
+                            left: '0%',
+                            right: '0%',
+                            bottom: '20px',
+                            top: '35px',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: ['10月1日', '10月2日', '10月3日', '10月4日', '10月5日', '10月6日', '10月7日']
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [{
+                            name: '作品数',
+                            data: [720, 832, 801, 834, 1190, 1230, 1220],
+                            type: 'line'
+                        }]
+                    };
+                    chart.setOption(option);
+                })
+                $('#tendencyModal').modal('show');
+
+                $('#tableGridTendency').table({
+                    method: 'get',
+                    url: ctx + "tendency-2.json", // 获取表格数据的url
+                    columns: [
+                        {
+                            field: 'date',
+                            title: '日期'
+                        },
+                        {
+                            field: 'books',
+                            title: '作品数'
+                        },
+                        {
+                            field: 'recommends',
+                            title: '推荐票'
+                        },
+                        {
+                            field: 'fans',
+                            title: '粉丝'
+                        },
+                        {
+                            field: 'months',
+                            title: '月票'
+                        },
+                        {
+                            field: 'indexNumbers',
+                            title: '畅销指数'
+                        }
+                    ]
+                })
+
+            },
             hideModal: function (modal) {
                 modal = modal || '.modal';
                 $(modal).modal('hide');
@@ -324,16 +388,17 @@
             }
         },
         common: {
-            initDatePicker: function () {
+            initDatePicker: function (element) {
+                element = element | '#date-picker'
                 //date-picker
                 var startDate1 = new Date(new Date().setDate(1));
                 var endDate1 = new Date(new Date(new Date().setMonth(new Date().getMonth() + 1)).setDate(0));
                 //定义接收上个月的第一天和最后一天
                 var startDate2 = new Date(new Date(new Date().setMonth(new Date().getMonth() - 1)).setDate(1));
                 var endDate2 = new Date(new Date().setDate(0));
-                $('#date-picker').attr('readonly', true)
+                $(element).attr('readonly', true)
                 laydate.render({
-                    elem: '#date-picker',
+                    elem: element,
                     eventElem: ".date-picker-icon",
                     trigger: 'click',
                     type: 'date',

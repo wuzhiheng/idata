@@ -3,6 +3,7 @@
 <head th:include="include/head::head" th:with="title='竞争分析'"></head>
 <head th:include="include/head::bootstrap-table"></head>
 <head th:include="include/head::laydate"></head>
+<head th:include="include/head::echarts"></head>
 
 <body class="layout-top-nav" id="page-compete">
 <div class="wrapper">
@@ -107,31 +108,31 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade active show" id="custom-tabs-to-1" role="tabpanel">
                                         <div class="table-theme no-pagination">
-                                            <table class="tableGrid"></table>
+                                            <table class="tableGrid tableGrid-temp"></table>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-to-2" role="tabpanel">
                                         <div class="table-theme no-pagination">
-                                            <table class="tableGrid"></table>
+                                            <table class="tableGrid tableGrid-temp"></table>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-to-3" role="tabpanel">
                                         <div class="table-theme no-pagination">
-                                            <table class="tableGrid"></table>
+                                            <table class="tableGrid tableGrid-temp"></table>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-to-4" role="tabpanel">
                                         <div class="table-theme no-pagination">
-                                            <table class="tableGrid"></table>
+                                            <table class="tableGrid tableGrid-temp"></table>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane fade" id="custom-tabs-to-5" role="tabpanel">
                                         <div class="table-theme no-pagination">
-                                            <table id="tableGrid-5"></table>
+                                            <table class="tableGrid" id="tableGrid-5"></table>
                                         </div>
                                     </div>
                                 </div>
@@ -152,6 +153,7 @@
 
     <div th:replace="include/footer::footer"></div>
 </div>
+<div th:replace="include/modal::tendencyModal" ></div>
 
 <!-- REQUIRED SCRIPTS -->
 <script th:src="@{/js/my/compete.js}"></script>

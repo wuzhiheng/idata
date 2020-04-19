@@ -159,6 +159,53 @@
     </div>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" id="tendencyModal" th:fragment="tendencyModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">趋势分析</h6>
+                <a class="btn close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <div class="row-1 clearfix">
+                    <div class="float-left">
+                        频道：<span>男频</span>
+                        分类：<span>玄幻</span>
+                    </div>
+                    <div class="float-right date-picker-box">
+                        <label class="active"><input type="radio" name="date-picker"/>日</label>
+                        <label><input type="radio" name="date-picker"/>周</label>
+                        <label><input type="radio" name="date-picker"/>月</label>
+                        <div class="date-picker-input-box">
+                            <input type="text" value="2019-10-07 ~ 2019-10-07" id="date-picker-2"/>
+                            <i class="fa fa-calendar date-picker-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="indicator-box d-flex justify-content-center">
+                        <label><input type="checkbox" name="indicator" checked/>作品数</label>
+                        <label><input type="checkbox" name="indicator"/>推荐票</label>
+                        <label><input type="checkbox" name="indicator"/>粉丝</label>
+                        <label><input type="checkbox" name="indicator"/>月票</label>
+                        <label><input type="checkbox" name="indicator"/>畅销指数</label>
+                    </div>
+                    <div style="width: 100%;height: 250px" id="tendency-chart"></div>
+                </div>
+
+                <div class="table-theme no-pagination">
+                    <table class="tableGrid" id="tableGridTendency"></table>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
 
 
 </html>

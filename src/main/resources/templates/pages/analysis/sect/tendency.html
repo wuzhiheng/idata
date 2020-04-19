@@ -3,6 +3,7 @@
 <head th:include="include/head::head" th:with="title='流派趋势'"></head>
 <head th:include="include/head::bootstrap-table"></head>
 <head th:include="include/head::laydate"></head>
+<head th:include="include/head::echarts"></head>
 
 <body class="layout-top-nav" id="page-sect-tendency">
 <div class="wrapper">
@@ -101,6 +102,7 @@
 
     <div th:replace="include/footer::footer"></div>
 </div>
+<div th:replace="include/modal::tendencyModal" ></div>
 
 <!-- REQUIRED SCRIPTS -->
 <script th:src="@{/js/my/sect-tendency.js}"></script>

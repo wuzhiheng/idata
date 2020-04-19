@@ -65,7 +65,7 @@ $(function () {
                 field: '',
                 title: '',
                 formatter:function (v,r,i) {
-                    return '<span style="color: #32C3F2;cursor: pointer">趋势分析</span>';
+                    return '<span style="color: #32C3F2;cursor: pointer" onclick="$.modal.showTendencyModal()">趋势分析</span>';
                 }
             },
 

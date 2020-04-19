@@ -87,7 +87,7 @@ img.can-show {
 .no-pagination .fixed-table-pagination{
     display: none!important;
 }
-
+/*分析页面-搜索栏*/
 .analysis-search-box{
     display: flex;
 }
@@ -1137,6 +1137,26 @@ span.support-pt {
 
 #phoneModal.step-2 .modal-content > div.step-2 {
     display: block;
+}
+/*********************************tendencyModal--趋势分析*********************************************/
+#tendencyModal .row-1{
+    font-size: 14px;
+}
+#tendencyModal .row-1 span{
+    display:inline-block;
+    margin-right: 10px;
+    color:#63c595;
+}
+#tendencyModal .row-2 .indicator-box label input{
+    display: inline-block;
+    margin-right: 2px;
+}
+#tendencyModal .row-2 .indicator-box label{
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: normal!important;
+    cursor: pointer;
 }
 
 /*********************************login--登录*********************************************/
