@@ -8,7 +8,8 @@ $(function () {
         $(this).parent().addClass('active').siblings().removeClass('active')
     })
 
-    $.common.initDatePicker();
+    $.common.initDatePicker('#date-picker');
+    $.common.initDatePicker('#date-picker-2');
 
     $('.tableGrid-temp').table({
         method:'get',

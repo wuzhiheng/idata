@@ -389,7 +389,7 @@
         },
         common: {
             initDatePicker: function (element) {
-                element = element | '#date-picker'
+                element = element || '#date-picker'
                 //date-picker
                 var startDate1 = new Date(new Date().setDate(1));
                 var endDate1 = new Date(new Date(new Date().setMonth(new Date().getMonth() + 1)).setDate(0));
@@ -399,8 +399,6 @@
                 $(element).attr('readonly', true)
                 laydate.render({
                     elem: element,
-                    eventElem: ".date-picker-icon",
-                    trigger: 'click',
                     type: 'date',
                     range: '~',
                     format: 'yyyy-MM-dd',

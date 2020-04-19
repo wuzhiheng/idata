@@ -1157,6 +1157,7 @@ span.support-pt {
     margin-right: 10px;
     font-weight: normal!important;
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 /*********************************login--登录*********************************************/
