@@ -44,7 +44,7 @@ idata:
     # springsecurity不拦截的路径，以,分割
     antMatchers:
       - /favicon.ico,/images/**,/AdminLTE-3.0.2/**,/js/**,/css/**,/plugins/**,/webjars/**
-      - /,/login,/page/portal/**
+      - /,/login,/introduction/**,/package/**
       - /swagger-ui.html,/swagger-resources/**,/v2/**
     # 用户免登陆时间，单位s（604800：1周）
     rememberMeSeconds: 604800

@@ -87,6 +87,22 @@ img.can-show {
 .no-pagination .fixed-table-pagination{
     display: none!important;
 }
+
+.analysis-search-box{
+    display: flex;
+}
+.analysis-search-box > *{
+    height: 32px;
+    line-height: 1;
+}
+.analysis-search-box input::-webkit-input-placeholder{
+    font-size: 85%;
+    color: #CDCDCD;
+}
+.analysis-search-box .form-control{
+    width: auto;
+    margin-right: 1rem;
+}
 /*******************************************common--针对框架已有的样式修改**********************************************/
 .container {
     padding-right: 0;
@@ -466,8 +482,11 @@ span.gl-rate {
 .down_sub{
     color: #52C41A;
 }
-/*****************************************pages/analysis/category.html--网站首页************************/
-
+/*****************************************pages/analysis/sect/up.html--飙升流派************************/
+#page-sect-up .analysis-search-box{
+    padding-top: 8px;
+    padding-right: 16px;
+}
 /*****************************************pages/portal/index.html--网站首页************************/
 #page-2 {
     padding-top: 45px;
@@ -1287,8 +1306,8 @@ span.support-pt {
     margin-left: 5px;
 }
 
-.idata-menu .title-special {
-    /*padding-bottom: 10px;*/
+.idata-menu .title-special a {
+    color: #8C8C8C;
 }
 
 .idata-menu > li ul {

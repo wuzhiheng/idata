@@ -40,22 +40,38 @@ public class IndexController extends BaseController {
         return "index";
     }
 
-    // 行业大盘
-    @GetMapping("/industry/market")
+    // 行业分析-行业大盘
+    @GetMapping("/analysis/industry/market")
     public String market(){
-        return "pages/industry/market";
+        return "pages/analysis/industry/market";
     }
-    // 行业趋势
-    @GetMapping("/industry/tendency")
+    // 行业分析-行业趋势
+    @GetMapping("/analysis/industry/tendency")
     public String tendency(){
-        return "pages/industry/tendency";
+        return "pages/analysis/industry/tendency";
     }
-    // 飙升分类
-    @GetMapping("/industry/category")
+    // 行业分析-飙升分类
+    @GetMapping("/analysis/industry/category")
     public String category(){
-        return "pages/industry/category";
+        return "pages/analysis/industry/category";
     }
 
+    // 竞争分析
+    @GetMapping("/analysis/compete")
+    public String compete(){
+        return "pages/analysis/compete";
+    }
+
+    // 流派分析-流派趋势
+    @GetMapping("/analysis/sect/tendency")
+    public String sectTendency(){
+        return "pages/analysis/sect/tendency";
+    }
+    // 流派分析-飙升流派
+    @GetMapping("/analysis/sect/up")
+    public String sectUp(){
+        return "pages/analysis/sect/up";
+    }
 
     //门户网站首页
     @RequestMapping("/introduction")

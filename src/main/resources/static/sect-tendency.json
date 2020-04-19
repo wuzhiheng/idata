@@ -1,0 +1,112 @@
+{
+  "total": 8,
+  "rows": [
+    {
+      "sect": "系统流",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },
+    {
+      "sect": "无敌流",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },
+    {
+      "sect": "无敌流",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },{
+      "sect": "热血",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },{
+      "sect": "轻松",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },{
+      "sect": "种田流",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },{
+      "sect": "穿越",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    },{
+      "sect": "重生",
+      "newBooks": "2000,000",
+      "recommends": "2000,000",
+      "fans": "2000,000",
+      "months": "2000,000",
+      "indexNumbers": "2000,000",
+      "sect_sub": "较前一天",
+      "newBooks_sub": "+43.00%",
+      "recommends_sub": "+43.00%",
+      "fans_sub": "+4.00%",
+      "months_sub": "-14.00%",
+      "indexNumbers_sub": "-14.00%"
+    }
+  ]
+}

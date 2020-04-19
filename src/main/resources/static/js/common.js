@@ -4,13 +4,13 @@
             let config = {
                 dataType: 'json',
                 type: 'post',
-                loading:true
+                loading: true
             };
             $.extend(config, option);
             config.url = config.url.replace(/(https?:\/\/.*)\/\/(.*)/, '$1\/$2');
 
             config.success = function (data, textStatus, xhr) {
-                if(loading) loading.hide()
+                if (loading) loading.hide()
                 if (data && data.code == '401') {
                     console.log(data.msg);
                     $.modal.showLoginModal();
@@ -30,7 +30,7 @@
 
             };
             config.error = function (xhr, textStatus) {
-                if(loading) loading.hide()
+                if (loading) loading.hide()
                 $.toast.error('服务正忙,请稍后再试');
                 console.log(arguments);
                 if (typeof option.error == 'function')
@@ -40,7 +40,7 @@
                 if (typeof option.complete == 'function')
                     option.complete(xhr, textStatus);
             };
-            if(config.loading){
+            if (config.loading) {
                 var loading = weui.loading('loading', {
                     content: '请稍后...'
                 });
@@ -108,8 +108,8 @@
                     }
                 });
             },
-            validate:function (options) {
-                if(!options.form){
+            validate: function (options) {
+                if (!options.form) {
                     throw 'form选择器没有配置';
                 }
                 let defaults = {
@@ -129,7 +129,7 @@
                         $(element).removeClass('is-invalid');
                     }
                 }
-                options = $.extend(defaults,options);
+                options = $.extend(defaults, options);
 
                 $(options.form).validate(options);
 
@@ -165,12 +165,12 @@
                     return v.toString(16);
                 });
             },
-            hidePhone:function (phone) {
-                if($.str.isPhone(phone)){
-                    return phone.substring(0,3)+'****'+phone.substr(7);
+            hidePhone: function (phone) {
+                if ($.str.isPhone(phone)) {
+                    return phone.substring(0, 3) + '****' + phone.substr(7);
                 }
             },
-            isPhone:function (phone) {
+            isPhone: function (phone) {
                 return /^1[3456789]\d{9}$/.test(phone);
             },
             getTextClass(str) {
@@ -229,9 +229,33 @@
             }
         },
         bussiness: {
+            doLogin: function () {
+                let phone = $('#loginForm [name=phone]').val(),
+                    smsCode = $('#loginForm [name=smsCode]').val();
+
+                if (!phone || !$.str.isPhone(phone)) {
+                    $.toast.error('请填写正确的手机号码')
+                    $('#loginForm [name=phone]').focus();
+                    return;
+                }
+                if (!smsCode || !/^\d{4}$/.test(smsCode)) {
+                    $.toast.error('请填写正确的验证码')
+                    $('#loginForm [name=smsCode]').focus();
+                    return;
+                }
+
+                $.json({
+                    url: ctx + 'login/smsLogin',
+                    type: 'post',
+                    data: $('#loginForm').serialize(),
+                    success: function (data) {
+                        window.location.href = $('#loginForm [name=forwardUrl]').val() || ctx;
+                    }
+                })
+            },
             createOrder: function () {
                 var priceId = $('#payForm [name=priceId]').val();
-                if(!priceId){
+                if (!priceId) {
                     return false;
                 }
                 $.json({
@@ -251,26 +275,26 @@
                     }
                 })
             },
-            checkPhoneByStep1:function() {
+            checkPhoneByStep1: function () {
                 let code = $('#phoneModal.step-1 .step-1 [name=code]').val();
-                if(code && code == '1234'){
+                if (code && code == '1234') {
                     $('#phoneModal.step-1').removeClass('step-1').addClass('step-2');
-                }else {
+                } else {
                     $.toast.error('验证码不正确');
                 }
             },
-            bindPhone:function(){
+            bindPhone: function () {
                 let code = $('#phoneModal.step-2 .step-2 [name=code]').val();
                 let phone = $('#phoneModal.step-2 .step-2 [name=phone]').val();
-                if(!code || !phone){
+                if (!code || !phone) {
                     $.toast.error('信息不完善');
-                }else if(!$.str.isPhone(phone)){
+                } else if (!$.str.isPhone(phone)) {
                     $.toast.error('手机号码不正确');
-                }else{
+                } else {
                     $.json({
-                        url:ctx+'/user/bindPhone',
-                        data:{code:code,phone:phone,"remember-me":"true"},
-                        success:function(data){
+                        url: ctx + '/user/bindPhone',
+                        data: {code: code, phone: phone, "remember-me": "true"},
+                        success: function (data) {
                             $.toast.success('修改成功');
                             $.modal.hideModal('#phoneModal');
                             $('.phone-number').text($.str.hidePhone(phone)).val($.str.hidePhone(phone));
@@ -279,35 +303,35 @@
                 }
             },
             // 个人中心，保存用户信息
-            saveUserInfo:function() {
+            saveUserInfo: function () {
                 let nick = $('#userForm [name=nick]').val(),
                     email = $('#userForm [name=email]').val();
 
                 $.json({
-                    url : ctx + '/user/save',
-                    data:{nick:nick,email:email},
-                    success:function (data) {
+                    url: ctx + '/user/save',
+                    data: {nick: nick, email: email},
+                    success: function (data) {
                         $.toast.success('修改成功');
                         $.bussiness.refreshUserNick(nick);
                     }
                 })
             },
-            refreshUserNick:function (nick) {
+            refreshUserNick: function (nick) {
                 $('.userNick').text(nick).val(nick);
             },
-            refreshUserAvatar:function (avatar) {
+            refreshUserAvatar: function (avatar) {
                 $('img.userAvatar').attr('src', avatar);
             }
         },
-        common:{
-            initDatePicker:function(){
+        common: {
+            initDatePicker: function () {
                 //date-picker
-                var startDate1=new Date(new Date().setDate(1));
-                var endDate1=new Date(new Date(new Date().setMonth(new Date().getMonth()+1)).setDate(0));
+                var startDate1 = new Date(new Date().setDate(1));
+                var endDate1 = new Date(new Date(new Date().setMonth(new Date().getMonth() + 1)).setDate(0));
                 //定义接收上个月的第一天和最后一天
-                var startDate2=new Date(new Date(new Date().setMonth(new Date().getMonth()-1)).setDate(1));
-                var endDate2=new Date(new Date().setDate(0));
-                $('#date-picker').attr('readonly',true)
+                var startDate2 = new Date(new Date(new Date().setMonth(new Date().getMonth() - 1)).setDate(1));
+                var endDate2 = new Date(new Date().setDate(0));
+                $('#date-picker').attr('readonly', true)
                 laydate.render({
                     elem: '#date-picker',
                     eventElem: ".date-picker-icon",
@@ -315,17 +339,27 @@
                     type: 'date',
                     range: '~',
                     format: 'yyyy-MM-dd',
-                    max:new Date().format('yyyy-MM-dd'),//可选最大日期
+                    max: new Date().format('yyyy-MM-dd'),//可选最大日期
                     extrabtns: [
-                        {id:'today', text:'今天', range:[new Date(), new Date()]},
-                        {id:'lastday-7', text:'过去7天', range:[new Date(new Date().setDate(new Date().getDate()-7)),
-                                new Date(new Date().setDate(new Date().getDate()-1))]},
-                        {id:'lastday-30', text:'过去30天', range:[new Date(new Date().setDate(new Date().getDate()-30)),
-                                new Date(new Date().setDate(new Date().getDate()-1))]},
-                        {id:'yesterday', text:'昨天', range:[new Date(new Date().setDate(new Date().getDate()-1)),
-                                new Date(new Date().setDate(new Date().getDate()-1))]},
-                        {id:'thismonth', text:'本月', range:[startDate1,endDate1]},
-                        {id:'lastmonth', text:'上个月', range:[startDate2,endDate2]}
+                        {id: 'today', text: '今天', range: [new Date(), new Date()]},
+                        {
+                            id: 'lastday-7',
+                            text: '过去7天',
+                            range: [new Date(new Date().setDate(new Date().getDate() - 7)),
+                                new Date(new Date().setDate(new Date().getDate() - 1))]
+                        },
+                        {
+                            id: 'lastday-30',
+                            text: '过去30天',
+                            range: [new Date(new Date().setDate(new Date().getDate() - 30)),
+                                new Date(new Date().setDate(new Date().getDate() - 1))]
+                        },
+                        {
+                            id: 'yesterday', text: '昨天', range: [new Date(new Date().setDate(new Date().getDate() - 1)),
+                                new Date(new Date().setDate(new Date().getDate() - 1))]
+                        },
+                        {id: 'thismonth', text: '本月', range: [startDate1, endDate1]},
+                        {id: 'lastmonth', text: '上个月', range: [startDate2, endDate2]}
                     ]
                 });
             }
@@ -406,32 +440,6 @@ Date.prototype.format = function (format) {
             RegExp.$1.length == 1 ? o[k] :
                 ("00" + o[k]).substr(("" + o[k]).length));
     return format;
-}
-
-
-function doLogin() {
-    let phone = $('#loginForm [name=phone]').val(),
-        smsCode = $('#loginForm [name=smsCode]').val();
-
-    if (!phone || !$.str.isPhone(phone)) {
-        $.toast.error('请填写正确的手机号码')
-        $('#loginForm [name=phone]').focus();
-        return;
-    }
-    if (!smsCode || !/^\d{4}$/.test(smsCode)) {
-        $.toast.error('请填写正确的验证码')
-        $('#loginForm [name=smsCode]').focus();
-        return;
-    }
-
-    $.json({
-        url: ctx + 'login/smsLogin',
-        type: 'post',
-        data: $('#loginForm').serialize(),
-        success: function (data) {
-            window.location.href = $('#loginForm [name=forwardUrl]').val() || ctx;
-        }
-    })
 }
 
 // 点击图片放大功能

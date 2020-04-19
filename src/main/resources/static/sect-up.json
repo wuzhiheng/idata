@@ -1,0 +1,75 @@
+{
+  "total": 10,
+  "rows": [
+    {
+      "sect": "练功流",
+      "indexNumbers": "2000,000",
+      "raise": "+1600.00%",
+      "raiseRank": "1",
+      "up": "+3"
+    },
+    {
+      "sect": "无敌流",
+      "indexNumbers": "2000,000",
+      "raise": "+150.00%",
+      "raiseRank": "2",
+      "up": "+1"
+    },
+    {
+      "sect": "系统流",
+      "indexNumbers": "2000,000",
+      "raise": "+5.00%",
+      "raiseRank": "3",
+      "up": "+6"
+    },
+    {
+      "sect": "轻松",
+      "indexNumbers": "2000,000",
+      "raise": "-20.00%",
+      "raiseRank": "4",
+      "up": "NEW"
+    },
+    {
+      "sect": "热血",
+      "indexNumbers": "2000,000",
+      "raise": "-20.00%",
+      "raiseRank": "5",
+      "up": "NEW"
+    },
+    {
+      "sect": "种田流",
+      "indexNumbers": "2000,000",
+      "raise": "+1600.00%",
+      "raiseRank": "6",
+      "up": "+6"
+    },
+    {
+      "sect": "轻松",
+      "indexNumbers": "2000,000",
+      "raise": "+150.00%",
+      "raiseRank": "7",
+      "up": "-7"
+    },
+    {
+      "sect": "重生",
+      "indexNumbers": "2000,000",
+      "raise": "+5.00%",
+      "raiseRank": "8",
+      "up": "NEW"
+    },
+    {
+      "sect": "学生",
+      "indexNumbers": "2000,000",
+      "raise": "-20.00%",
+      "raiseRank": "9",
+      "up": "NEW"
+    },
+    {
+      "sect": "霸道",
+      "indexNumbers": "2000,000",
+      "raise": "-20.00%",
+      "raiseRank": "10",
+      "up": "+3"
+    }
+  ]
+}
