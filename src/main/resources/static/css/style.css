@@ -94,14 +94,16 @@ img.can-show {
 .analysis-search-box > *{
     height: 32px;
     line-height: 1;
+    font-size: 12px;
 }
 .analysis-search-box input::-webkit-input-placeholder{
-    font-size: 85%;
+    font-size: 90%;
     color: #CDCDCD;
 }
 .analysis-search-box .form-control{
     width: auto;
     margin-right: 1rem;
+    font-size: 14px;
 }
 /*******************************************common--针对框架已有的样式修改**********************************************/
 .container {

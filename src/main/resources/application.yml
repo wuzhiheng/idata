@@ -21,8 +21,8 @@ spring:
   thymeleaf:
     cache: false
 
-#spring-boot整合mybatis
-mybatis:
+#spring-boot整合mybatis-plus
+mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true

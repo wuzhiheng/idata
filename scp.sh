@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current=$(dirname $0)
-remote=aliyun2:/home/docker/app/idata/
+remote=aliyun3:/home/docker/app/idata/
 
 
 
@@ -27,7 +27,7 @@ all(){
 
 # 只更新css
 css(){
-   scp ${current}/src/main/resources/static/css/style.css  ${remote}/resources/static/css/ 
+   scp ${current}/src/main/resources/static/css/style.css  ${remote}/resources/static/css/
 }
 
 case "$1" in
