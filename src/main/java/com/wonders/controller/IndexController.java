@@ -1,6 +1,7 @@
 package com.wonders.controller;
 
 import com.wonders.entity.PackageEntity;
+import com.wonders.service.IndexService;
 import com.wonders.service.PackageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,6 +28,9 @@ import java.util.List;
 public class IndexController extends BaseController {
 
     @Autowired
+    private IndexService indexService;
+
+    @Autowired
     private PackageService packageService;
 
     @GetMapping("/login")
@@ -36,7 +40,8 @@ public class IndexController extends BaseController {
     }
 
     @GetMapping("/")
-    public String toIndex() {
+    public String toIndex(Model model) {
+        model.addAttribute("rank",indexService.rank());
         return "index";
     }
 
