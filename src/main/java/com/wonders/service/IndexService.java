@@ -1,10 +1,9 @@
 package com.wonders.service;
 
 import com.wonders.dao.IndexDao;
+import com.wonders.entity.index.BookRank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 /**
  * @Author : wuzhiheng
@@ -17,7 +16,7 @@ public class IndexService {
     @Autowired
     private IndexDao indexDao;
 
-    public Map<String,Object> rank(){
+    public BookRank rank(){
         return indexDao.rank("1013926412","400732140");
     }
 }

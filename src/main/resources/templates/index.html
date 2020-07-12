@@ -234,23 +234,23 @@
                                 <div class="d-flex flex-wrap" id="row-2-r">
                                     <div>
                                         <div class="pm-str">全站 · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank_1']}"></div>
-                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${rank['rank1']}"></div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-down fa-lg text-danger "></i><span th:text="2"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str">男频  · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank_2']}">12</div>
-                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${rank['rank2']}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank2Rate']}"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str">科幻 · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank_3']}">12</div>
-                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${rank['rank3']}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank3Rate']}"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str">未来世界  · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank_4']}">12</div>
-                                        <div class="pm-str">较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${rank['rank4']}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank4Rate']}"></span></div>
                                     </div>
                                 </div>
                             </div><!-- /.card-body -->
