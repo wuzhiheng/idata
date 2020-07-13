@@ -1,6 +1,6 @@
 package com.wonders.dao;
 
-import com.wonders.entity.index.BookRank;
+import com.wonders.entity.BookRank;
 import org.apache.ibatis.annotations.Select;
 
 /**

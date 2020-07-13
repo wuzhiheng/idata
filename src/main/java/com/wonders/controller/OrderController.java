@@ -3,8 +3,8 @@ package com.wonders.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageInfo;
-import com.wonders.entity.OrderEntity;
-import com.wonders.entity.PackagePriceEntity;
+import com.wonders.entity.Order;
+import com.wonders.entity.PackagePrice;
 import com.wonders.service.OrderService;
 import com.wonders.service.PackagePriceService;
 import com.wonders.vo.ResultList;
@@ -36,21 +36,21 @@ public class OrderController extends BaseController {
 
     @PostMapping("list")
     public ResultList list() {
-        QueryWrapper<OrderEntity> query = new QueryWrapper<>();
+        QueryWrapper<Order> query = new QueryWrapper<>();
         query.lambda()
-                .eq(OrderEntity::getRemoved, "0")
-                .eq(OrderEntity::getUserId, getUser().getId())
-                .orderByDesc(OrderEntity::getOrderTime);
+                .eq(Order::getRemoved, "0")
+                .eq(Order::getUserId, getUser().getId())
+                .orderByDesc(Order::getOrderTime);
         startPage();
-        List<OrderEntity> list = orderService.list(query);
-        PageInfo<OrderEntity> pageInfo = new PageInfo<>(list);
+        List<Order> list = orderService.list(query);
+        PageInfo<Order> pageInfo = new PageInfo<>(list);
         return new ResultList(pageInfo.getTotal(), list);
     }
 
     @PostMapping("create")
     public ReturnMsg create(Integer priceId) {
-        PackagePriceEntity price = packagePriceService.getById(priceId);
-        OrderEntity order = new OrderEntity();
+        PackagePrice price = packagePriceService.getById(priceId);
+        Order order = new Order();
         order.setOrderTime(new Date())
                 .setPayFee(price.getPayFee())
                 .setDiscount(price.getDiscount())

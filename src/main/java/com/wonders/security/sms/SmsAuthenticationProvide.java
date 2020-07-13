@@ -1,6 +1,6 @@
 package com.wonders.security.sms;
 
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.user.User;
 import com.wonders.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -33,7 +33,7 @@ public class SmsAuthenticationProvide implements AuthenticationProvider {
         }
 
         //验证用户
-        UserEntity user = userService.loadUserByPhone(phone);
+        User user = userService.loadUserByPhone(phone);
 
         if (user == null) {
             throw new UsernameNotFoundException("can't obtain user info ");

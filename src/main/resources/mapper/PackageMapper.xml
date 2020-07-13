@@ -3,7 +3,7 @@
 <mapper namespace="com.wonders.dao.PackageDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wonders.entity.PackageEntity">
+    <resultMap id="BaseResultMap" type="com.wonders.entity.Package">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="status" property="status" />

@@ -1,6 +1,6 @@
 package com.wonders.service.impl;
 
-import com.wonders.entity.UserHistoryEntity;
+import com.wonders.entity.user.UserHistory;
 import com.wonders.dao.UserHistoryDao;
 import com.wonders.service.UserHistoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-04-08
  */
 @Service
-public class UserHistoryServiceImpl extends ServiceImpl<UserHistoryDao, UserHistoryEntity> implements UserHistoryService {
+public class UserHistoryServiceImpl extends ServiceImpl<UserHistoryDao, UserHistory> implements UserHistoryService {
 
 }

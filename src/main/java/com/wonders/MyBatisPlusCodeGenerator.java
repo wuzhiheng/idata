@@ -27,13 +27,13 @@ public class MyBatisPlusCodeGenerator {
     //包名
     private static final String PACKAGE_NAME = "com.wonders";
 
-    private static String URL = "jdbc:mysql://localhost:3306/idata?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
+    private static String URL = "jdbc:mysql://101.133.222.228:3306/idata2?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
     private static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
     private static String USERNAME = "root";
-    private static String PASSWORD = "root";
+    private static String PASSWORD = "1qaz@WSX";
 
-    private static String[] tables = {"tb_user_history"};
+    private static String[] tables = {"tb_qidian_author"};
 
     public static void main(String[] args) {
         executeCode(PACKAGE_NAME,tables);
@@ -52,7 +52,7 @@ public class MyBatisPlusCodeGenerator {
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
         //设置bean命名规范
-        gc.setEntityName("%sEntity");    //会调用   String.format(entityName,entity);
+//        gc.setEntityName("%sEntity");    //会调用   String.format(entityName,entity);
         gc.setMapperName("%sDao");
         gc.setServiceName("%sService");
         // 开发人员
@@ -135,7 +135,7 @@ public class MyBatisPlusCodeGenerator {
         strategy.setControllerMappingHyphenStyle(false);    //requestMapping
         strategy.setRestControllerStyle(true);              //使用启用restController
         // 表前缀
-        strategy.setTablePrefix("tb_");  //m_department => department（entity）
+        strategy.setTablePrefix("tb_qidian_","tb_");  //m_department => department（entity）
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

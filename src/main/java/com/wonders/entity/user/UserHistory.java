@@ -1,4 +1,4 @@
-package com.wonders.entity;
+package com.wonders.entity.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -12,17 +12,17 @@ import java.util.Date;
 
 /**
  * <p>
- * 用户-角色表
+ * 用户表-修改历史
  * </p>
  *
  * @author wuzhiheng
- * @since 2020-04-05
+ * @since 2020-04-08
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tb_user_role")
-public class UserRoleEntity implements Serializable {
+@TableName("tb_user_history")
+public class UserHistory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,14 +35,43 @@ public class UserRoleEntity implements Serializable {
     private Integer userId;
 
     /**
-     * 角色id
+     * 手机号码
      */
-    private Integer roleId;
+    private String phone;
 
+    /**
+     * 昵称
+     */
+    private String nick;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 用户状态
+     */
+    private String status;
+
+    /**
+     * 数据是否有效
+     */
     private String removed;
 
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
 

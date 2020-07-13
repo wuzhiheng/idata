@@ -1,6 +1,6 @@
 package com.wonders.service;
 
-import com.wonders.entity.UserHistoryEntity;
+import com.wonders.entity.user.UserHistory;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author wuzhiheng
  * @since 2020-04-08
  */
-public interface UserHistoryService extends IService<UserHistoryEntity> {
+public interface UserHistoryService extends IService<UserHistory> {
 
 }

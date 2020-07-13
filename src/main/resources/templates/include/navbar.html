@@ -56,11 +56,17 @@
                 </div>
             </li>
             <li class="nav-item dropdown d-none d-sm-inline-block">
-                <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown" href="#">
-                    作品：暗月纪元
+                <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown" href="#" th:if="${session.user == null}">
+                    作品：全球高武
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" tabindex="-1" href="#">暗月纪元</a>
+                <a class="nav-link dropdown-toggle btn btn-green-outline" data-toggle="dropdown" href="#" th:if="${session.user != null}">
+                    作品：<span th:text="${book.bookName}"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" th:if="${session.author != null}" >
+<!--                    <a class="dropdown-item" tabindex="-1" href="#">暗月纪元</a>-->
+                    <a class="dropdown-item" tabindex="-1" href="#" th:each="b:${session.author.books}" th:href="@{'/'+${b.bookid}}">
+                        <span th:text="${b.bookName}"></span>
+                    </a>
                 </div>
             </li>
         </ul>

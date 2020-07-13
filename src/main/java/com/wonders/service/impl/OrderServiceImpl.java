@@ -1,6 +1,6 @@
 package com.wonders.service.impl;
 
-import com.wonders.entity.OrderEntity;
+import com.wonders.entity.Order;
 import com.wonders.dao.OrderDao;
 import com.wonders.service.OrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-04-06
  */
 @Service
-public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> implements OrderService {
+public class OrderServiceImpl extends ServiceImpl<OrderDao, Order> implements OrderService {
 
 }

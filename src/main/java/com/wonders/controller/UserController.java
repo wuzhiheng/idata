@@ -2,7 +2,7 @@ package com.wonders.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.user.User;
 import com.wonders.properties.IDataProperties;
 import com.wonders.service.UserService;
 import com.wonders.util.ProxyUtil;
@@ -57,7 +57,7 @@ public class UserController extends BaseController {
 
     @PostMapping("/save")
     public ReturnMsg save(@NotBlank(message = "昵称不能为空") String nick,String email){
-        UserEntity user = getUser();
+        User user = getUser();
         user.setNick(nick);
         user.setEmail(email);
         userService.updateUser(user);
@@ -83,7 +83,7 @@ public class UserController extends BaseController {
 
         FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(avatarFile));
 
-        UserEntity user = getUser();
+        User user = getUser();
         String oldAvatar = user.getAvatar();
         user.setAvatar(iDataProperties.getFile().getAvatarPath() + "/" + avatarPath);
 
@@ -102,12 +102,12 @@ public class UserController extends BaseController {
     public ReturnMsg bindPhone(@NotNull(message = "验证码不能为空") @Pattern(regexp = "^1234$", message = "验证码不正确") String code,
                                @NotNull(message = "手机号不能为空") @Pattern(regexp = "^1[3456789]\\d{9}$", message = "手机号码不正确") String phone) {
         checkPhone(phone);
-        UserEntity user = getUser();
+        User user = getUser();
         String olePhone = user.getPhone();
         user.setPhone(phone);
         userService.updateUser(user);
 
-        Authentication oldAuthentication = new UsernamePasswordAuthenticationToken(new UserEntity().setPhone(olePhone),null,null);
+        Authentication oldAuthentication = new UsernamePasswordAuthenticationToken(new User().setPhone(olePhone),null,null);
         refreshAuthentication(request, response, oldAuthentication);
 
         return ReturnMsg.successTip();
@@ -137,9 +137,9 @@ public class UserController extends BaseController {
 
     // 一个手机只能绑定一个用户
     private void checkPhone(String phone) {
-        QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda()
-                .eq(UserEntity::getPhone, phone);
+                .eq(User::getPhone, phone);
         if (userService.getOne(queryWrapper) != null) {
             throw new RuntimeException("该手机已绑定其他用户");
         }

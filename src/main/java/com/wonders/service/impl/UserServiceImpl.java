@@ -6,9 +6,9 @@ import com.wonders.dao.RoleDao;
 import com.wonders.dao.UserDao;
 import com.wonders.dao.UserHistoryDao;
 import com.wonders.dao.UserRoleDao;
-import com.wonders.entity.RoleEntity;
-import com.wonders.entity.UserEntity;
-import com.wonders.entity.UserHistoryEntity;
+import com.wonders.entity.user.Role;
+import com.wonders.entity.user.User;
+import com.wonders.entity.user.UserHistory;
 import com.wonders.properties.IDataProperties;
 import com.wonders.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService, UserDetailsService {
+public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService, UserDetailsService {
 
     @Autowired
     private IDataProperties iDataProperties;
@@ -45,34 +45,34 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
     private UserHistoryDao userHistoryDao;
 
     @Override
-    public UserEntity loadUserByPhone(String phone) {
+    public User loadUserByPhone(String phone) {
 
-        QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda()
-                .eq(UserEntity::getPhone, phone);
+                .eq(User::getPhone, phone);
 
-        UserEntity user = getOne(queryWrapper);
+        User user = getOne(queryWrapper);
 
         //首次登陆，自动注册
         if (user == null) {
-            user = new UserEntity()
+            user = new User()
                     .setPhone(phone)
                     .setNick(phone.substring(0, 3) + "****" + phone.substring(7))
                     .setAvatar(iDataProperties.getFile().getDefaultAvatar());
             saveUser(user);
         }
 
-        List<RoleEntity> roles = userDao.getAllRole(user.getId());
+        List<Role> roles = userDao.getAllRole(user.getId());
         user.setRoles(roles);
         return user;
     }
 
     // 更新用户信息，保存用户历史信息
     @Override
-    public void updateUser(UserEntity newUser) {
-        UserEntity oldUser = getById(newUser.getId());
+    public void updateUser(User newUser) {
+        User oldUser = getById(newUser.getId());
 
-        UserHistoryEntity userHistory = new UserHistoryEntity()
+        UserHistory userHistory = new UserHistory()
                 .setUserId(oldUser.getId())
                 .setPhone(oldUser.getPhone())
                 .setAvatar(oldUser.getAvatar())
@@ -85,7 +85,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
     }
 
     // 新增用户
-    public void saveUser(UserEntity user) {
+    public void saveUser(User user) {
         if (!user.getPhone().matches("^1[3456789]\\d{9}$")) {
             throw new AuthenticationServiceException("手机号码不正确");
         }
@@ -106,15 +106,15 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
     @Override
     public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
-        QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda()
-                .eq(UserEntity::getPhone, phone);
+                .eq(User::getPhone, phone);
 
-        UserEntity user = getOne(queryWrapper);
+        User user = getOne(queryWrapper);
         if (user == null) {
             throw new UsernameNotFoundException("用户不存在");
         }
-        List<RoleEntity> roles = userDao.getAllRole(user.getId());
+        List<Role> roles = userDao.getAllRole(user.getId());
         user.setRoles(roles);
         return user;
     }

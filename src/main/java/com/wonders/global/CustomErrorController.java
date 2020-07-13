@@ -33,7 +33,7 @@ public class CustomErrorController implements ErrorController {
             status = 500;
         }
         model.addAttribute("status",status);
-        model.addAttribute("message",attr.get("message"));
+        model.addAttribute("message", attr.get("message") );
         return "pages/error";
     }
     @Override

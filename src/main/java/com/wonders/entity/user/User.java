@@ -1,4 +1,4 @@
-package com.wonders.entity;
+package com.wonders.entity.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -28,7 +28,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("tb_user")
-public class UserEntity implements Serializable, UserDetails {
+public class User implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;
 
@@ -76,14 +76,14 @@ public class UserEntity implements Serializable, UserDetails {
     private Date updateTime;
 
     @TableField(exist = false)
-    private List<RoleEntity> roles;
+    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(roles == null) {
             return null;
         }
-        return AuthorityUtils.createAuthorityList(roles.stream().map(RoleEntity::getName).toArray(String[]::new));
+        return AuthorityUtils.createAuthorityList(roles.stream().map(Role::getName).toArray(String[]::new));
     }
 
     @Override

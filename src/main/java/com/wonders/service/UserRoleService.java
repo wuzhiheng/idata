@@ -1,7 +1,7 @@
 package com.wonders.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wonders.entity.UserRoleEntity;
+import com.wonders.entity.user.UserRole;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.wonders.entity.UserRoleEntity;
  * @author wuzhiheng
  * @since 2020-04-05
  */
-public interface UserRoleService extends IService<UserRoleEntity> {
+public interface UserRoleService extends IService<UserRole> {
 
 }

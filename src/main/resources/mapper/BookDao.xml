@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonders.dao.BookDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wonders.entity.Book">
+        <id column="id" property="id" />
+        <result column="platform" property="platform" />
+        <result column="channel" property="channel" />
+        <result column="action_name" property="actionName" />
+        <result column="contract_name" property="contractName" />
+        <result column="vip_name" property="vipName" />
+        <result column="bookid" property="bookid" />
+        <result column="book_name" property="bookName" />
+        <result column="authorid" property="authorid" />
+        <result column="author_name" property="authorName" />
+        <result column="book_face_img" property="bookFaceImg" />
+        <result column="categor_name" property="categorName" />
+        <result column="sub_categor_name" property="subCategorName" />
+        <result column="grade" property="grade" />
+        <result column="userCount" property="userCount" />
+        <result column="tags" property="tags" />
+        <result column="words_cnt_all" property="wordsCntAll" />
+        <result column="fans_all" property="fansAll" />
+        <result column="recommend_all" property="recommendAll" />
+        <result column="reward_all" property="rewardAll" />
+        <result column="ticket_all" property="ticketAll" />
+        <result column="batch_no" property="batchNo" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="rank_1" property="rank1" />
+        <result column="rank_2" property="rank2" />
+        <result column="rank_3" property="rank3" />
+        <result column="rank_4" property="rank4" />
+    </resultMap>
+
+</mapper>

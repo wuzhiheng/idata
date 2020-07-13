@@ -4,7 +4,8 @@ import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.Author;
+import com.wonders.entity.user.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -265,9 +266,9 @@ public class CommonUtil {
         request.getSession().setAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
     // 获取user
-    public static UserEntity getSessionUser(){
+    public static User getSessionUser(){
         HttpServletRequest request = getRequest();
-        return (UserEntity) request.getSession().getAttribute("user");
+        return (User) request.getSession().getAttribute("user");
     }
 
     //统一的分页
@@ -276,5 +277,9 @@ public class CommonUtil {
         int offset = Integer.parseInt(request.getParameter("offset"));
         int limit = Integer.parseInt(request.getParameter("limit"));
         PageHelper.offsetPage(offset, limit);
+    }
+
+    public static Author getAuthor() {
+        return (Author) getRequest().getSession().getAttribute("author");
     }
 }

@@ -76,19 +76,19 @@
                                 <div class="d-flex flex-column">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex">
-                                            <img th:src="@{/images/fengmian.png}" class="can-show" style="width:100px;height:130px"/>
+                                            <img th:src="${book.bookFaceImg}" class="can-show" style="width:100px;height:130px"/>
                                             <div class="d-flex flex-column flex-grow-1" style="margin-left: 1em">
-                                                <div class="xs-text">暗月纪元</div>
+                                                <div class="xs-text" th:text="${book.bookName}">暗月纪元</div>
                                                 <div>
-                                                    <span class="badge bg-danger">科幻</span>
-                                                    <span class="badge bg-success">未来世界</span>
+                                                    <span class="badge bg-danger" th:text="${book.categorName}">科幻</span>
+                                                    <span class="badge bg-success" th:text="${book.subCategorName}">未来世界</span>
                                                 </div>
-                                                <div class="xs-author">仐三 著</div>
-                                                <div class="xs-status">连载中</div>
+                                                <div class="xs-author" th:text="|${book.authorName} 著|">仐三 著</div>
+                                                <div class="xs-status" th:text="${book.actionName}">连载中</div>
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="xs-pf">7.9分</div>
+                                            <div class="xs-pf" th:text="|${book.grade}分|">7.9分</div>
                                             <div>作品评分</div>
                                         </div>
                                     </div>
@@ -230,27 +230,27 @@
                                     <span>更新时间：2019年12月30日</span>
                                 </div>
                             </div><!-- /.card-header -->
-                            <div class="card-body text-center">
+                            <div class="card-body text-center" th:object="${book.rank}">
                                 <div class="d-flex flex-wrap" id="row-2-r">
                                     <div>
                                         <div class="pm-str">全站 · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank1']}"></div>
+                                        <div class="pm-value" th:text="*{rank1}"></div>
                                         <div class="pm-str">较前日<i class="fa fa-fw fa-caret-down fa-lg text-danger "></i><span th:text="2"></span></div>
                                     </div>
                                     <div>
-                                        <div class="pm-str">男频  · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank2']}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank2Rate']}"></span></div>
+                                        <div class="pm-str"><span th:text="${book.channel == '1' ? '男频' : '女频'}"></span>  · 排名</div>
+                                        <div class="pm-value" th:text="*{rank2}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank2Rate}"></span></div>
                                     </div>
                                     <div>
-                                        <div class="pm-str">科幻 · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank3']}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank3Rate']}"></span></div>
+                                        <div class="pm-str"><span th:text="${book.categorName}"></span> · 排名</div>
+                                        <div class="pm-value" th:text="*{rank3}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank3Rate}"></span></div>
                                     </div>
                                     <div>
-                                        <div class="pm-str">未来世界  · 排名</div>
-                                        <div class="pm-value" th:text="${rank['rank4']}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="${rank['rank4Rate']}"></span></div>
+                                        <div class="pm-str"><span th:text="${book.subCategorName}"></span>  · 排名</div>
+                                        <div class="pm-value" th:text="*{rank4}">12</div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank4Rate}"></span></div>
                                     </div>
                                 </div>
                             </div><!-- /.card-body -->

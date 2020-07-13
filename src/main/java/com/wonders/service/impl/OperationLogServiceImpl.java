@@ -2,7 +2,7 @@ package com.wonders.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wonders.dao.OperationLogDao;
-import com.wonders.entity.OperationLogEntity;
+import com.wonders.entity.user.OperationLog;
 import com.wonders.service.OperationLogService;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-04-05
  */
 @Service
-public class OperationLogServiceImpl extends ServiceImpl<OperationLogDao, OperationLogEntity> implements OperationLogService {
+public class OperationLogServiceImpl extends ServiceImpl<OperationLogDao, OperationLog> implements OperationLogService {
 
 }

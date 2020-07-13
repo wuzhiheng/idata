@@ -1,7 +1,6 @@
 package com.wonders.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -9,12 +8,12 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
  * <p>
- * 套餐信息
+ * 订单信息
  * </p>
  *
  * @author wuzhiheng
@@ -23,25 +22,69 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("tb_package")
-public class PackageEntity implements Serializable {
+@TableName("tb_order")
+public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 订单ID
+     */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
+
+    /**
+     * 用户ID
+     */
+    private Integer userId;
+
+    /**
+     * 订单时间
+     */
+    private Date orderTime;
+
+    /**
+     * 订单类型，1：购买 2：续费 3：升级
+     */
+    private String orderType;
+
+    /**
+     * 套餐ID
+     */
+    private Integer packageId;
 
     /**
      * 套餐名称
      */
-    private String name;
+    private String packageName;
 
     /**
-     * 套餐名称
+     * 购买时长（月）
      */
-    private String icon;
+    private String period;
+
     /**
-     * 套餐状态
+     * 套餐费用
+     */
+    private BigDecimal packageFee;
+
+    /**
+     * 扣减费用
+     */
+    private BigDecimal discount;
+
+    /**
+     * 支付费用
+     */
+    private BigDecimal payFee;
+
+    /**
+     * 支付方式
+     */
+    private String payWay;
+
+    /**
+     * 订单状态
      */
     private String status;
 
@@ -59,9 +102,6 @@ public class PackageEntity implements Serializable {
      * 更新时间
      */
     private Date updateTime;
-
-    @TableField(exist = false)
-    private List<PackagePriceEntity> prices;
 
 
 }

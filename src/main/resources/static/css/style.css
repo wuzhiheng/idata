@@ -1226,6 +1226,9 @@ span.support-pt {
     height: auto;
     font-size: 12px;
 }
+.nav.nav-pills .dropdown-item span{
+    font-size: 14px;
+}
 
 .nav-pills .show > .nav-link {
     color: #fff !important;

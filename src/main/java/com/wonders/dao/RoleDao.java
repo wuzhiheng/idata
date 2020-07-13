@@ -1,7 +1,7 @@
 package com.wonders.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wonders.entity.RoleEntity;
+import com.wonders.entity.user.Role;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.wonders.entity.RoleEntity;
  * @author wuzhiheng
  * @since 2020-04-05
  */
-public interface RoleDao extends BaseMapper<RoleEntity> {
+public interface RoleDao extends BaseMapper<Role> {
 
 }

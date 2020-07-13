@@ -1,10 +1,12 @@
 package com.wonders.security.handler;
 
 import com.wonders.dao.OperationLogDao;
-import com.wonders.entity.OperationLogEntity;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.Author;
+import com.wonders.entity.user.OperationLog;
+import com.wonders.entity.user.User;
 import com.wonders.global.LogManager;
 import com.wonders.properties.IDataProperties;
+import com.wonders.service.AuthorService;
 import com.wonders.util.CommonUtil;
 import com.wonders.util.IPUtils;
 import com.wonders.util.ResultUtil;
@@ -34,6 +36,8 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
     private OperationLogDao operationLogDao;
     @Autowired
     private IDataProperties iDataProperties;
+    @Autowired
+    private AuthorService authorService;
 
     /**
      * 登录成功返回结果
@@ -47,6 +51,8 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
         saveLog(request, authentication);
 
         CommonUtil.saveSessionUser(request);
+
+        saveAuthorInfo(request);
 
         // 常规的通过ajax请求登录，返回json
         if (isAjaxLogin(request)) {
@@ -64,10 +70,16 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler {
 
     }
 
+    private void saveAuthorInfo(HttpServletRequest request) {
+        Author author = authorService.getAuthor("3228548");
+        request.getSession().setAttribute("author",author);
+
+    }
+
     // 用户登录日志
     private void saveLog(HttpServletRequest request, Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
-        OperationLogEntity log = new OperationLogEntity()
+        User user = (User) authentication.getPrincipal();
+        OperationLog log = new OperationLog()
                 .setUserId(user.getId())
                 .setIp(IPUtils.getIpAddr(request))
                 .setBrowser(CommonUtil.browserInfo(request))

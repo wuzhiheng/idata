@@ -1,7 +1,7 @@
 package com.wonders.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wonders.entity.OperationLogEntity;
+import com.wonders.entity.user.OperationLog;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.wonders.entity.OperationLogEntity;
  * @author wuzhiheng
  * @since 2020-04-05
  */
-public interface OperationLogDao extends BaseMapper<OperationLogEntity> {
+public interface OperationLogDao extends BaseMapper<OperationLog> {
 
 }

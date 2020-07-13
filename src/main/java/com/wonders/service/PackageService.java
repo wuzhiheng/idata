@@ -1,7 +1,7 @@
 package com.wonders.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wonders.entity.PackageEntity;
+import com.wonders.entity.Package;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @author wuzhiheng
  * @since 2020-04-06
  */
-public interface PackageService extends IService<PackageEntity> {
+public interface PackageService extends IService<Package> {
 
-    List<PackageEntity> allPackages();
+    List<Package> allPackages();
 }

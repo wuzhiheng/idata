@@ -1,7 +1,7 @@
 package com.wonders.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.user.User;
 
 /**
  * <p>
@@ -11,10 +11,10 @@ import com.wonders.entity.UserEntity;
  * @author wuzhiheng
  * @since 2020-03-25
  */
-public interface UserService extends IService<UserEntity> {
+public interface UserService extends IService<User> {
 
-    UserEntity loadUserByPhone(String phone);
+    User loadUserByPhone(String phone);
 
-    void updateUser(UserEntity newUser);
+    void updateUser(User newUser);
 
 }

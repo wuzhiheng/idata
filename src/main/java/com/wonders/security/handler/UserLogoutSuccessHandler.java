@@ -1,8 +1,8 @@
 package com.wonders.security.handler;
 
 import com.wonders.dao.OperationLogDao;
-import com.wonders.entity.OperationLogEntity;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.user.OperationLog;
+import com.wonders.entity.user.User;
 import com.wonders.global.LogManager;
 import com.wonders.util.CommonUtil;
 import com.wonders.util.IPUtils;
@@ -55,8 +55,8 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler {
 
     // 用户登录日志
     private void saveLog(HttpServletRequest request, Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
-        OperationLogEntity log = new OperationLogEntity()
+        User user = (User) authentication.getPrincipal();
+        OperationLog log = new OperationLog()
                 .setUserId(user.getId())
                 .setIp(IPUtils.getIpAddr(request))
                 .setBrowser(CommonUtil.browserInfo(request))

@@ -3,7 +3,7 @@
 <mapper namespace="com.wonders.dao.OrderDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wonders.entity.OrderEntity">
+    <resultMap id="BaseResultMap" type="com.wonders.entity.Order">
         <id column="id" property="id" />
         <result column="user_id" property="userId" />
         <result column="order_time" property="orderTime" />

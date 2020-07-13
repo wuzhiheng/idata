@@ -1,13 +1,12 @@
 package com.wonders.controller;
 
 
-import com.wonders.entity.PackagePriceEntity;
+import com.wonders.entity.PackagePrice;
 import com.wonders.service.PackagePriceService;
 import com.wonders.service.PackageService;
 import com.wonders.vo.ReturnMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,7 +29,7 @@ public class PackageController {
 
     @RequestMapping("/price/{id}")
     public ReturnMsg packageInfo(@PathVariable Integer id){
-        PackagePriceEntity price = packagePriceService.getById(id);
+        PackagePrice price = packagePriceService.getById(id);
         return ReturnMsg.successTip(price);
     }
 

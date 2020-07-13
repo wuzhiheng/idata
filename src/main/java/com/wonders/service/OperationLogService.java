@@ -1,7 +1,7 @@
 package com.wonders.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wonders.entity.OperationLogEntity;
+import com.wonders.entity.user.OperationLog;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.wonders.entity.OperationLogEntity;
  * @author wuzhiheng
  * @since 2020-04-05
  */
-public interface OperationLogService extends IService<OperationLogEntity> {
+public interface OperationLogService extends IService<OperationLog> {
 
 }

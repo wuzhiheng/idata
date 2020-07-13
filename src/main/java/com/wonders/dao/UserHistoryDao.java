@@ -1,6 +1,6 @@
 package com.wonders.dao;
 
-import com.wonders.entity.UserHistoryEntity;
+import com.wonders.entity.user.UserHistory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author wuzhiheng
  * @since 2020-04-08
  */
-public interface UserHistoryDao extends BaseMapper<UserHistoryEntity> {
+public interface UserHistoryDao extends BaseMapper<UserHistory> {
 
 }

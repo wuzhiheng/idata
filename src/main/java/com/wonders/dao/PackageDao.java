@@ -1,6 +1,6 @@
 package com.wonders.dao;
 
-import com.wonders.entity.PackageEntity;
+import com.wonders.entity.Package;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author wuzhiheng
  * @since 2020-04-06
  */
-public interface PackageDao extends BaseMapper<PackageEntity> {
+public interface PackageDao extends BaseMapper<Package> {
 
 }

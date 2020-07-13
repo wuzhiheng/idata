@@ -1,8 +1,11 @@
 package com.wonders.controller;
 
-import com.wonders.entity.PackageEntity;
-import com.wonders.service.IndexService;
+import com.wonders.entity.Author;
+import com.wonders.entity.Book;
+import com.wonders.entity.Package;
+import com.wonders.service.BookService;
 import com.wonders.service.PackageService;
+import com.wonders.util.CommonUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -28,7 +32,7 @@ import java.util.List;
 public class IndexController extends BaseController {
 
     @Autowired
-    private IndexService indexService;
+    private BookService bookService;
 
     @Autowired
     private PackageService packageService;
@@ -39,9 +43,26 @@ public class IndexController extends BaseController {
         return "login";
     }
 
-    @GetMapping("/")
-    public String toIndex(Model model) {
-        model.addAttribute("rank",indexService.rank());
+    @GetMapping({"/","/{bookId:\\d+}"})
+    public String toIndex(Model model,@PathVariable(required = false) String bookId) throws Exception {
+        Author author = CommonUtil.getAuthor();
+        String authorId;
+        if (getUser() == null) {
+            bookId = "1012237441";
+            authorId = "3228548";
+        }else {
+            if(bookId == null){
+                bookId = author.getBooks().get(0).getBookid() + "";
+            }
+            authorId = author.getAuthorid()+"";
+        }
+        Book book = bookService.getBook(authorId, bookId);
+
+        if(book == null){
+            throw new Exception("没有该作品");
+        }
+
+        model.addAttribute("book",book);
         return "index";
     }
 
@@ -87,7 +108,7 @@ public class IndexController extends BaseController {
     //门户网站套餐介绍
     @GetMapping("/package")
     public String packages(Model model){
-        List<PackageEntity> packages = packageService.allPackages();
+        List<Package> packages = packageService.allPackages();
         model.addAttribute("packages",packages);
         return "pages/portal/package";
     }

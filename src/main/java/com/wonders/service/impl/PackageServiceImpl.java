@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wonders.dao.PackageDao;
 import com.wonders.dao.PackagePriceDao;
-import com.wonders.entity.PackageEntity;
-import com.wonders.entity.PackagePriceEntity;
+import com.wonders.entity.Package;
+import com.wonders.entity.PackagePrice;
 import com.wonders.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -24,27 +24,27 @@ import java.util.List;
  */
 @Service
 @CacheConfig(cacheNames = "default",keyGenerator = "myKeyGenerator")
-public class PackageServiceImpl extends ServiceImpl<PackageDao, PackageEntity> implements PackageService {
+public class PackageServiceImpl extends ServiceImpl<PackageDao, Package> implements PackageService {
 
     @Autowired
     private PackagePriceDao packagePriceDao;
 
     @Override
     @Cacheable
-    public List<PackageEntity> allPackages() {
-        QueryWrapper<PackageEntity> query = new QueryWrapper<>();
+    public List<Package> allPackages() {
+        QueryWrapper<Package> query = new QueryWrapper<>();
         query.lambda()
-                .eq(PackageEntity::getRemoved,"0")
-                .orderByDesc(PackageEntity::getStatus)
-                .orderByAsc(PackageEntity::getId);
-        List<PackageEntity> packages = list(query);
+                .eq(Package::getRemoved,"0")
+                .orderByDesc(Package::getStatus)
+                .orderByAsc(Package::getId);
+        List<Package> packages = list(query);
         // 套餐价格设值
-        for (PackageEntity p : packages) {
-            QueryWrapper<PackagePriceEntity> priceQuery = new QueryWrapper<>();
+        for (Package p : packages) {
+            QueryWrapper<PackagePrice> priceQuery = new QueryWrapper<>();
             priceQuery.lambda()
-                    .eq(PackagePriceEntity::getPackageId,p.getId())
-                    .eq(PackagePriceEntity::getRemoved,"0")
-                    .orderByAsc(PackagePriceEntity::getSeq);
+                    .eq(PackagePrice::getPackageId,p.getId())
+                    .eq(PackagePrice::getRemoved,"0")
+                    .orderByAsc(PackagePrice::getSeq);
             p.setPrices(packagePriceDao.selectList(priceQuery));
         }
         return packages;

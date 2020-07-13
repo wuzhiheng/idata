@@ -1,7 +1,7 @@
 package com.wonders.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.wonders.entity.UserEntity;
+import com.wonders.entity.user.User;
 import com.wonders.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -39,7 +39,7 @@ public class BaseController {
     }
 
     // 注意，这里获取的user其实就是authentication里面的UserDetails
-    public UserEntity getUser(){
+    public User getUser(){
         return CommonUtil.getSessionUser();
     }
 

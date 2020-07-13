@@ -1,4 +1,4 @@
-package com.wonders.entity.index;
+package com.wonders.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * @Author : wuzhiheng
- * @Description :
+ * @Description : 全站排名情况
  * @Date Created in 2:48 下午 2020/7/12
  */
 @Data
@@ -26,6 +26,5 @@ public class BookRank implements Serializable {
     private Integer rank2Rate;
     private Integer rank3Rate;
     private Integer rank4Rate;
-
 
 }

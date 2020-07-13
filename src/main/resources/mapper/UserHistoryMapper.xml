@@ -3,7 +3,7 @@
 <mapper namespace="com.wonders.dao.UserHistoryDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wonders.entity.UserHistoryEntity">
+    <resultMap id="BaseResultMap" type="com.wonders.entity.user.UserHistory">
         <id column="id" property="id" />
         <result column="user_id" property="userId" />
         <result column="phone" property="phone" />

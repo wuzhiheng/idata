@@ -1,4 +1,4 @@
-package com.wonders.entity;
+package com.wonders.entity.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -22,7 +22,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_operation_log")
-public class OperationLogEntity implements Serializable {
+public class OperationLog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

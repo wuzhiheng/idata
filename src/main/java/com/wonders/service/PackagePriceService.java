@@ -1,6 +1,6 @@
 package com.wonders.service;
 
-import com.wonders.entity.PackagePriceEntity;
+import com.wonders.entity.PackagePrice;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,8 +11,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author wuzhiheng
  * @since 2020-04-06
  */
-public interface PackagePriceService extends IService<PackagePriceEntity> {
+public interface PackagePriceService extends IService<PackagePrice> {
 
-    PackagePriceEntity getById(Integer id);
+    PackagePrice getById(Integer id);
 
 }

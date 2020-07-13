@@ -3,7 +3,7 @@
 <mapper namespace="com.wonders.dao.PackagePriceDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wonders.entity.PackagePriceEntity">
+    <resultMap id="BaseResultMap" type="com.wonders.entity.PackagePrice">
         <id column="id" property="id" />
         <result column="package_id" property="packageId" />
         <result column="period" property="period" />
