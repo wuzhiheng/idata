@@ -4,6 +4,7 @@ import com.wonders.entity.Author;
 import com.wonders.entity.Book;
 import com.wonders.entity.Package;
 import com.wonders.service.BookService;
+import com.wonders.service.IndexService;
 import com.wonders.service.PackageService;
 import com.wonders.util.CommonUtil;
 import io.swagger.annotations.Api;
@@ -33,6 +34,8 @@ public class IndexController extends BaseController {
 
     @Autowired
     private BookService bookService;
+    @Autowired
+    private IndexService indexService;
 
     @Autowired
     private PackageService packageService;
@@ -63,6 +66,7 @@ public class IndexController extends BaseController {
         }
 
         model.addAttribute("book",book);
+        model.addAttribute("gl",indexService.glInfo());
         return "index";
     }
 

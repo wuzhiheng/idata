@@ -156,6 +156,8 @@ public class Book implements Serializable {
 
     @TableField(exist = false)
     private BookRank rank;
+    @TableField(exist = false)
+    private BookBaseInfo baseInfo;
 
 
 }

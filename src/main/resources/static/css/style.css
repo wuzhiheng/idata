@@ -1243,6 +1243,9 @@ span.support-pt {
     width: 85px;
 }
 
+.dropdown-menu {
+    top: calc(100% - 2px)
+}
 .user-dropdown-menu {
     border: none;
     width: 250px;

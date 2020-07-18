@@ -95,9 +95,9 @@
 
                                     <div class="d-flex justify-content-between" id="row-1-r-b">
                                         <div>
-                                            <div class="xs-update-str">更新字数</div>
-                                            <div class="xs-update-count">12656</div>
-                                            <div>较前日<span class="m-icon icon-up">50%</span></div>
+                                            <div class="xs-update-str" >更新字数</div>
+                                            <div class="xs-update-count"th:text="${book.baseInfo.wordCnt}">12656</div>
+                                            <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="|${book.baseInfo.wordCntRate} %|"></span></div>
                                         </div>
                                         <div>
                                             <div class="xs-update-count-str">粉丝数</div>
@@ -270,28 +270,43 @@
                                 <div class="d-flex justify-content-between flex-wrap" style="padding:0 40px">
                                     <div class="">
                                         <div class="pm-str ">更新作品数</div>
-                                        <div class="pm-value">12,000</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${gl.updateBookCnt}">12,000</div>
+                                        <div class="pm-str">
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            <span th:text="${gl.updateBookCntRate()}"></span>
+                                        </div>
                                     </div>
                                     <div class="">
                                         <div class="pm-str">活跃作家数</div>
-                                        <div class="pm-value">12,000</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${gl.authorCnt}">12,000</div>
+                                        <div class="pm-str">
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            <span th:text="${gl.newBookCntRate()}"></span>
+                                        </div>
                                     </div>
                                     <div class="">
                                         <div class="pm-str">更新章节数</div>
-                                        <div class="pm-value">12,000</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-value" th:text="${gl.chapterCnt}">12,000</div>
+                                        <div class="pm-str">
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            <span th:text="${gl.chapterCntRate()}"></span>
+                                        </div>
                                     </div>
                                     <div class="">
-                                        <div class="pm-str">新书数</div>
-                                        <div class="pm-value">12,000</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str" >新书数</div>
+                                        <div class="pm-value" th:text="${gl.newBookCnt}">12,000</div>
+                                        <div class="pm-str">
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            <span th:text="${gl.newBookCntRate()}"></span>
+                                        </div>
                                     </div>
                                     <div class="">
                                         <div class="pm-str">新增评论数</div>
                                         <div class="pm-value">12,000</div>
-                                        <div>较前日<span class="m-icon icon-up">5</span></div>
+                                        <div class="pm-str">
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            <span th:text="5"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div><!-- /.card-body -->

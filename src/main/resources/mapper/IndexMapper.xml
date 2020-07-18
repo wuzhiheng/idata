@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonders.dao.IndexDao">
+
+    <select id="rank" resultType="com.wonders.entity.BookRank">
+       select a.rank1,a.rank2,a.rank3,a.rank4,
+               b.rank1 - a.rank1 as rank1_rate,
+               b.rank2 - a.rank2 as rank2_rate,
+               b.rank3 - a.rank3 as rank3_rate,
+               b.rank4 - a.rank4 as rank4_rate
+        from idata2.tb_rank_log a
+        left join idata2.tb_rank_log b
+        on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -1 = b.batch_no)
+        where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+   </select>
+
+    <select id="baseInfo" resultType="com.wonders.entity.BookBaseInfo">
+        select ifnull((a.data_now-b.data_now),0) wordCnt,
+               ifnull(round((a.data_now-b.data_now)/b.data_now*100,2),0) wordCntRate
+        from idata2.tb_word_cnt_log a
+        left join idata2.tb_word_cnt_log b
+        on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -1 = b.batch_no)
+        where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+    </select>
+
+    <select id="glInfo" resultType="com.wonders.entity.GlInfo">
+        select a.update_book_cnt,
+               b.update_book_cnt update_book_cnt2,
+               a.author_cnt,
+               b.author_cnt author_cnt2,
+               a.chapter_cnt,
+               b.chapter_cnt chapter_cnt2,
+               a.new_book_cnt,
+               b.new_book_cnt new_book_cnt2
+        from idata2.tb_all_gl a
+        left join idata2.tb_all_gl b on(a.batch_no - 1=b.batch_no)
+        where a.batch_no=#{batchNo}
+    </select>
+
+</mapper>

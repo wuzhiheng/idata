@@ -1,7 +1,7 @@
 package com.wonders.service;
 
 import com.wonders.dao.IndexDao;
-import com.wonders.entity.BookRank;
+import com.wonders.entity.GlInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class IndexService {
     @Autowired
     private IndexDao indexDao;
 
-    public BookRank rank(){
-        return indexDao.rank("1013926412","400732140");
+    public GlInfo glInfo(){
+        return indexDao.glInfo("20200619");
     }
 }
