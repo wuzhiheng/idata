@@ -15,12 +15,40 @@
    </select>
 
     <select id="baseInfo" resultType="com.wonders.entity.BookBaseInfo">
-        select ifnull((a.data_now-b.data_now),0) wordCnt,
-               ifnull(round((a.data_now-b.data_now)/b.data_now*100,2),0) wordCntRate
-        from idata2.tb_word_cnt_log a
-        left join idata2.tb_word_cnt_log b
-        on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -1 = b.batch_no)
-        where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+        select * from (
+            (
+                select a.data_now-a.data_prev wordCnt,
+                       b.data_now-b.data_prev wordCnt2
+                from idata2.tb_word_cnt_log a
+                left join idata2.tb_word_cnt_log b
+                on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -1 = b.batch_no)
+                where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+            )a,
+            (
+                select a.data_now-a.data_prev recommend,
+                       b.data_now-b.data_prev recommend2
+                from idata2.tb_recommend_log a
+                left join idata2.tb_recommend_log b
+                on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -7 = b.batch_no)
+                where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+            )b,
+            (
+                select a.data_now reward,
+                       b.data_now reward2
+                from idata2.tb_reward_log a
+                left join idata2.tb_reward_log b
+                on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -7 = b.batch_no)
+                where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+            )c,
+            (
+                select a.data_now-a.data_prev ticket,
+                       b.data_now-b.data_prev ticket2
+                from idata2.tb_ticket_log a
+                left join idata2.tb_ticket_log b
+                on (a.author_id=b.author_id and a.book_id=b.book_id and a.batch_no -7 = b.batch_no)
+                where a.author_id=#{authorId} and a.book_id=#{bookId} and a.batch_no=#{batchNo}
+            )d
+        )
     </select>
 
     <select id="glInfo" resultType="com.wonders.entity.GlInfo">

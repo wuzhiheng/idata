@@ -240,7 +240,7 @@ span.gl-rate {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 5px;
 }
 
 #page-1 #row-2-r > div {
@@ -1419,4 +1419,10 @@ footer.main-footer {
 }
 td.rank{
     background-position: center 5px;
+}
+.fa-caret-up{
+    color: #28a745;;
+}
+.fa-caret-down{
+    color: #dc3545;;
 }

@@ -44,8 +44,8 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements BookS
 
         Book book = getOne(wrapper);
         if (book != null) {
-            book.setRank(indexDao.rank(bookId, authorId,"20200619"));
-            book.setBaseInfo(indexDao.baseInfo(bookId, authorId,"20200619"));
+            book.setRank(indexDao.rank(bookId, authorId,"20200620"));
+            book.setBaseInfo(indexDao.baseInfo(bookId, authorId,"20200620"));
         }
         return book;
     }

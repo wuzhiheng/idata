@@ -1,5 +1,6 @@
 package com.wonders.entity;
 
+import com.wonders.util.CommonUtil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,9 +23,26 @@ public class BookBaseInfo implements Serializable {
     private Integer reward;
     private Integer recommend;
 
-    private Double wordCntRate;
-    private Integer ticketRate;
-    private Integer rewardRate;
-    private Integer recommendRate;
+    private Integer wordCnt2;
+    private Integer ticket2;
+    private Integer reward2;
+    private Integer recommend2;
+
+    public String wordCntRate(){
+        return CommonUtil.calculateRate(wordCnt,wordCnt2);
+    }
+
+    public String ticketRate(){
+        return CommonUtil.calculateRate(ticket,ticket2);
+    }
+
+    public String rewardRate(){
+        return CommonUtil.calculateRate(reward,reward2);
+    }
+
+    public String recommendRate(){
+        return CommonUtil.calculateRate(recommend,recommend2);
+    }
+
 
 }

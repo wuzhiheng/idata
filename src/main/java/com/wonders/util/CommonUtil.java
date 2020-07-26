@@ -31,7 +31,7 @@ public class CommonUtil {
 
     private static DecimalFormat df = new DecimalFormat("0");
 
-    private static List<String> NO_LOG_PARAM = Arrays.asList("passWord","repeatPwd","n","p");
+    private static List<String> NO_LOG_PARAM = Arrays.asList("passWord", "repeatPwd", "n", "p");
 
     /**
      * 只要用作把Integer参数放进Map中，如果参数为空，返回null
@@ -232,7 +232,7 @@ public class CommonUtil {
                 continue;
             }
             try {
-                result.put(paramName, URLDecoder.decode(request.getParameter(paramName),"utf-8"));
+                result.put(paramName, URLDecoder.decode(request.getParameter(paramName), "utf-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -247,7 +247,7 @@ public class CommonUtil {
         return null;
     }
 
-    public static boolean isAjax(HttpServletRequest request){
+    public static boolean isAjax(HttpServletRequest request) {
         return (request.getHeader("X-Requested-With") != null &&
                 "XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
     }
@@ -262,17 +262,18 @@ public class CommonUtil {
         return browser + "/" + version;
     }
 
-    public static void saveSessionUser(HttpServletRequest request){
+    public static void saveSessionUser(HttpServletRequest request) {
         request.getSession().setAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
+
     // 获取user
-    public static User getSessionUser(){
+    public static User getSessionUser() {
         HttpServletRequest request = getRequest();
         return (User) request.getSession().getAttribute("user");
     }
 
     //统一的分页
-    public static void startPage(){
+    public static void startPage() {
         HttpServletRequest request = getRequest();
         int offset = Integer.parseInt(request.getParameter("offset"));
         int limit = Integer.parseInt(request.getParameter("limit"));
@@ -282,4 +283,12 @@ public class CommonUtil {
     public static Author getAuthor() {
         return (Author) getRequest().getSession().getAttribute("author");
     }
+
+    public static String calculateRate(Integer val1, Integer val2) {
+        if (val1 == null || val2 == null || val2 == 0) {
+            return "0";
+        }
+        return new DecimalFormat("#.##").format((val1 - val2) / Double.valueOf(val2) * 100);
+    }
+
 }

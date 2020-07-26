@@ -37,18 +37,18 @@
                                     <div class="col-md-5 d-flex flex-wrap" id="gl-4">
                                         <div>
                                             <h7 class="gl-s-title m-icon icon-yp">月票</h7>
-                                            <div class="gl-count">4320</div>
-                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                            <div class="gl-count" th:text="${book.baseInfo.ticket}">4320</div>
+                                            <div class="pm-str">环比上周<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="|${book.baseInfo.ticketRate()}%|"></span></div>
                                         </div>
                                         <div>
                                             <h7 class="gl-s-title m-icon icon-ds">打赏</h7>
-                                            <div class="gl-count">4320</div>
-                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                            <div class="gl-count" th:text="${book.baseInfo.reward}">4320</div>
+                                            <div class="pm-str">环比上周<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="|${book.baseInfo.rewardRate()}%|"></span></div>
                                         </div>
                                         <div>
                                             <h7 class="gl-s-title m-icon icon-tjp">推荐票</h7>
-                                            <div class="gl-count">4320</div>
-                                            <span class="gl-s-text">环比上周<span class="gl-rate m-icon icon-up">12%</span></span>
+                                            <div class="gl-count" th:text="${book.baseInfo.recommend}">4320</div>
+                                            <div class="pm-str">环比上周<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="|${book.baseInfo.recommendRate()}%|"></span></div>
                                         </div>
                                         <div>
                                             <h7 class="gl-s-title m-icon icon-pl">评论</h7>
@@ -96,8 +96,8 @@
                                     <div class="d-flex justify-content-between" id="row-1-r-b">
                                         <div>
                                             <div class="xs-update-str" >更新字数</div>
-                                            <div class="xs-update-count"th:text="${book.baseInfo.wordCnt}">12656</div>
-                                            <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="|${book.baseInfo.wordCntRate} %|"></span></div>
+                                            <div class="xs-update-count" th:text="${book.baseInfo.wordCnt}">12656</div>
+                                            <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="|${book.baseInfo.wordCntRate()}%|"></span></div>
                                         </div>
                                         <div>
                                             <div class="xs-update-count-str">粉丝数</div>
@@ -235,22 +235,22 @@
                                     <div>
                                         <div class="pm-str">全站 · 排名</div>
                                         <div class="pm-value" th:text="*{rank1}"></div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-down fa-lg text-danger "></i><span th:text="2"></span></div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-down fa-lgtext-danger "></i><span th:text="2"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str"><span th:text="${book.channel == '1' ? '男频' : '女频'}"></span>  · 排名</div>
                                         <div class="pm-value" th:text="*{rank2}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank2Rate}"></span></div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="*{rank2Rate}"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str"><span th:text="${book.categorName}"></span> · 排名</div>
                                         <div class="pm-value" th:text="*{rank3}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank3Rate}"></span></div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="*{rank3Rate}"></span></div>
                                     </div>
                                     <div>
                                         <div class="pm-str"><span th:text="${book.subCategorName}"></span>  · 排名</div>
                                         <div class="pm-value" th:text="*{rank4}">12</div>
-                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i><span th:text="*{rank4Rate}"></span></div>
+                                        <div class="pm-str">较前日<i class="fa fa-fw fa-caret-up fa-lg"></i><span th:text="*{rank4Rate}"></span></div>
                                     </div>
                                 </div>
                             </div><!-- /.card-body -->
@@ -272,7 +272,7 @@
                                         <div class="pm-str ">更新作品数</div>
                                         <div class="pm-value" th:text="${gl.updateBookCnt}">12,000</div>
                                         <div class="pm-str">
-                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg"></i>
                                             <span th:text="${gl.updateBookCntRate()}"></span>
                                         </div>
                                     </div>
@@ -280,15 +280,15 @@
                                         <div class="pm-str">活跃作家数</div>
                                         <div class="pm-value" th:text="${gl.authorCnt}">12,000</div>
                                         <div class="pm-str">
-                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
-                                            <span th:text="${gl.newBookCntRate()}"></span>
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg"></i>
+                                            <span th:text="${gl.authorCntRate()}"></span>
                                         </div>
                                     </div>
                                     <div class="">
                                         <div class="pm-str">更新章节数</div>
                                         <div class="pm-value" th:text="${gl.chapterCnt}">12,000</div>
                                         <div class="pm-str">
-                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg"></i>
                                             <span th:text="${gl.chapterCntRate()}"></span>
                                         </div>
                                     </div>
@@ -296,7 +296,7 @@
                                         <div class="pm-str" >新书数</div>
                                         <div class="pm-value" th:text="${gl.newBookCnt}">12,000</div>
                                         <div class="pm-str">
-                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg"></i>
                                             <span th:text="${gl.newBookCntRate()}"></span>
                                         </div>
                                     </div>
@@ -304,7 +304,7 @@
                                         <div class="pm-str">新增评论数</div>
                                         <div class="pm-value">12,000</div>
                                         <div class="pm-str">
-                                            较前日<i class="fa fa-fw fa-caret-up fa-lg text-green "></i>
+                                            较前日<i class="fa fa-fw fa-caret-up fa-lg"></i>
                                             <span th:text="5"></span>
                                         </div>
                                     </div>
@@ -326,6 +326,14 @@
 <script th:src="@{/js/my/index.js}"></script>
 <script th:inline="javascript">
     console.log([[${session}]])
+    $('.fa-caret-up').each(function(i,o){
+        var span = $(this).siblings('span');
+        var val = span.text();
+        if(val && val.indexOf('-') == 0){
+            span.text(val.replace(/^-/,''));
+            $(this).removeClass('fa-caret-up').addClass('fa-caret-down')
+        }
+    })
 </script>
 </body>
 </html>

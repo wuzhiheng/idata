@@ -51,7 +51,7 @@ public class IndexController extends BaseController {
         Author author = CommonUtil.getAuthor();
         String authorId;
         if (getUser() == null) {
-            bookId = "1012237441";
+            bookId = "1018027842";
             authorId = "3228548";
         }else {
             if(bookId == null){
